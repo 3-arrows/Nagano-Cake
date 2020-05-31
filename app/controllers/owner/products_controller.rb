@@ -1,20 +1,22 @@
 class Owner::ProductsController < ApplicationController
-def index
-end
+	def index
+	end
 
-def new
-end
+	def new
+	end
 
-def show
-end
+	def show
+		@product = Product.find(params[:id])
+	end
 
-def edit
-end
+	def edit
+		@product = Product.find(params[:id])
+	end
 
-def create
-end
+	def create
+	end
 
-def update
-end
+	def update
+	end
 
 end
