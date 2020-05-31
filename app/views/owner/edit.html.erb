@@ -13,7 +13,11 @@
 		</tr>
 		<tr>
 			<th>ジャンル</th>
-			<th><%= f.text_field :genres_id %></th> <!-- 要確認 -->
+			<th>
+				<%= form_for @product do |f| %>
+		    	<%= f.select :genres_id, [["選択肢１", "ケーキ"], ["選択肢２", "プリン"], ["選択肢３", "焼き菓子"], ["選択肢４", "キャンディ"]], include_blank: "選択して下さい" %>
+		    <% end %>
+		  </th> <!-- 要確認 -->
 		</tr>
 		<tr>
 			<th>税抜価格</th>
@@ -21,7 +25,11 @@
 		</tr>
 		<tr>
 			<th>販売ステータス</th>
-			<th><%= f.text_field :sale_status %></th> <!-- 要確認 -->
+			<th>
+				<%= form_for @product do |f| %>
+			    <%= f.select :sale_status, [["選択肢１", "販売中"], ["選択肢２", "売切れ"]], include_blank: "選択して下さい" %>
+			  <% end %>
+			</th> <!-- 要確認 -->
 		</tr>
 	</table>
 
