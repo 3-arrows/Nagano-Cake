@@ -5,6 +5,9 @@ class Owner::ProductsController < ApplicationController
 	def new
 	end
 
+	def create
+	end
+
 	def show
 		@product = Product.find(params[:id])
 	end
@@ -13,10 +16,16 @@ class Owner::ProductsController < ApplicationController
 		@product = Product.find(params[:id])
 	end
 
-	def create
+	def update
+		@product = Product.find(params[:id])
+		@product.update(product_params)
+		redirect_to owner_product_path
 	end
 
-	def update
+	private
+
+	def product_params
+		params.require(:product).permit(:name, :information, :price, :image_id, :sale_status, :genres_id)
 	end
 
 end

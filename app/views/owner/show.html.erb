@@ -1,6 +1,6 @@
 <h1>商品詳細</h1>
 
-<%= @product.image_id %>
+<%= attachment_image_tag @product, :image, size: "100x100", fallback: "no_image.jpg" %>
 <table>
 	<tr>
 		<th>商品名</th>

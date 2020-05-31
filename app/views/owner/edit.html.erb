@@ -1,0 +1,30 @@
+<h1>商品編集</h1>
+
+<%= form_for(@product) do |f| %>
+	<%= f.attachment_field :image %>
+	<table>
+		<tr>
+			<th>商品名</th>
+			<th><%= f.text_field :name %></th>
+		</tr>
+		<tr>
+			<th>商品説明</th>
+			<th><%= f.text_area :information %></th>
+		</tr>
+		<tr>
+			<th>ジャンル</th>
+			<th><%= f.text_field :genres_id %></th> <!-- 要確認 -->
+		</tr>
+		<tr>
+			<th>税抜価格</th>
+			<th><%= f.text_field :price %></th>
+		</tr>
+		<tr>
+			<th>販売ステータス</th>
+			<th><%= f.text_field :sale_status %></th> <!-- 要確認 -->
+		</tr>
+	</table>
+
+	<%= f.submit '変更を保存' %>
+
+<% end %>
