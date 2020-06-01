@@ -44,6 +44,16 @@ ActiveRecord::Schema.define(version: 2020_05_30_093153) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "last_name"
+    t.string "first_name"
+    t.string "last_name_kana"
+    t.string "first_name_kana"
+    t.integer "postal_code"
+    t.string "prefecture_code"
+    t.string "city"
+    t.string "street"
+    t.string "phone_number"
+    t.integer "member_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_members_on_email", unique: true
@@ -62,11 +72,13 @@ ActiveRecord::Schema.define(version: 2020_05_30_093153) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "member_id"
-    t.string "pay"
+    t.integer "pay"
     t.integer "postage"
     t.integer "total_price"
-    t.string "post_number"
-    t.string "address"
+    t.integer "postal_code"
+    t.string "prefecture_code"
+    t.string "city"
+    t.string "street"
     t.string "name"
     t.integer "status"
     t.datetime "created_at", null: false
