@@ -1,5 +1,6 @@
-class Members::HomeController < ApplicationController
+class Members::HomeController < Members::BaseController
 def top
+
 end
 
 def about

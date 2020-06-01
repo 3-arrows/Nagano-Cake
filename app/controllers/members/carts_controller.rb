@@ -1,6 +1,6 @@
-class Members::CartsController < ApplicationController
-	def index
-	end
+class Members::CartsController < Members::BaseController
+    def index
+    end
 
 	def create
 	end
