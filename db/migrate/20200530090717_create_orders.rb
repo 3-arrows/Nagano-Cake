@@ -2,13 +2,11 @@ class CreateOrders < ActiveRecord::Migration[5.2]
   def change
     create_table :orders do |t|
       t.integer :member_id
-      t.integer :pay
+      t.string :pay
       t.integer :postage
       t.integer :total_price
-      t.integer :postal_code
-      t.string :prefecture_code
-      t.string :city
-      t.string :street
+      t.string :post_number
+      t.string :address
       t.string :name
       t.integer :status
 
