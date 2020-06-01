@@ -1,20 +1,31 @@
-class Owner::ProductsController < ApplicationController
-def index
-end
+class Owner::ProductsController < Owner::BaseController
+	def index
+		@products = Product.all
+	end
 
-def new
-end
+	def new
+		@product = Product.new
+	end
 
-def show
-end
+	def create
+	end
 
-def edit
-end
+	def show
+		@product = Product.find(params[:id])
+	end
 
-def create
-end
+	def edit
+		@product = Product.find(params[:id])
+	end
 
-def update
-end
+	def update
+		@product = Product.find(params[:id])
+		@product.update(product_params)
+		redirect_to owner_product_path
+	end
+  
+	def product_params
+		params.require(:product).permit(:name, :information, :price, :image_id, :sale_status, :genres_id)
+	end
 
 end

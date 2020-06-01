@@ -1,4 +1,4 @@
-class Members::CartsController < ApplicationController
+class Members::CartsController < Members::BaseController
 def index
 end
 
