@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     resources :destinations,only: [:index,:edit,:create,:update,:destroy]
   end
   #管理者
-  namespace :owner do
+  scope module: :owner do
     #topコントローラ
     get 'home/top'
     #productsコントローラ
