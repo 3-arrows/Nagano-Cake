@@ -1,2 +1,40 @@
-<h1>gogo</h1>
-<%= link_to 'Destroy', destroy_member_session_path, method: :delete %>
+<div claas="container">
+	<div class="row">
+		<div class="col-xs-3">
+
+			<!-- ジャンル検索 -->
+
+    		<div class="genre_search">
+    			ジャンル検索
+    		</div>
+    		<% genres.each do |genre| %>
+    			<ul>
+    				<li class="genre_list">
+    					<%= link_to genre.name, products_path(@genre_id) %> <!-- そのジャンルの商品へ飛ぶ。path確認。 -->
+    				</li>
+    			</ul>
+    		<% end %>
+		</div>
+		<div class="col-xs-9">
+
+			<!-- トップ画像 -->
+
+			<div class="main_visual">
+				<div class="main_visual_topic">
+					ようこそ、NaganoCakeへ！
+				</div>
+	    		<div class="main_visual_text">
+	    			このサイトは、ケーキ販売のECサイトになります。</br>
+	    			会員でない方も商品の閲覧はできますが、</br>
+	    			購入には会員登録が必要になります。
+	    		</div>
+    		</div>
+
+    		<!-- オススメ商品リスト -->
+
+    		<h2>オススメ商品</h2>
+    		<!-- membersのproduct/indexをrenderで記述する -->
+    		<%= link_to "もっと見る>", products_path %>
+		</div>
+	</div>
+</div>
