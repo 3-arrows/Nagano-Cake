@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :owners
+  devise_for :owners, :controllers => {
+    :sessions => 'owner/devise/sessions'
+  }
 
   devise_for :members
   #顧客
