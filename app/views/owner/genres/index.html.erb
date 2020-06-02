@@ -1,0 +1,38 @@
+<%= flash[:notice] %>
+<%= form_with(model: @genre, local: true, url: owner_genres_path, method: :post) do |form| %>
+    <%= form.label :ジャンル %>
+　  <%= form.text_field :name %>
+    <div class="effective_status">
+        <div>
+  	        <%= form.radio_button :effective_status, true %>
+  	        <%= form.label :effective_status, '有効', value: true %>
+        </div>
+        <div>
+	  	    <%= form.radio_button :effective_status, false %>
+	  	    <%= form.label :effective_status, '無効', value: false %>
+        </div>
+    </div>
+    <%= form.submit '追加' %>
+<% end %>
+
+<table class="table table-hover table-inverse">
+	<thead>
+		<tr>
+			<th>ジャンル</th>
+			<th>状態</th>
+			<th colspan="1"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @genres.each do |genre| %>
+		<% if genre.effective_status == true %>
+		    <tr>
+		    	<td><%= genre.name %></td>
+		    	<td><h4>有効</h4></td>
+		    	<td><%= link_to "編集する",edit_owner_genre_path(genre),class: "btn-sm btn-success edit_owner_genre_#{genre.id}" %></td>
+		    </tr>
+		<% end %>
+		<% end %>
+	</tbody>
+</table>
+
