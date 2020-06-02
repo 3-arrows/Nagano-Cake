@@ -1,5 +1,5 @@
 <h3>ショッピングカート</h3>
-<%= link_to "カートを空にする",carts_path, method: :delete, %>
+<%= link_to "カートを空にする",carts_path, method: :delete %>
 
 </br>
 
@@ -17,7 +17,7 @@
     <% @carts.each do |cart| %>
         <tr>
             <td><%= cart.product.name%></td>
-            <td><%= disp_tax_price(cart.product.unit_price)%></td>
+            <td><%= cart.product.unit_price%></td>
             <td>
                 <%= form_for cart do |c|%>
                 <%= c.number_field :count,min:1,max:10000,step:1 %>
@@ -25,7 +25,7 @@
                 <% end%>
             </td>
             <td>
-                <%= disp_price(tax_price(cart.product.count_price) * cart.count) %>
+                <%= tax_price(cart.product.count_price) * cart.count %>
             </td>
             <td>
                 <%= link_to "削除する",cart_path(cart.id), method: :delete %>
@@ -47,7 +47,7 @@
 <table class = "table table-bordered">
     <tr>
         <td class>合計金額</td>
-        <td><%= disp_price(current_member.orders_total_price)%></td>
+        <td><%= current_member.orders.total_price %></td>
     </tr>
 </table>
 

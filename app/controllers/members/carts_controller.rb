@@ -1,5 +1,5 @@
 class Members::CartsController < Members::BaseController
-	before_action :authenticate_user!
+  before_action :authenticate_member!
   def index
   	@carts = current_member.carts
   end
