@@ -1,13 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :owners, :controllers => {
-    :sessions => 'owner/devise/sessions'
-  }
+  devise_for :owners
 
-  devise_for :members, :controllers => {
-    :sessions => 'members/sessions',
-    :registrations => 'members/registrations'
-  }
+  devise_for :members
   #顧客
   scope module: :members do
   #homeコントローラ

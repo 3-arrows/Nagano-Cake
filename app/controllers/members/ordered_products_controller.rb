@@ -1,4 +1,5 @@
-class Members::OrderedProductsController < Members::BaseController
+class Members::OrderedProductsController < ApplicationController
+def create
 end
 
 end

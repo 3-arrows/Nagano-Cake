@@ -1,4 +1,4 @@
-class Owner::OrderedProductsController < Owner::BaseController
+class Owner::OrderedProductsController < ApplicationController
 def update
 end
 

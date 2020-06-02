@@ -1,4 +1,3 @@
 class Product < ApplicationRecord
-	enum sale_status: {is_saled: 0, not_saled: 1}
-	attachment :image
+	enum sale_status: [1="販売中", 2="売切れ"]
 end
