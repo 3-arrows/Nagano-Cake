@@ -1,4 +1,4 @@
-class Owner::GenresController < ApplicationController
+class Owner::GenresController < Owner::BaseController
 def index
 end
 
