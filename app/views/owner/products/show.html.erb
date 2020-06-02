@@ -12,7 +12,7 @@
 	</tr>
 	<tr>
 		<th>ジャンル</th>
-		<th><%= @product.genres_id %></th>
+		<th><%= @product.genres.name %></th>
 	</tr>
 	<tr>
 		<th>税込価格(税抜価格)</th>
@@ -23,5 +23,6 @@
 		<th><%= @product.sale_status %></th>
 	</tr>
 </table>
+
 
 <%= link_to "編集する", edit_owner_product_path(@product) %>
