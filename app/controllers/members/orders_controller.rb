@@ -1,4 +1,4 @@
-class Members::OrdersController < Members::BaseController
+class Members::OrdersController < ApplicationController
 def index
 end
 
