@@ -1,0 +1,62 @@
+<div claas="container">
+	<div class="row">
+		<div class="col-xs-9">
+			<h1>注文情報確認</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>商品名</th>
+						<th>単価(税込)</th>
+						<th>数量</th>
+						<th>小計</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @ordered_products.each do |ordered_product| %>
+						<tr>
+							<td><%= attachment_image_tag @product, :image, size: "100x100", fallback: "no_image.jpg" %><%= @product.name %>
+							</td>
+							<td><%= (@member.product.price * 1.1) %></td>
+							<td><%= @ordered_product.count %></td>
+							<td><%= (@member.product.price * 1.1) * (@ordered_product.count) %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+			<%= form_for :order, url: orders_path do |f| %>
+				<h2>お支払い方法</h2>
+					<%= f.hidden_field :pay %>
+					<%= @order.pay %>
+				<h2>お届け先</h2>
+					<%= f.hidden_field :postal_code %> <!-- 郵便番号 -->
+					<%= @order.postal_code %>
+					<%= f.hidden_field :prefecture_code %> <!-- 都道府県 -->
+					<%= @order.prefecture_code %>
+					<%= f.hidden_field :city %> <!-- 市町村 -->
+					<%= @order.city %>
+					<%= f.hidden_field :street %> <!-- 番地 -->
+					<%= @order.street %>
+					<%= f.hidden_field :name %> <!-- 宛名 -->
+					<%= @order.name %>
+				<%= f.submit "購入を確定する" %>
+			<% end %>
+		</div>
+		<div class="col-xs-3">
+			<table>
+				<tr>
+					<td>送料</td>
+					<td><%= @order.postage %></td> <!-- postageを定義？ -->
+				</tr>
+				<tr>
+					<td>商品合計</td>
+					<td><%= @order.sub_total %></td> <!-- sub_totalを定義？ -->
+				</tr>
+				<tr>
+					<td>請求金額</td>
+					<td><%= @order.total_price %></td> <!-- total_priceを定義？ -->
+				</tr>
+			</table>
+
+		</div>
+	</div>
+</div>

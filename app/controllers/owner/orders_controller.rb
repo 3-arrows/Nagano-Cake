@@ -1,4 +1,4 @@
-class Owner::OrdersController < ApplicationController
+class Owner::OrdersController < Owner::BaseController
 def index
 end
 
