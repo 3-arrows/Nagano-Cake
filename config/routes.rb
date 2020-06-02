@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
-  devise_for :owners
+  devise_for :owners, :controllers => {
+    :sessions => 'owner/devise/sessions'
+  }
 
-  devise_for :members
+  devise_for :members, :controllers => {
+    :sessions => 'members/sessions',
+    :registrations => 'members/registrations'
+  }
   #顧客
   scope module: :members do
   #homeコントローラ
@@ -46,7 +51,7 @@ Rails.application.routes.draw do
     resources :products,only: [:index,:new,:show,:edit,:create,:update]
 
     #genresコントローラ
-    resources :genres,only: [:index,:new,:show,:edit,:create,:update]
+    resources :genres,only: [:index,:show,:edit,:create,:update]
 
     #ordersコントローラ
     resources :orders,only: [:index,:show,:update]

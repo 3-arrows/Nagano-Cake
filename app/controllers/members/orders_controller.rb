@@ -1,6 +1,6 @@
-class Members::OrdersController < ApplicationController
-	before_action :authenticate_member!
-	def new
+class Members::OrdersController < Members::BaseController
+  before_action :authenticate_member!
+  def new
 		@order = Order.new
 	end
 
