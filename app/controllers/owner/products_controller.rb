@@ -1,10 +1,9 @@
-class Owner::ProductsController < Owner::BaseController
+class Owner::ProductsController < ApplicationController
 	def index
-		@products = Product.all
+		@products = Product.find(params[:id])
 	end
 
 	def new
-		@product = Product.new
 	end
 
 	def create

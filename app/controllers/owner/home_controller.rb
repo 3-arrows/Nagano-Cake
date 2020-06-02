@@ -1,5 +1,4 @@
-class Owner::HomeController < Owner::BaseController
-
+class Owner::HomeController < ApplicationController
 def top
 end
 
