@@ -14,11 +14,11 @@
 				<tbody>
 					<% @ordered_products.each do |ordered_product| %>
 						<tr>
-							<td><%= attachment_image_tag @product, :image, size: "100x100", fallback: "no_image.jpg" %><%= @product.name %>
+							<td><%= attachment_image_tag ordered_product, :image, size: "100x100", fallback: "no_image.jpg" %><%= ordered_product.product.name %>
 							</td>
-							<td><%= (@member.product.price * 1.1) %></td>
-							<td><%= @ordered_product.count %></td>
-							<td><%= (@member.product.price * 1.1) * (@ordered_product.count) %></td>
+							<td><%= (ordered_product.product.price * 1.1) %></td>
+							<td><%= ordered_product.count %></td>
+							<td><%= (ordered_product.product.price * 1.1) * (ordered_product.count) %></td>
 						</tr>
 					<% end %>
 				</tbody>
@@ -56,7 +56,6 @@
 					<td><%= @order.total_price %></td> <!-- total_priceを定義？ -->
 				</tr>
 			</table>
-
 		</div>
 	</div>
 </div>
