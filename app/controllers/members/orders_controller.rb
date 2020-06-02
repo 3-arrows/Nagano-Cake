@@ -1,20 +1,37 @@
 class Members::OrdersController < Members::BaseController
-def index
-end
+  before_action :authenticate_member!
+  def new
+		@order = Order.new
+	end
 
-def show
-end
+	def create
+		@order = current_member.order.new(order_params)
+		if @order.save
+		   redirect_to orders_complete_path
+		else
+		   render "new"
+		end
+	end
 
-def confilm
-end
+	def index
+		@orders = current_member.orders.order(created_at: "DESC")
+	end
 
-def new
-end
+	def show
+		@order = Order.find(params[:id])
+	end
 
-def create
-end
+	def confilm
+		@order = current_member.order.new(order_params)
+		@ordered_products = current_member.ordered_product.all
+	end
 
-def complete
-end
+	def complete
+	end
 
+	private
+
+	def order_params
+		params.require(:order).permit(:member_id, :pay, :postage, :total_price, :postal_code, :prefecture_code, :city, :street, :name, :status)
+	end
 end
