@@ -7,7 +7,7 @@
     		<div class="genre_search">
     			ジャンル検索
     		</div>
-    		<% genres.each do |genre| %>
+    		<% @genres.each do |genre| %>
     			<ul>
     				<li class="genre_list">
     					<%= link_to genre.name, products_path(@genre_id) %> <!-- そのジャンルの商品へ飛ぶ。path確認。 -->
