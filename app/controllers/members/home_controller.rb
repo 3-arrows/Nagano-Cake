@@ -1,9 +1,9 @@
 class Members::HomeController < Members::BaseController
-	def top
-		@genres = Genre.all
-	end
+def top
 
-	def about
-	end
+end
+
+def about
+end
 
 end
