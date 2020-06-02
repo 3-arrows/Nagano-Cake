@@ -18,7 +18,7 @@
 							</td>
 							<td><%= (ordered_product.product.price * 1.1) %></td>
 							<td><%= ordered_product.count %></td>
-							<td><%= (ordered_product.product.price * 1.1) * (@ordered_product.count) %></td>
+							<td><%= (ordered_product.product.price * 1.1) * (ordered_product.count) %></td>
 						</tr>
 					<% end %>
 				</tbody>
