@@ -1,0 +1,13 @@
+<%= attachment_image_tag @product, :image, :limit, 300, 300, fallback: "no-image.jpeg",size: "300x300" %>
+
+<h2><%= @product.name %></h2>
+
+<p><%= @product.information %></p>
+
+<h2>¥<%= @product.price %>円(税込)</h2>
+
+<%= form_for @cart do |f| %>
+<%= f.select :count, Array.new(10){|index| ["#{index+ 1}個",index+1] } %>
+<%= f.hidden_field :product_id, :value => @product.id%>
+<%= f.submit 'カートにいれる'%>
+<% end %>
