@@ -1,6 +1,6 @@
 class Members::OrdersController < Members::BaseController
-  before_action :authenticate_member!
-  def new
+	before_action :authenticate_member!
+	def new
 		@order = Order.new
 	end
 
@@ -32,6 +32,6 @@ class Members::OrdersController < Members::BaseController
 	private
 
 	def order_params
-		params.require(:order).permit(:member_id, :pay, :postage, :total_price, :postal_code, :prefecture_code, :city, :street, :name, :status)
+		params.require(:order).permit(:member_id, :pay, :postage, :total_price, :postal_code, :address, :name, :status)
 	end
 end

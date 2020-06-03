@@ -39,6 +39,6 @@ class Members::DestinationsController < Members::BaseController
 	private
 
 	def destination_params
-		params.permit(:member_id, :postal_code, :prefecture_code, :city, :street, :name)
+		params.permit(:member_id, :postal_code, :address, :name)
 	end
 end
