@@ -1,27 +1,14 @@
 class Owner::GenresController < Owner::BaseController
-    def index
-        @genres = Genre.all
-        @genre = Genre.new
-    end
+def index
+end
 
-    def create
-        @genre = Genre.new(genre_params)
-        @genre.save
-        redirect_to owner_genres_path
-    end
+def create
+end
 
-    def edit
-        @genre = Genre.find(params[:id])
-    end
+def edit
+end
 
-    def update
-        @genre = Genre.find(params[:id])
-        @genre.update(genre_params)
-        redirect_to owner_genres_path
-    end
+def update
+end
 
-    private
-    def genre_params
-        params.require(:genre).permit(:name, :effective_status)
-    end
 end
