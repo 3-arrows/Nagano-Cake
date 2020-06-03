@@ -14,7 +14,7 @@ class Members::OrdersController < Members::BaseController
 	end
 
 	def index
-		@orders = current_member.orders.order(created_at: "DESC")
+		@orders = current_member.orders.order(created_at: "DESC") #降順
 	end
 
 	def show
