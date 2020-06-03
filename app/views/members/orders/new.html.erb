@@ -12,17 +12,17 @@
 <h2>お届け先</h2>
 <!-- ご自身の住所 -->
 <%= label_tag "ご自身の住所" %>
-
+	<%= current_member.address %>
 <!-- 登録済住所から選択 -->
 <%= label_tag "登録済住所から選択" %>
 
 <!-- 新しいお届け先 -->
 <%= label_tag "新しいお届け先" %>
 	<h3>郵便番号(ハイフンなし)</h3>
-		<%= text_field_tag :postal_code %>
+		<%= text_field_tag :postal_code, placeholder: "(例)1234567" %>
 	<h3>住所</h3>
 		<%= text_field_tag :prefecture_code %> <!-- 3つのカラムを入れられない -->
 	<h3>宛名</h3>
-		<%= text_field_tag :name %>
+		<%= text_field_tag :name, placeholder: "(例)山田太郎" %>
 
 <%= link_to "確認画面へ進む", orders_confirm_path %> <!-- submit_tagにしたい コントローラ修正が必要-->

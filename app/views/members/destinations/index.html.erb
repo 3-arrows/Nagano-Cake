@@ -1,0 +1,35 @@
+<p class="flash_message"><%= flash[:notice] %></p>
+
+<h1>配送先登録 / 一覧</h1>
+
+<h3>郵便番号(ハイフンなし)</h3>
+	<%= text_field_tag :postal_code, placeholder: "(例)1234567" %>
+<h3>住所</h3>
+	<%= text_field_tag :prefecture_code %> <!-- 3つのカラムを入れられない -->
+<h3>宛名</h3>
+	<%= text_field_tag :name, placeholder: "(例)山田太郎" %>
+<%= submit_tag "登録する" %>
+
+<table>
+	<thead>
+		<tr>
+			<th>郵便番号</th>
+			<th>住所</th>
+			<th>宛名</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @destinations.each do |destination| %>
+		<tr>
+			<td>destination.postal_code</td>
+			<td>destination.address</td>
+			<td>destination.name</td>
+			<td>
+				<%= link_to "編集する", edit_destination_path, class: "destination_edit_btn" %>
+				<%= link_to "削除する", destination_path, method: :delete, class: "destination_delete_btn", "data-confirm" => "本当に削除しますか？" %>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
