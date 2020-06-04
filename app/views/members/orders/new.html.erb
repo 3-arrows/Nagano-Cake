@@ -1,0 +1,31 @@
+<div class="container">
+
+	<h1>注文情報入力</h1>
+
+	<h2>お支払い方法</h2>
+	<%= form_with(model: @order) do |form| %>
+		<%= form.radio_button :pay, 0 %>
+		<%= form.label :pay, :クレジットカード %>
+		<br>
+		<%= form.radio_button :pay, 1 %>
+		<%= form.label :pay, :銀行振込 %>
+	<% end %>
+
+	<h2>お届け先</h2>
+	<!-- ご自身の住所 -->
+	<%= label_tag "ご自身の住所" %>
+		<%= current_member.address %>
+	<!-- 登録済住所から選択 -->
+	<%= label_tag "登録済住所から選択" %>
+
+	<!-- 新しいお届け先 -->
+	<%= label_tag "新しいお届け先" %>
+		<h3>郵便番号(ハイフンなし)</h3>
+			<%= text_field_tag :postal_code, placeholder: "(例)1234567" %>
+		<h3>住所</h3>
+			<%= text_field_tag :prefecture_code %> <!-- 3つのカラムを入れられない -->
+		<h3>宛名</h3>
+			<%= text_field_tag :name, placeholder: "(例)山田太郎" %>
+
+	<%= link_to "確認画面へ進む", orders_confirm_path %> <!-- submit_tagにしたい コントローラ修正が必要-->
+</div>
