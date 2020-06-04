@@ -23,9 +23,9 @@
 		<h3>郵便番号(ハイフンなし)</h3>
 			<%= text_field_tag :postal_code, placeholder: "(例)1234567" %>
 		<h3>住所</h3>
-			<%= text_field_tag :prefecture_code %> <!-- 3つのカラムを入れられない -->
+			<%= text_field_tag :address %>
 		<h3>宛名</h3>
 			<%= text_field_tag :name, placeholder: "(例)山田太郎" %>
 
-	<%= link_to "確認画面へ進む", orders_confirm_path %> <!-- submit_tagにしたい コントローラ修正が必要-->
+	<%= link_to "確認画面へ進む", orders_confirm_path, class: "btn" %> <!-- submit_tagにしたい コントローラ修正が必要-->
 </div>
