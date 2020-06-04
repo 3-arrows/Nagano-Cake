@@ -1,0 +1,44 @@
+<p><%= flash[:notice] %></p>
+<h1><%= (@member.last_name + @member.first_name) %>さんの会員詳細</h1>
+
+<table>
+	<tr>
+		<td>顧客ID</td>
+		<td><%= @member.id %></td>
+		<td>
+			<% if @member.member_status == 0 %>
+				<span class="member_status_0">有効会員</span>
+			<% else %>
+				<span class="member_status_1">退会済</span>
+			<% end %>
+		</td>
+	</tr>
+	<tr>
+		<td>氏名</td>
+		<td><%= @member.last_name %>	<%= @member.first_name %></td>
+	</tr>
+	<tr>
+		<td>フリガナ</td>
+		<td><%= @member.last_name_kana %>	<%= @member.first_name_kana %></td>
+	</tr>
+	<tr>
+		<td>郵便番号</td>
+		<td><%= @member.postal_code %></td>
+	</tr>
+	<tr>
+		<td>住所</td>
+		<td><%= @member.address %></td>
+	</tr>
+	<tr>
+		<td>電話番号</td>
+		<td><%= @member.phone_number %></td>
+	</tr>
+	<tr>
+		<td>メールアドレス</td>
+		<td><%= @member.email %></td>
+	</tr>
+	<tr>
+		<td><%= link_to "編集する", edit_owner_member_path(@member), class: "btn owner_members_edit" %></td>
+		<td><%= link_to "注文履歴一覧を見る", owner_orders_path, class: "btn owner_orders_index" %></td>
+	</tr>
+</table>
