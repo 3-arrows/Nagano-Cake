@@ -16,10 +16,16 @@
 		<tbody>
 			<% @members.each do |member| %>
 				<tr>
-					<td>member.id</td>
+					<td><%= member.id %></td>
 					<td><%= link_to (member.last_name + member.first_name), owner_member_path(member.id) %></td>
-					<td>member.email</td>
-					<td>member.member_status</td> <!-- 要確認 -->
+					<td><%= member.email %></td>
+					<td>
+						<% if member.member_status == 0 %>
+							<p>有効</p>
+						<% else %>
+							<p>退会済み</p>
+						<% end %>
+					</td> <!-- 要確認 -->
 				</tr>
 			<% end %>
 		</tbody>
