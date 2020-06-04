@@ -8,6 +8,14 @@ class Owner::ProductsController < Owner::BaseController
 	end
 
 	def create
+		  @product = Product.new(product_params)
+		  if @product.sale_status.nil?
+		     @product = Product.new
+			   render :new
+		  else
+			   @product.save
+		     redirect_to owner_product_path(@product)
+			end
 	end
 
 	def show
@@ -27,7 +35,7 @@ class Owner::ProductsController < Owner::BaseController
 	private
 
 	def product_params
-		params.require(:product).permit(:name, :information, :price, :image_id, :sale_status, :genres_id)
+		params.require(:product).permit(:name, :information, :price, :image, :sale_status, :genre_id)
 	end
 
 end
