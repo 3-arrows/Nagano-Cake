@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h1>会員一覧</h1>
+		</div>
+	</div>
+	<table>
+		<thead>
+			<tr>
+				<th>会員ID</th>
+				<th>氏名</th>
+				<th>メールアドレス</th>
+				<th>ステータス</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @members.each do |member| %>
+				<tr>
+					<td>member.id</td>
+					<td><%= link_to (member.last_name + member.first_name), owner_member_path(member.id) %></td>
+					<td>member.email</td>
+					<td>member.member_status</td> <!-- 要確認 -->
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

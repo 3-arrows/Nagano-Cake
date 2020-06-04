@@ -19,10 +19,10 @@ Rails.application.routes.draw do
      member do
        get :exit
      end
-   end
+  end
   #productsコントローラ
 
-   resources :products,only: [:show,:index]
+  resources :products,only: [:show,:index]
 
   #cartsコントローラ
    resources :carts,only: [:index,:create,:update,:destroy] do

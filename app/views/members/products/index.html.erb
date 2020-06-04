@@ -1,0 +1,22 @@
+<h4>商品一覧</h4>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th colspan="1"></th>
+			<th>商品名</th>
+			<th>価格</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @products.each do |product| %>
+		<tr>
+			<td><%= link_to product_path(product) do %>
+				    <%= attachment_image_tag product, :image, size: "100x100", fallback: "no_image.jpg" %>
+				<% end %>
+			</td>
+			<td><%= link_to product.name, product_path(product) %></td>
+			<td><%= (product.price * 1.1).floor %>(<%= product.price %>)円</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

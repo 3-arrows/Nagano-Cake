@@ -1,5 +1,5 @@
 <h3>商品　新規登録画面</h3><br>
-<%= form_for(@product, url: new_owner_product_path) do |f| %>
+<%= form_for(@product, url: owner_products_path) do |f| %>
     <%= f.attachment_field :image %>
 
       <div class="form-group">
@@ -14,7 +14,7 @@
 
       <div class="form-group">
         <label>ジャンル</label>
-          <%= f.collection_select :genres_id, Genre.all, :id, :name %>
+          <%= f.collection_select :genre_id, Genre.all, :id, :name %>
       </div>
 
       <div class="form-group">
@@ -24,6 +24,7 @@
 
       <div class="form-group">
         <label>販売ステータス</label>
+        <%= f.select :sale_status, Product.sale_statuses.keys, {include_blank: '選択してください'} %>
       </div>
 
       <div class="form-group">
