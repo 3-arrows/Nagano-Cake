@@ -11,11 +11,11 @@ class Owner::ProductsController < Owner::BaseController
 		  @product = Product.new(product_params)
 		  if @product.sale_status.nil?
 		     @product = Product.new
-			   render :new
+			 render :new
 		  else
 			   @product.save
-		     redirect_to owner_product_path(@product)
-			end
+		       redirect_to owner_product_path(@product)
+		  end
 	end
 
 	def show

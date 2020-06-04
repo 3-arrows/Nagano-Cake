@@ -18,4 +18,12 @@ class Member < ApplicationRecord
 	def address
 		[prefecture_code, city, street].compact.join(',')
 	end
+
+	def name
+		[last_name, first_name].compact.join(',')
+	end
+
+	def name_kana
+		[last_name_kana, first_name_kana].compact.join(',')
+	end
 end
