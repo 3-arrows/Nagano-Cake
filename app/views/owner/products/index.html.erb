@@ -13,10 +13,10 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= product.id %></td>
-        <td><%= product.name %></td>
-        <td><%= converting_to_jpy(product.price) %></td>
+        <td><%= link_to product.name, owner_product_path(product) %></td>
+        <td><%= product.price %></td>
         <td><%= product.genre.name%></td>
-        <td><%= sale_status ?  '販売中' : '売り切れ' %></td>
+        <td><%= product.sale_status %></td>
       </tr>
     <% end %>
   </tbody>

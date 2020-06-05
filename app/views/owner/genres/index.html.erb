@@ -1,15 +1,15 @@
-<%= flash[:notice] %>
+<p class="flash_message"><%= flash[:notice] %></p>
 <%= form_with(model: @genre, local: true, url: owner_genres_path, method: :post) do |form| %>
     <%= form.label :ジャンル %>
-　  <%= form.text_field :name %>
+    <%= form.text_field :name %>
     <div class="effective_status">
         <div>
   	        <%= form.radio_button :effective_status, true %>
-  	        <%= form.label :effective_status, '有効', value: true %>
+  	        <%= form.label :effective_status, :有効 %>
         </div>
         <div>
-  	    <%= form.radio_button :effective_status, false %>
-  	    <%= form.label :effective_status, '無効', value: false %>
+	  	    <%= form.radio_button :effective_status, false %>
+	  	    <%= form.label :effective_status, :無効 %>
         </div>
     </div>
     <%= form.submit '追加' %>
@@ -25,13 +25,15 @@
 	</thead>
 	<tbody>
 		<% @genres.each do |genre| %>
-		<% if genre.effective_status == true %>
-		    <tr>
-		    	<td><%= genre.name %></td>
-		    	<td><h4>有効</h4></td>
-		    	<td><%= link_to "編集する",edit_owner_genre_path(genre),class: "btn-sm btn-success edit_owner_genre_#{genre.id}" %></td>
-		    </tr>
-		<% end %>
+			<tr>
+			    <td><%= genre.name %></td>
+					<% if genre.effective_status == true %>
+			    		<td><h4>有効</h4></td>
+					<% else %>
+						<td><h4>無効</h4></td>
+					<% end %>
+			    <td><%= link_to "編集する",edit_owner_genre_path(genre),class: "btn-sm btn-success edit_owner_genre_#{genre.id}" %></td>
+			</tr>
 		<% end %>
 	</tbody>
 </table>
