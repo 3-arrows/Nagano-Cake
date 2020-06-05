@@ -1,4 +1,5 @@
 class Owner::GenresController < Owner::BaseController
+    before_action :authenticate_owner!
     def index
         @genres = Genre.all
         @genre = Genre.new
@@ -6,8 +7,11 @@ class Owner::GenresController < Owner::BaseController
 
     def create
         @genre = Genre.new(genre_params)
-        @genre.save
-        redirect_to owner_genres_path
+        if @genre.save
+           redirect_to owner_genres_path, notice: "ジャンルを追加しました"
+        else
+           render "index"
+        end
     end
 
     def edit
@@ -21,6 +25,7 @@ class Owner::GenresController < Owner::BaseController
     end
 
     private
+
     def genre_params
         params.require(:genre).permit(:name, :effective_status)
     end

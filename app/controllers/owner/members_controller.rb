@@ -1,5 +1,5 @@
 class Owner::MembersController < Owner::BaseController
-	before_action :authenticate_member!
+	before_action :authenticate_owner!
 	def index
 		@members = Member.all
 	end
