@@ -1,5 +1,5 @@
 class Owner::MembersController < Owner::BaseController
-	before_action :authenticate_member!
+	before_action :authenticate_owner!
 	def index
 		@members = Member.all
 	end
@@ -24,7 +24,7 @@ class Owner::MembersController < Owner::BaseController
 	private
 
 	def member_params
-		params.require(:member).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :phone_number, :email, :password, :member_status)
+		params.require(:member).permit(:name, :name_kana, :postal_code, :address, :phone_number, :email, :password, :member_status)
 	end
 
 end

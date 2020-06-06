@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
+    <head>
     <title>NaganoCake</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-  <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <nav class='nav navbar-nav navbar-left' >
-      <span>Nagano-Cake</span>
-    </nav>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <% if member_signed_in? %>
-        <li><%= link_to ' マイページ', member_path(current_member.id) %></li>
-          <li><%= link_to ' 商品一覧', products_path %></li>
-          <li><%= link_to ' カート', carts_path %></li>
-          <li><%= link_to ' ログアウト', destroy_member_session_path %></li>
-        <% else %>
-          <li><%= link_to ' 商品一覧', products_path %></li>
-          <li><%= link_to ' 新規登録', new_member_registration_path %></li>
-          <li><%= link_to ' ログイン', new_member_session_path %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
-</header>
-  <main>
-    <%= yield %>
-  </main>
-  </body>
+    <body>
+        <header class="navbar navbar-fixed-top navbar-inverse">
+            <div class="container">
+                <nav class='nav navbar-nav navbar-left' >
+                    <span>Nagano-Cake</span>
+                </nav>
+                <nav>
+                    <ul class="nav navbar-nav navbar-right">
+                        <% if member_signed_in? %>
+                            <li><%= link_to ' マイページ', members_path(current_member.id) %></li>
+                            <li><%= link_to ' 商品一覧', products_path %></li>
+                            <li><%= link_to ' カート', carts_path %></li>
+                            <li><%= link_to ' ログアウト', destroy_member_session_path, method: :delete %></li>
+                        <% else %>
+                            <li><%= link_to ' 商品一覧', products_path %></li>
+                            <li><%= link_to ' 新規登録', new_member_registration_path %></li>
+                            <li><%= link_to ' ログイン', new_member_session_path %></li>
+                        <% end %>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <%= yield %>
+        </main>
+
+    </body>
 </html>

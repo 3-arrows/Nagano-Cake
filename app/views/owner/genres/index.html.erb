@@ -1,12 +1,23 @@
-<%= flash[:notice] %>
+<p class="flash_message"><%= flash[:notice] %></p>
 <%= form_with(model: @genre, local: true, url: owner_genres_path, method: :post) do |form| %>
     <%= form.label :ジャンル %>
-　  <%= form.text_field :name %>
+    <%= form.text_field :name %>
     <div class="effective_status">
+<<<<<<< HEAD
     	<%= f.radio_button :effective_status, true %>
         <%= f.label :effective_status, t('enums.genre.effective_status.true') %>
         <%= f.radio_button :effective_status, false %>
         <%= f.label :effective_status, t('enums.genre.effective_status.false') %>
+=======
+        <div>
+  	        <%= form.radio_button :effective_status, true %>
+  	        <%= form.label :effective_status, :有効 %>
+        </div>
+        <div>
+	  	    <%= form.radio_button :effective_status, false %>
+	  	    <%= form.label :effective_status, :無効 %>
+        </div>
+>>>>>>> 7ae1f9a3f8d27e8b77f2e6db6c8d4734cff4e88b
     </div>
     <%= form.submit '追加' %>
 <% end %>
@@ -21,13 +32,15 @@
 	</thead>
 	<tbody>
 		<% @genres.each do |genre| %>
-		<% if genre.effective_status == true %>
-		    <tr>
-		    	<td><%= genre.name %></td>
-		    	<td><h4>有効</h4></td>
-		    	<td><%= link_to "編集する",edit_owner_genre_path(genre),class: "btn-sm btn-success edit_owner_genre_#{genre.id}" %></td>
-		    </tr>
-		<% end %>
+			<tr>
+			    <td><%= genre.name %></td>
+					<% if genre.effective_status == true %>
+			    		<td><h4>有効</h4></td>
+					<% else %>
+						<td><h4>無効</h4></td>
+					<% end %>
+			    <td><%= link_to "編集する",edit_owner_genre_path(genre),class: "btn-sm btn-success edit_owner_genre_#{genre.id}" %></td>
+			</tr>
 		<% end %>
 	</tbody>
 </table>
