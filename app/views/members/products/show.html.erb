@@ -6,7 +6,7 @@
 
 <p><%= @product.information %></p>
 
-<h2>¥<%= @product.price %>円(税込)</h2>
+<h2>¥<%= (@product.price * 1.1).floor %>円(税込)</h2>
 
 <%= form_for @cart do |f| %>
 <%= f.select :count, Array.new(10){|index| ["#{index+ 1}個",index+1] } %>

@@ -17,7 +17,7 @@
     <% @carts.each do |cart| %>
         <tr>
             <td><%= cart.product.name%></td>
-            <td><%= cart.product.unit_price%></td>
+            <td><%= (cart.product.price * 1.1).floor %></td>
             <td>
                 <%= form_for cart do |c|%>
                 <%= c.number_field :count,min:1,max:10000,step:1 %>
@@ -25,7 +25,7 @@
                 <% end%>
             </td>
             <td>
-                <%= tax_price(cart.product.count_price) * cart.count %>
+                <%= (cart.product.price * 1.1).floor * cart.count %>
             </td>
             <td>
                 <%= link_to "削除する",cart_path(cart.id), method: :delete %>
@@ -47,7 +47,7 @@
 <table class = "table table-bordered">
     <tr>
         <td class>合計金額</td>
-        <td><%= current_member.orders.total_price %></td>
+        <td><%= current_member.cart_total_price %></td>
     </tr>
 </table>
 
