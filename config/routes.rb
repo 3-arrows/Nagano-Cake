@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get 'home/about'
 
   #membersコントローラ
-  resources :members,only: [:show,:edit,:update,:destroy] do
+  resource :members,only: [:show,:edit,:update,:destroy] do
      member do
        get :exit
      end
