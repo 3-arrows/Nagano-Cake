@@ -16,14 +16,14 @@ class Member < ApplicationRecord
 	enum member_status: {有効: 0, 退会済: 1}
 
 	def address
-		[prefecture_code, city, street].compact.join(',')
+		prefecture_code + city + street
 	end
 
 	def name
-		[last_name, first_name].compact.join(',')
+		last_name + first_name
 	end
 
 	def name_kana
-		[last_name_kana, first_name_kana].compact.join(',')
+		last_name_kana + first_name_kana
 	end
 end
