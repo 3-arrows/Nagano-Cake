@@ -8,10 +8,10 @@ class Member < ApplicationRecord
 	has_many :orders, dependent: :destroy
 	has_many :carts, dependent: :destroy
 
-	validates :last_name, presence: true, length: {in: 1..10}
-	validates :first_name, presence: true, length: {in: 1..10}
-	validates :last_name_kana, presence: true, length: {in: 1..20}
-	validates :first_name_kana, presence: true, length: {in: 1..20}
+	#validates :last_name, presence: true, length: {in: 1..10}
+	#validates :first_name, presence: true, length: {in: 1..10}
+	#validates :last_name_kana, presence: true, length: {in: 1..20}
+	#validates :first_name_kana, presence: true, length: {in: 1..20}
 
 	enum member_status: {有効: 0, 退会済: 1}
 

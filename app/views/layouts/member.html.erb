@@ -18,10 +18,10 @@
                 <nav>
                     <ul class="nav navbar-nav navbar-right">
                         <% if member_signed_in? %>
-                            <li><%= link_to ' マイページ', member_path(current_member.id) %></li>
+                            <li><%= link_to ' マイページ', members_path(current_member.id) %></li>
                             <li><%= link_to ' 商品一覧', products_path %></li>
                             <li><%= link_to ' カート', carts_path %></li>
-                            <li><%= link_to ' ログアウト', destroy_member_session_path %></li>
+                            <li><%= link_to ' ログアウト', destroy_member_session_path, method: :delete %></li>
                         <% else %>
                             <li><%= link_to ' 商品一覧', products_path %></li>
                             <li><%= link_to ' 新規登録', new_member_registration_path %></li>

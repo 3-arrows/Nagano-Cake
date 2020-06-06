@@ -17,7 +17,7 @@
 			<% @members.each do |member| %>
 				<tr>
 					<td><%= member.id %></td>
-					<td><%= link_to (member.last_name + member.first_name), owner_member_path(member.id) %></td>
+					<td><%= link_to member.name, owner_member_path(member.id) %></td>
 					<td><%= member.email %></td>
 					<td>
 						<% if member.member_status == 0 %>

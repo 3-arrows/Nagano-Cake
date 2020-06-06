@@ -1,5 +1,5 @@
 <div class="container">
-	<h1><%= (@member.last_name + @member.first_name) %>さんの会員情報編集</h1>
+	<h1><%= "@member.last_name + @member.first_name" %>さんの会員情報編集</h1>
 
 	<%= form_for(@member) do |f| %> <!-- 各tbタグの1行目は普通にpタグでいいかも -->
 		<table>
@@ -8,11 +8,11 @@
 				<td><%= @member.id %></td>
 			</tr>
 			<tr>
-				<td><%= f.label :last_name, :first_name, "氏名" %></td> <!-- 要確認 -->
+				<td>氏名</td> <!-- 要確認 -->
 				<td><%= f.text_field :last_name %><%= f.text_field :first_name %></td>
 			</tr>
 			<tr>
-				<td><%= f.label :last_name_kana, :first_name_kana, "フリガナ" %></td> <!-- 要確認 -->
+				<td>フリガナ</td> <!-- 要確認 -->
 				<td><%= f.text_field :last_name_kana %><%= f.text_field :first_name_kana %></td>
 			</tr>
 			<tr>
@@ -34,8 +34,8 @@
 			<tr>
 				<td><%= f.label :member_status, "会員ステータス" %></td>
 				<td>
-					<%= form.radio_button :member_status, 0 %><%= f.label :member_status, :有効 %>
-					<%= form.radio_button :member_status, 1 %><%= f.label :member_status, :退会済み %>
+					<%= f.radio_button :member_status, 0 %><%= f.label :member_status, :有効 %>
+					<%= f.radio_button :member_status, 1 %><%= f.label :member_status, :退会済み %>
 				</td>
 			</tr>
 			<tr>
