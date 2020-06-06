@@ -26,4 +26,12 @@ class Member < ApplicationRecord
 	def name_kana
 		last_name_kana + first_name_kana
 	end
+
+	def cart_total_price
+        total = 0
+        carts.each do |cart|
+            total += cart.product.price * cart.count
+        end
+        (total * 1.1 ).floor
+    end
 end
