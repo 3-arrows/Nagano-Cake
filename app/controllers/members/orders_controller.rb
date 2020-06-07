@@ -2,6 +2,7 @@ class Members::OrdersController < Members::BaseController
 	before_action :authenticate_member!
 	def new
 		@order = Order.new
+		@destination = Destination.new
 	end
 
 	def create
@@ -10,6 +11,18 @@ class Members::OrdersController < Members::BaseController
 		   redirect_to orders_complete_path
 		else
 		   render "new"
+		end
+		if params[:address] == 0
+		elsif paramas[]
+		end
+		current_member.carts.each do |cart|
+			@ordered_product = @order.ordered_products.build
+			@ordered_product.product_id = cart.product_id
+			@ordered_product.price = cart.product.price
+			@ordered_product.count = cart.count
+			@ordered_product.production_status = 0
+			@ordered_product.save
+			cart.destroy
 		end
 	end
 

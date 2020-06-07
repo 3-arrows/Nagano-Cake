@@ -13,13 +13,17 @@
 
 	<h3>お届け先</h3>
 	<!-- ご自身の住所 -->
+	<%= form_with(model: @destination) do |form| %>
+	<%= form.radio_button :address, 0 %>
 	<p><%= label_tag "ご自身の住所" %></p>
 		<p><%= current_member.address %></p>
 		<p><%= current_member.name %></p>
 	<!-- 登録済住所から選択 -->
+	<%= form.radio_button :address, 1 %>
 	<p><%= label_tag "登録済住所から選択" %></p>
-
+	<%= form.select :destination, create_selection_method(current_member.destinations) %>
 	<!-- 新しいお届け先 -->
+	<%= form.radio_button :address, 2 %>
 	<p><%= label_tag "新しいお届け先" %></p>
 		<p>郵便番号(ハイフンなし)
 			<%= text_field_tag :postal_code %></p>
@@ -27,6 +31,7 @@
 			<%= text_field_tag :address %></p>
 		<p>宛名
 			<%= text_field_tag :name %></p>
+	<% end %>
 
 	<%= link_to "確認画面へ進む", orders_confirm_path, class: "btn" %> <!-- submit_tagにしたい コントローラ修正が必要-->
 </div>

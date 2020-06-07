@@ -1,22 +1,26 @@
 <p class="flash_message"><%= flash[:notice] %></p>
 
 <div class="container">
+	<%= form_for (@destination) do |f| %>
 	<h1>配送先登録 / 一覧</h1>
 	<table width="500">
 		<tr>
 			<td>郵便番号(ハイフンなし)</td>
-			<td><%= text_field_tag :postal_code, placeholder: "(例)1234567" %></td>
+			<td><%= f.text_field :postal_code,:placeholder => "(例)1234567" %></td>
 		</tr>
 		<tr>
 			<td>住所</td>
-			<td><%= text_field_tag :address, placeholder: "〇〇県△△市□□ ××番地×" %></td>
+			<td><%= f.text_field :prefecture_code,:placeholder => "(例)◯◯県" %></td>
+			<td><%= f.text_field :city,:placeholder => "(例)◯◯市" %></td>
+			<td><%= f.text_field :street,:placeholder => "(例)◯◯番地" %></td>
 		</tr>
 		<tr>
 			<td>宛名</td>
-			<td><%= text_field_tag :name, placeholder: "(例)山田太郎" %></td>
+			<td><%= f.text_field :name,:placeholder => "(例)山田太郎" %></td>
 		</tr>
 	</table>
-	<%= submit_tag "登録する" %>
+	<%= f.submit "登録する" %>
+	<% end %>
 
 	<table>
 		<thead>
@@ -30,12 +34,12 @@
 		<tbody>
 			<% @destinations.each do |destination| %>
 				<tr>
-					<td>destination.postal_code</td>
-					<td>destination.address</td>
-					<td>destination.name</td>
+					<td><%= destination.postal_code %></td>
+					<td><%= destination.address %></td>
+					<td><%= destination.name %></td>
 					<td>
-						<%= link_to "編集する", edit_destination_path, class: "btn destination_edit" %>
-						<%= link_to "削除する", destination_path, method: :delete, class: "btn destination_delete", "data-confirm" => "本当に削除しますか？" %>
+						<%= link_to "編集する", edit_destination_path(destination), class: "btn destination_edit" %>
+						<%= link_to "削除する", destination_path(destination), method: :delete, class: "btn destination_delete", "data-confirm" => "本当に削除しますか？" %>
 					</td>
 				</tr>
 			<% end %>

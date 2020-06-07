@@ -3,12 +3,6 @@
     <%= form.label :ジャンル %>
     <%= form.text_field :name %>
     <div class="effective_status">
-<<<<<<< HEAD
-    	<%= f.radio_button :effective_status, true %>
-        <%= f.label :effective_status, t('enums.genre.effective_status.true') %>
-        <%= f.radio_button :effective_status, false %>
-        <%= f.label :effective_status, t('enums.genre.effective_status.false') %>
-=======
         <div>
   	        <%= form.radio_button :effective_status, true %>
   	        <%= form.label :effective_status, :有効 %>
@@ -17,7 +11,6 @@
 	  	    <%= form.radio_button :effective_status, false %>
 	  	    <%= form.label :effective_status, :無効 %>
         </div>
->>>>>>> 7ae1f9a3f8d27e8b77f2e6db6c8d4734cff4e88b
     </div>
     <%= form.submit '追加' %>
 <% end %>

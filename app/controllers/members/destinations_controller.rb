@@ -1,12 +1,13 @@
 class Members::DestinationsController < Members::BaseController
 	def index
 		@member = current_member
-		@destination = Destination.new(destination_params)
-		@destinations = Destinations.all(current_member).order(created_at: "DESC") #降順
+		@destination = current_member.destinations.new
+		@destinations = current_member.destinations.all.order(created_at: "DESC") #降順
 	end
 
 	def create
-		@destination = Destination.new(destination_params)
+		@destination = Destination.new(address_params)
+		@destination.member_id = current_member.id
 		if @destination.save
 		   redirect_to destinations_path(current_member), notice: "配送先を登録しました"
 		else
@@ -39,6 +40,10 @@ class Members::DestinationsController < Members::BaseController
 	private
 
 	def destination_params
-		params.permit(:member_id, :postal_code, :address, :name)
+		params.permit(:member_id, :postal_code, :prefecture_code, :city, :street, :name)
+	end
+
+	def address_params
+		params.require(:destination).permit(:member_id, :postal_code, :prefecture_code, :city, :street, :name)
 	end
 end

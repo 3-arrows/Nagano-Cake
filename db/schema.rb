@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_074138) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
-    t.integer "effective_status"
+    t.boolean "effective_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_074138) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.integer "genres_id"
+    t.integer "genre_id"
     t.string "name"
     t.text "information"
     t.integer "price"
