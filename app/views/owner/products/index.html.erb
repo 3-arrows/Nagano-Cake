@@ -1,23 +1,26 @@
-<h1><strong>商品一覧画面</strong></h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th>商品ID</th>
-      <th>商品名</th>
-      <th>税抜価格</th>
-      <th>ジャンル</th>
-      <th>ステータス</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.id %></td>
-        <td><%= link_to product.name, owner_product_path(product) %></td>
-        <td><%= product.price %></td>
-        <td><%= product.genre.name%></td>
-        <td><%= product.sale_status %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+
+    <h1><strong>商品一覧画面</strong></h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>商品ID</th>
+                <th>商品名</th>
+                <th>税抜価格</th>
+                <th>ジャンル</th>
+                <th>ステータス</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @products.each do |product| %>
+                <tr>
+                    <td><%= product.id %></td>
+                    <td><%= link_to product.name, owner_product_path(product) %></td>
+                    <td><%= product.price %></td>
+                    <td><%= product.genre.name%></td>
+                    <td><%= product.sale_status %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>

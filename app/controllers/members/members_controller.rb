@@ -1,4 +1,5 @@
 class Members::MembersController < Members::BaseController
+	before_action :authenticate_member!
 	def show
 		@member = current_member
 	end
@@ -27,6 +28,7 @@ class Members::MembersController < Members::BaseController
 	end
 
     private
+
     def member_params
 	    params.require(:member).permit(:first_name, :last_name, :first_name_kana,
            :last_name_kana, :postal_code, :prefecture_code, :city, :street, :phone_number, :email)

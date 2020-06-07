@@ -24,7 +24,7 @@ class Owner::MembersController < Owner::BaseController
 	private
 
 	def member_params
-		params.require(:member).permit(:name, :name_kana, :postal_code, :address, :phone_number, :email, :password, :member_status)
+		params.require(:member).permit(:name, :name_kana, :postal_code, :prefecture_code, :city, :street, :phone_number, :email, :password, :member_status)
 	end
 
 end
