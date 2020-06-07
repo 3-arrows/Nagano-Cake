@@ -5,11 +5,11 @@ class Members::MembersController < Members::BaseController
 	end
 
 	def edit
-		@member = Member.find(params[:id])
+		@member = current_member
 	end
 
 	def update
-		@member = Member.find(params[:id])
+		@member = current_member
 		if @member.update(member_params)
            redirect_to member_path(current_member), notice: "登録情報を変更しました"
         else
@@ -18,11 +18,11 @@ class Members::MembersController < Members::BaseController
 	end
 
 	def exit
-		@member = Member.find(params[:id])
+		@member = current_member
 	end
 
 	def destroy
-		@member = Member.find(params[:id])
+		@member = current_member
 		@member.destroy
         redirect_to root_path, notice: "退会しました。またのご利用お待ちしております。"
 	end

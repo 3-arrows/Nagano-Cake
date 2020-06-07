@@ -2,8 +2,8 @@
 	<h1>マイページ</h1>　　<%= flash[:notice] %>
 
 	登録情報
-	<%= link_to "編集する", edit_members_path(@member), class: "btn my_page_edit" %>
-	<%= link_to "パスワードを変更する" ,edit_member_password_path(@member) %>
+	<%= link_to "編集する", member_edit_path, class: "btn my_page_edit" %>
+	<%= link_to "パスワードを変更する" ,edit_member_registration_path %>
 
 	<table class="table">
 		<tbody>

@@ -15,11 +15,13 @@ Rails.application.routes.draw do
   get 'home/about'
 
   #membersコントローラ
-  resource :members,only: [:show,:edit,:update,:destroy] do
+  resource :members,only: [:show,:update,:destroy] do
      member do
        get :exit
      end
   end
+
+  get 'member/edit', to: 'members#edit'
   #productsコントローラ
 
   resources :products,only: [:show,:index]
