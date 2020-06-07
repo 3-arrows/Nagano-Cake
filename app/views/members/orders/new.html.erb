@@ -3,17 +3,15 @@
 	<h1>注文情報入力</h1>
 
 	<h3>お支払い方法</h3>
-	<%= form_with(model: @order) do |form| %>
+	<%= form_with(model: @order, local: true, url: order_confirm_path, method: :get) do |form| %>
 		<%= form.radio_button :pay, 0 %>
 		<%= form.label :pay, :クレジットカード %>
 		<br>
 		<%= form.radio_button :pay, 1 %>
 		<%= form.label :pay, :銀行振込 %>
-	<% end %>
 
 	<h3>お届け先</h3>
 	<!-- ご自身の住所 -->
-	<%= form_with(model: @destination) do |form| %>
 	<%= form.radio_button :address, 0 %>
 	<p><%= label_tag "ご自身の住所" %></p>
 		<p><%= current_member.address %></p>
@@ -31,7 +29,6 @@
 			<%= text_field_tag :address %></p>
 		<p>宛名
 			<%= text_field_tag :name %></p>
+	<%= form.submit "確認画面へ進む" %>
 	<% end %>
-
-	<%= link_to "確認画面へ進む", orders_confirm_path, class: "btn" %> <!-- submit_tagにしたい コントローラ修正が必要-->
 </div>
