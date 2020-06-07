@@ -2,7 +2,7 @@
 
 	<h1>注文情報入力</h1>
 
-	<h2>お支払い方法</h2>
+	<h3>お支払い方法</h3>
 	<%= form_with(model: @order) do |form| %>
 		<%= form.radio_button :pay, 0 %>
 		<%= form.label :pay, :クレジットカード %>
@@ -11,21 +11,22 @@
 		<%= form.label :pay, :銀行振込 %>
 	<% end %>
 
-	<h2>お届け先</h2>
+	<h3>お届け先</h3>
 	<!-- ご自身の住所 -->
-	<%= label_tag "ご自身の住所" %>
-		<%= current_member.address %>
+	<p><%= label_tag "ご自身の住所" %></p>
+		<p><%= current_member.address %></p>
+		<p><%= current_member.name %></p>
 	<!-- 登録済住所から選択 -->
-	<%= label_tag "登録済住所から選択" %>
+	<p><%= label_tag "登録済住所から選択" %></p>
 
 	<!-- 新しいお届け先 -->
-	<%= label_tag "新しいお届け先" %>
-		<h3>郵便番号(ハイフンなし)</h3>
-			<%= text_field_tag :postal_code, placeholder: "(例)1234567" %>
-		<h3>住所</h3>
-			<%= text_field_tag :address %>
-		<h3>宛名</h3>
-			<%= text_field_tag :name, placeholder: "(例)山田太郎" %>
+	<p><%= label_tag "新しいお届け先" %></p>
+		<p>郵便番号(ハイフンなし)
+			<%= text_field_tag :postal_code %></p>
+		<p>住所
+			<%= text_field_tag :address %></p>
+		<p>宛名
+			<%= text_field_tag :name %></p>
 
 	<%= link_to "確認画面へ進む", orders_confirm_path, class: "btn" %> <!-- submit_tagにしたい コントローラ修正が必要-->
 </div>

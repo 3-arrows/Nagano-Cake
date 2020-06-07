@@ -32,6 +32,6 @@ class Members::OrdersController < Members::BaseController
 	private
 
 	def order_params
-		params.require(:order).permit(:member_id, :pay, :postage, :total_price, :postal_code, :address, :name, :status)
+		params.require(:order).permit(:member_id, :pay, :postage, :total_price, :postal_code, :prefecture_code, :city, :street, :name, :status)
 	end
 end

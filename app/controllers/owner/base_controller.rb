@@ -1,6 +1,3 @@
 class Owner::BaseController < ApplicationController
-  layout 'owner'
-
-
-
+	layout 'owner'
 end

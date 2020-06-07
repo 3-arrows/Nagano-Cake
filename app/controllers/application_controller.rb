@@ -24,10 +24,12 @@ class ApplicationController < ActionController::Base
             root_path
         end
     end
-  private
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :first_name_kana,
-       :last_name_kana, :postal_code, :prefecture_code, :city, :street, :phone_number, :email])
-  end
+
+    private
+
+    def configure_permitted_parameters
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :first_name_kana,
+           :last_name_kana, :postal_code, :prefecture_code, :city, :street, :phone_number, :email])
+    end
 end
 

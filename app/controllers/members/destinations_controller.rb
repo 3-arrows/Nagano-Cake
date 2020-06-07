@@ -2,7 +2,7 @@ class Members::DestinationsController < Members::BaseController
 	def index
 		@member = current_member
 		@destination = Destination.new(destination_params)
-		@destinations = Destinations.all.order(created_at: "DESC") #降順
+		@destinations = Destinations.all(current_member).order(created_at: "DESC") #降順
 	end
 
 	def create
