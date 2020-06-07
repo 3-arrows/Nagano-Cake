@@ -35,8 +35,8 @@ Rails.application.routes.draw do
 
     #ordersコントローラ
     resources :orders,only: [:index,:show,:new,:create]
-    get 'orders/confirm', to: 'orders#confirm'
-    get 'orders/complete', to: 'orders#complete'
+    get 'order/confirm', to: 'orders#confirm'
+    get 'order/complete', to: 'orders#complete'
 
     #ordered_productsコントローラ
     resources :ordered_products,only: [:create]

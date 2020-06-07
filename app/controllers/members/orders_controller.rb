@@ -34,8 +34,8 @@ class Members::OrdersController < Members::BaseController
 		@order = Order.find(params[:id])
 	end
 
-	def confilm
-		@order = current_member.order.new(order_params)
+	def confirm
+		@order = current_member.orders.new(order_params)
 		@ordered_products = current_member.ordered_product.all
 	end
 

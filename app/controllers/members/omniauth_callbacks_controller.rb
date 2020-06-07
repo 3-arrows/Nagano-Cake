@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+git # frozen_string_literal: true
 
 class Members::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # You should configure your model like this:
