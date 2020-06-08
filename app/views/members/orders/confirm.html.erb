@@ -12,28 +12,34 @@
 					</tr>
 				</thead>
 				<tbody>
-					<% @ordered_products.each do |ordered_product| %>
+					<% @products.each do |ordered_product| %>
 						<tr>
-							<td><%= attachment_image_tag ordered_product, :image, size: "100x100", fallback: "no_image.jpg" %><%= ordered_product.product.name %>
+							<td><%= attachment_image_tag ordered_product.product, :image, size: "100x100", fallback: "no_image.jpg" %><%= ordered_product.product.name %>
 							</td>
 							<td><%= (ordered_product.product.price * 1.1) %></td>
-							<td><%= ordered_product.product.count %></td>
-							<td><%= (ordered_product.product.price * 1.1) * (ordered_product.product.count) %></td>
+							<td><%= ordered_product.count %></td>
+							<td><%= (ordered_product.product.price * 1.1) * (ordered_product.count) %></td>
 						</tr>
 					<% end %>
 				</tbody>
 			</table>
-			<%= form_for :order, url: orders_path(@member) do |f| %>
+			<%= form_with(model: @order, url: orders_path) do |f| %>
 				<h2>お支払い方法</h2>
 					<%= f.hidden_field :pay %>
 					<%= @order.pay %>
 				<h2>お届け先</h2>
-					<%= f.hidden_field :postal_code %> <!-- 郵便番号 -->
-					<%= @order.postal_code %>
-					<%= f.hidden_field :address %> <!-- 住所 -->
-					<%= @order.address %>
-					<%= f.hidden_field :name %> <!-- 宛名 -->
-					<%= @order.name %>
+					<div>
+						<%= f.hidden_field :postal_code %> <!-- 郵便番号 -->
+						<%= @new.postal_code %>
+						<%= @new.prefecture_code %>
+						<%= @new.city %>
+						<%= @new.street %>
+						<%= f.hidden_field :address %> <!-- 住所 -->
+					</div>
+					<div>
+						<%= f.hidden_field :name %> <!-- 宛名 -->
+						<%= @new.name %>
+					</div>
 				<%= f.submit "購入を確定する" %>
 			<% end %>
 		</div>
