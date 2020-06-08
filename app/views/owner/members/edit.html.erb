@@ -1,7 +1,7 @@
 <div class="container">
 	<h1><%= @member.name %>さんの会員情報編集</h1>
 
-	<%= form_for(@member) do |f| %> <!-- 各tbタグの1行目は普通にpタグでいいかも -->
+	<%= form_for(@member, url: members_path, method: :patch) do |f| %> <!-- 各tbタグの1行目は普通にpタグでいいかも -->
 		<table>
 			<tr>
 				<td><%= f.label :id, "会員ID" %></td>

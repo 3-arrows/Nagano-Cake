@@ -33,8 +33,16 @@
 
     		<!-- オススメ商品リスト -->
 
-    		<h2>オススメ商品</h2>
-    		<!-- membersのproduct/indexをrenderで記述する -->
+    		<h3 class="recommendation">オススメ商品</h3>
+    		<div class="recommended_products">
+	    		<% @products.each do |product| %>
+	    			<%= link_to product_path(product.id) do %> <!-- 画面クリックで商品詳細へ -->
+	    				<%= attachment_image_tag product, :image, size: "150x120", fallback: "no-image.jpeg" %>
+	    			<% end %>
+	    			<p><%= product.name %></p>
+	    			<p>¥<%= (product.price * 1.1).floor %></p>
+	    		<% end %>
+	    	</div>
     		<%= link_to "もっと見る>", products_path %>
 		</div>
 	</div>

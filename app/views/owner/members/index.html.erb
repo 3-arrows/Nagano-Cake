@@ -4,9 +4,9 @@
 			<h1>会員一覧</h1>
 		</div>
 	</div>
-	<table>
+	<table class="owner_table" width="800">
 		<thead>
-			<tr>
+			<tr class="table_header">
 				<th>会員ID</th>
 				<th>氏名</th>
 				<th>メールアドレス</th>
@@ -15,7 +15,7 @@
 		</thead>
 		<tbody>
 			<% @members.each do |member| %>
-				<tr>
+				<tr class="table_data">
 					<td><%= member.id %></td>
 					<td><%= link_to member.name, owner_member_path(member.id) %></td>
 					<td><%= member.email %></td>
