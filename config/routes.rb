@@ -1,67 +1,70 @@
 Rails.application.routes.draw do
 
-  devise_for :owners, :controllers => {
-    :sessions => 'owner/devise/sessions'
-  }
+    devise_for :owners, :controllers => {
+        :sessions => 'owner/devise/sessions'
+    }
 
-  devise_for :members, :controllers => {
-    :sessions => 'members/sessions',
-    :registrations => 'members/registrations'
-  }
-  #顧客
-  scope module: :members do
-  #homeコントローラ
-  root 'home#top'
-  get 'home/about'
+    devise_for :members, :controllers => {
+        :sessions => 'members/sessions',
+        :registrations => 'members/registrations'
+    }
 
-  #membersコントローラ
-  resource :members,only: [:show,:update,:destroy] do
-     member do
-       get :exit
-     end
-  end
+    #顧客
+    scope module: :members do
+    #homeコントローラ
+        root 'home#top'
+        get 'home/about'
 
-  get 'member/edit', to: 'members#edit'
-  #productsコントローラ
+        #membersコントローラ
+        resource :members,only: [:show,] do
+            member do
+            get :exit
+        end
+        end
+        patch 'member/destroy', to: 'members#destroy'
+        get 'member/edit', to: 'members#edit'
+        patch 'member', to: 'members#update'
 
-  resources :products,only: [:show,:index]
+        #productsコントローラ
+        resources :products,only: [:show,:index]
 
-  #cartsコントローラ
-   resources :carts,only: [:index,:create,:update,:destroy] do
-     collection do
-    delete '/', to: 'carts#destroy_all'
-   end
-   end
+        #cartsコントローラ
+        resources :carts,only: [:index,:create,:update,:destroy] do
+            collection do
+                delete '/', to: 'carts#destroy_all'
+            end
+        end
 
-    #ordersコントローラ
-    resources :orders,only: [:index,:show,:new,:create]
-    post 'order/confirm', to: 'orders#confirm', as: 'order_confirm'
-    get 'order/complete', to: 'orders#complete'
+        #ordersコントローラ
+        resources :orders,only: [:index,:show,:new,:create]
+        post 'order/confirm', to: 'orders#confirm', as: 'order_confirm'
+        get 'order/complete', to: 'orders#complete'
 
-    #ordered_productsコントローラ
-    resources :ordered_products,only: [:create]
+        #ordered_productsコントローラ
+        resources :ordered_products,only: [:create]
 
-    #destinationsコントーラ
-    resources :destinations,only: [:index,:edit,:create,:update,:destroy]
-  end
-  #管理者
-  namespace :owner do
-    #topコントローラ
-    get 'home/top'
-    #productsコントローラ
+        #destinationsコントーラ
+        resources :destinations,only: [:index,:edit,:create,:update,:destroy]
+    end
 
-    resources :products,only: [:index,:new,:show,:edit,:create,:update]
+    #管理者
+    namespace :owner do
+        #topコントローラ
+        get 'home/top'
 
-    #genresコントローラ
-    resources :genres,only: [:index,:show,:edit,:create,:update]
+        #productsコントローラ
+        resources :products,only: [:index,:new,:show,:edit,:create,:update]
 
-    #ordersコントローラ
-    resources :orders,only: [:index,:show,:update]
+        #genresコントローラ
+        resources :genres,only: [:index,:show,:edit,:create,:update]
 
-    #ordered_productsコントローラ
-    resources :ordered_products,only: [:update]
+        #ordersコントローラ
+        resources :orders,only: [:index,:show,:update]
 
-    #membersコントローラ
-    resources :members,only: [:index,:show,:edit,:update]
-  end
+        #ordered_productsコントローラ
+        resources :ordered_products,only: [:update]
+
+        #membersコントローラ
+        resources :members,only: [:index,:show,:edit,:update]
+    end
 end

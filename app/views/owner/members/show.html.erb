@@ -1,17 +1,12 @@
 <div class="container">
 	<p class="flash_message"><%= flash[:notice] %></p>
-	<span class="page_header"><%= @member.name %>さんの会員詳細</span>
+	<span class="page_header"><%= @member.first_name %>さんの会員詳細</span>
 
 	<table width="500">
 		<tr>
 			<td class="owner_member_td">顧客ID</td>
 			<td class="owner_member_td">
-				<%= @member.id %>
-				<% if @member.member_status == 0 %>
-					<span class="member_status_0">有効会員</span>
-				<% else %>
-					<span class="member_status_1">退会済</span>
-				<% end %>
+				<%= @member.member_status %>
 			</td>
 		</tr>
 		<tr>

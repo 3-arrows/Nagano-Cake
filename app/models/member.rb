@@ -15,23 +15,15 @@ class Member < ApplicationRecord
 
 	enum member_status: {有効: 0, 退会済: 1}
 
-	def address
-		prefecture_code + city + street
-	end
-
-	def name
-		last_name + first_name
-	end
-
-	def name_kana
-		last_name_kana + first_name_kana
-	end
-
-	def cart_total_price
+	def cart_total_price(carts)
         total = 0
         carts.each do |cart|
             total += cart.product.price * cart.count
         end
         (total * 1.1 ).floor
+    end
+
+    def active_for_authentication?
+    	super && (self.member_status == '有効')
     end
 end

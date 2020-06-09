@@ -1,8 +1,11 @@
 <div class="container">
-	<span class="page_header"><%= @member.name %>さんの会員情報編集</span>
 
-	<%= form_for(@member, url: members_path, method: :patch) do |f| %> <!-- 各tbタグの1行目は普通にpタグでいいかも -->
-		<table width="550">
+	<% name = "#{@member.last_name}#{@member.first_name}" %>
+	<h1><%= name %>さんの会員情報編集</h1>
+
+	<%= form_for(@member, url: owner_member_path, method: :patch) do |f| %> <!-- 各tbタグの1行目は普通にpタグでいいかも -->
+		<table>
+
 			<tr>
 				<td class="owner_member_td"><%= f.label :id, "会員ID" %></td>
 				<td class="owner_member_td"><%= @member.id %></td>
@@ -20,8 +23,18 @@
 				<td class="owner_member_td"><%= f.text_field :postal_code %></td>
 			</tr>
 			<tr>
-				<td class="owner_member_td"><%= f.label :address, "住所" %></td>
-				<td class="owner_member_td"><%= f.text_field :address %></td>
+        
+				<td><%= f.label :prefecture_code, "県名" %></td>
+				<td><%= f.text_field :prefecture_code %></td>
+			</tr>
+			<tr>
+				<td><%= f.label :city, "市町村" %></td>
+				<td><%= f.text_field :city %></td>
+			</tr>
+			<tr>
+				<td><%= f.label :street, "番地・建物名" %></td>
+				<td><%= f.text_field :street %></td>
+
 			</tr>
 			<tr>
 				<td class="owner_member_td"><%= f.label :phone_number, "電話番号(ハイフンなし)" %></td>
@@ -32,10 +45,12 @@
 				<td class="owner_member_td"><%= f.email_field :email %></td>
 			</tr>
 			<tr>
+
 				<td class="owner_member_td"><%= f.label :member_status, "会員ステータス" %></td>
 				<td class="owner_member_td">
-					<%= f.radio_button :member_status, 0 %><%= f.label :member_status, :有効 %>
-					<%= f.radio_button :member_status, 1 %><%= f.label :member_status, :退会済み %>
+	
+					<%= f.radio_button :member_status, :有効 %><%= f.label :member_status, :有効 %>
+					<%= f.radio_button :member_status, :退会済 %><%= f.label :member_status, :退会済み %>
 				</td>
 			</tr>
 			<tr>
