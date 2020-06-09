@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_074138) do
     t.string "city"
     t.string "street"
     t.string "phone_number"
-    t.integer "member_status"
+    t.integer "member_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_members_on_email", unique: true
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_074138) do
     t.integer "product_id"
     t.integer "count"
     t.integer "price"
-    t.integer "production_status"
+    t.integer "production_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -75,12 +75,12 @@ ActiveRecord::Schema.define(version: 2020_06_06_074138) do
     t.integer "pay"
     t.integer "postage"
     t.integer "total_price"
-    t.string "postal_code"
+    t.integer "postal_code"
     t.string "prefecture_code"
     t.string "city"
     t.string "street"
     t.string "name"
-    t.integer "status"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

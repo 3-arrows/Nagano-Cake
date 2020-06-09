@@ -21,7 +21,8 @@
 			</tr>
 			<tr>
 				<td>住所</td>
-				<td><%= @member.address %></td>
+				<% full_address = "#{@member.prefecture_code}#{@member.city}#{@member.street}" %>
+				<td><%= full_address %></td>
 			</tr>
 			<tr>
 				<td>電話番号</td>
