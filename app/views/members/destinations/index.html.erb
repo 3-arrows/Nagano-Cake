@@ -35,7 +35,9 @@
 			<% @destinations.each do |destination| %>
 				<tr>
 					<td><%= destination.postal_code %></td>
-					<td><%= destination.address %></td>
+					<td><%= destination.prefecture_code %></td>
+					<td><%= destination.city %></td>
+					<td><%= destination.street %></td>
 					<td><%= destination.name %></td>
 					<td>
 						<%= link_to "編集する", edit_destination_path(destination), class: "btn destination_edit" %>

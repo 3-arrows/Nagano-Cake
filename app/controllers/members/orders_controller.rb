@@ -6,14 +6,15 @@ class Members::OrdersController < Members::BaseController
 	end
 
 	def create
-		@order = current_member.order.new(order_params)
+		@order = current_member.orders.new(order_params)
+		@member = current_member
 		if @order.save
-		   redirect_to orders_complete_path
+		   redirect_to order_complete_path
 		else
 		   render "new"
 		end
 		if params[:address] == 0
-		elsif paramas[]
+		elsif params[]
 		end
 		current_member.carts.each do |cart|
 			@ordered_product = @order.ordered_products.build
@@ -24,6 +25,9 @@ class Members::OrdersController < Members::BaseController
 			@ordered_product.save
 			cart.destroy
 		end
+		@registered_address = Destination.new(destination_params)
+		@registered_address.member_id = current_member.id
+		@registered_address.save
 	end
 
 	def index
@@ -37,9 +41,9 @@ class Members::OrdersController < Members::BaseController
 	def confirm
 		@order = current_member.orders.new(order_params)
 		@new = Order.new(order_params)
+		@order.postage = POSTAGE_PRICE
 
 		@products = current_member.carts
-		#@new.postal_code = current_member.postal_code
 		if params[:order][:address] == "0"
 		@new.postal_code = current_member.postal_code
 		@new.prefecture_code = current_member.prefecture_code
@@ -47,11 +51,12 @@ class Members::OrdersController < Members::BaseController
 		@new.street = current_member.street
 		@new.name = current_member.name
 		elsif params[:order][:address] == "1"
-		@new.postal_code = current_member.postal_code
-		@new.prefecture_code = current_member.prefecture_code
-		@new.city = current_member.city
-		@new.street = current_member.street
-		@new.name = current_member.name
+		@registered_address = Destination.find(params[:order][:destination])
+		@new.postal_code = @registered_address.postal_code
+		@new.prefecture_code = @registered_address.prefecture_code
+		@new.city = @registered_address.city
+		@new.street = @registered_address.street
+		@new.name = @registered_address.name
 		elsif params[:order][:address] == "2"
 		@new.postal_code = params[:order][:new_postal_code]
 		@new.prefecture_code = params[:order][:new_prefecture_code]
