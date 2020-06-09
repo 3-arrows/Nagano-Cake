@@ -1,7 +1,7 @@
 <div class="container">
 	<h1>登録情報編集</h1>
 
-	<%= form_for(@member, url: members_path, method: :patch) do |f| %>
+	<%= form_for(@member, url: member_path, method: :patch) do |f| %>
 		<table>
 			<tr>
 				<td>名前</td>
@@ -20,8 +20,16 @@
 				<td><%= f.text_field :postal_code %></td>
 			</tr>
 			<tr>
-				<td>住所</td>
-				<td><%= f.text_area :address %></td>
+				<td>県</td>
+				<td><%= f.text_area :prefecture_code %></td>
+			</tr>
+			<tr>
+				<td>市</td>
+				<td><%= f.text_area :city %></td>
+			</tr>
+			<tr>
+				<td>番地</td>
+				<td><%= f.text_area :street %></td>
 			</tr>
 			<tr>
 				<td>電話番号(ハイフンなし)</td>

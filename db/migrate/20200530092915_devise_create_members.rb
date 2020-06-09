@@ -41,7 +41,7 @@ class DeviseCreateMembers < ActiveRecord::Migration[5.2]
       t.string :city
       t.string :street
       t.string :phone_number
-      t.integer :member_status
+      t.integer :member_status, default: 0
       t.timestamps null: false
     end
 

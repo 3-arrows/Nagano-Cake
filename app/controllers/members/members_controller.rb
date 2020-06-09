@@ -11,7 +11,7 @@ class Members::MembersController < Members::BaseController
 	def update
 		@member = current_member
 		if @member.update(member_params)
-           redirect_to member_path(current_member), notice: "登録情報を変更しました"
+           redirect_to members_path, notice: "登録情報を変更しました"
         else
            render "edit"
         end
@@ -21,9 +21,10 @@ class Members::MembersController < Members::BaseController
 		@member = current_member
 	end
 
-	def destroy
+	def hoge
 		@member = current_member
-		@member.destroy
+		@member.update(member_status: 1)
+		reset_session
         redirect_to root_path, notice: "退会しました。またのご利用お待ちしております。"
 	end
 

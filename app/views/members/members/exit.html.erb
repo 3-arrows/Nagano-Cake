@@ -5,5 +5,5 @@
 	   退会する場合は、「退会する」をクリックしてください。</p>
 
 	<%= link_to "退会しない", members_path, class: "btn member_exit" %>
-	<%= link_to "退会する", members_path, class: "btn member_destroy",  method: :delete, "data-confirm" => "退会してよろしいですか？" %>
+	<%= link_to "退会する", member_hoge_path, class: "btn member_destroy",  method: :patch, "data-confirm" => "退会してよろしいですか？" %>
 </div>

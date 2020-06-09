@@ -10,7 +10,7 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.string :city
       t.string :street
       t.string :name
-      t.integer :status
+      t.integer :status, default: 0
 
       t.timestamps
     end
