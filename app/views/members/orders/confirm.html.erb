@@ -16,17 +16,21 @@
 						<tr>
 							<td><%= attachment_image_tag ordered_product.product, :image, size: "100x100", fallback: "no_image.jpg" %><%= ordered_product.product.name %>
 							</td>
-							<td><%= (ordered_product.product.price * 1.1) %></td>
+							<td><%= ((ordered_product.product.price * 1.1).floor) %></td>
 							<td><%= ordered_product.count %></td>
-							<td><%= (ordered_product.product.price * 1.1) * (ordered_product.count) %></td>
+							<td><%= ((ordered_product.product.price * 1.1).floor) * (ordered_product.count) %></td>
 						</tr>
 					<% end %>
 				</tbody>
 			</table>
-			<%= form_with(model: @order, url: orders_path) do |f| %>
+			<%= form_with(model: @order, local: true, url: orders_path, method: :post) do |f| %>
 				<h2>お支払い方法</h2>
 					<%= f.hidden_field :pay %>
-					<%= @order.pay %>
+					<% if @order.pay == 0 %>
+					<p>クレジットカード</p>
+					<% else %>
+					<p>銀行振込</p>
+					<%end%>
 				<h2>お届け先</h2>
 					<div>
 						<%= f.hidden_field :postal_code %> <!-- 郵便番号 -->
@@ -51,11 +55,11 @@
 				</tr>
 				<tr>
 					<td>商品合計</td>
-					<td><%=  %></td> <!-- 保留 -->
+					<td><%= current_member.cart_total_price %></td> <!-- 保留 -->
 				</tr>
 				<tr>
 					<td>請求金額</td>
-					<td><%= @order.total_price %></td>
+					<td><%= @order.postage + current_member.cart_total_price %></td>
 				</tr>
 			</table>
 		</div>

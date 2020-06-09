@@ -1,18 +1,30 @@
 <div class="container">
+    <div class="row">
+		<div class="col-xs-4 col-xs-offset-4">
 
-	<h1>配送先編集</h1>
+			<h1>配送先編集</h1>
 
-	<%= form_for(@destination) do |f| %>
-		<%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
-		<%= f.text_field :postal_code %>
+			<%= form_for(@destination, url: destination_path(@destination.id)) do |f| %> 
+				<%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
+				<%= f.text_field :postal_code %>
 
-		<%= f.label :address, "住所" %>
-		<%= f.text_area :address %>
+				<%= f.label :prefecture_code, "都道府県" %>
+				<%= f.text_area :prefecture_code %>
 
-		<%= f.label :name, "宛名" %>
-		<%= f.text_field :name %>
+				<%= f.label :city, "市区町村" %>
+				<%= f.text_area :city %>
 
-		<%= f.submit "更新", class: "btn destination_update" %>
+				<%= f.label :streert, "番号・番地・建物名" %>
+				<%= f.text_area :street %>
 
-	<% end %>
+				<%= f.label :name, "宛名" %>
+				<%= f.text_field :name %>
+	            <div class="row">
+	            	<div class="col-xs-4 col-xs-offset-4">
+						<%= f.submit "更新", class: "btn destination_update" %>
+					</div>
+	            </div>
+			<% end %>
+	    </div>
+    </div>
 </div>
