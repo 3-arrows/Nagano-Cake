@@ -1,5 +1,7 @@
 <div class="container">
+	<span class="page_header">ジャンル一覧・追加</span>
 	<p class="flash_message"><%= flash[:notice] %></p>
+
 	<%= form_with(model: @genre, local: true, url: owner_genres_path, method: :post) do |form| %>
 	    <div class="genre_new_area">
 	    	<div class="genre_new_list"><%= form.label :ジャンル %></div>
