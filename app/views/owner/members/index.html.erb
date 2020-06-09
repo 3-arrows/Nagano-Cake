@@ -1,33 +1,33 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12">
-			<h1>会員一覧</h1>
+			<table class="owner_table" width="800">
+				<span class="page_header">会員一覧</span>
+				<thead>
+					<tr class="table_header">
+						<th>会員ID</th>
+						<th>氏名</th>
+						<th>メールアドレス</th>
+						<th>ステータス</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @members.each do |member| %>
+						<tr class="table_data">
+							<td><%= member.id %></td>
+							<td><%= link_to member.name, owner_member_path(member.id) %></td>
+							<td><%= member.email %></td>
+							<td>
+								<% if member.member_status == 0 %>
+									<p>有効</p>
+								<% else %>
+									<p>退会済み</p>
+								<% end %>
+							</td> <!-- 要確認 -->
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
 		</div>
 	</div>
-	<table class="owner_table" width="800">
-		<thead>
-			<tr class="table_header">
-				<th>会員ID</th>
-				<th>氏名</th>
-				<th>メールアドレス</th>
-				<th>ステータス</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @members.each do |member| %>
-				<tr class="table_data">
-					<td><%= member.id %></td>
-					<td><%= link_to member.name, owner_member_path(member.id) %></td>
-					<td><%= member.email %></td>
-					<td>
-						<% if member.member_status == 0 %>
-							<p>有効</p>
-						<% else %>
-							<p>退会済み</p>
-						<% end %>
-					</td> <!-- 要確認 -->
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
 </div>

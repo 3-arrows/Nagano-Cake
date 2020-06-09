@@ -29,7 +29,7 @@ class Owner::ProductsController < Owner::BaseController
 	def update
 		@product = Product.find(params[:id])
 		@product.update(product_params)
-		redirect_to owner_product_path
+		redirect_to owner_product_path(@product)
 	end
 
 	private

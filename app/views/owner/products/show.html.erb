@@ -1,6 +1,7 @@
 <div class="container">
 	<div class="row">
-		<h1>商品詳細</h1>
+		<h3 class="owner_product_show_header">商品詳細</h3>
+		<p class="flash_message"><%= flash[:notice] %></p>
 
 		<div class="col-xs-5">
 
@@ -29,10 +30,10 @@
 					<th>販売ステータス</th>
 					<th><%= @product.sale_status %></th>
 				</tr>
+				<tr>
+					<th><%= link_to "編集する", edit_owner_product_path(@product), class: "btn-sm btn-success" %></th>
+				</tr>
 			</table>
 		</div>
-
-
-		<%= link_to "編集する", edit_owner_product_path(@product) %>
 	</div>
 </div>
