@@ -33,15 +33,13 @@
 					<%end%>
 				<h2>お届け先</h2>
 					<div>
-						<%= f.hidden_field :postal_code %> <!-- 郵便番号 -->
-						<%= @new.postal_code %>
-						<%= @new.prefecture_code %>
-						<%= @new.city %>
-						<%= @new.street %>
-						<%= f.hidden_field :address %> <!-- 住所 -->
+						<%= f.hidden_field :postal_code, :value => params[:order][:new_postal_code] %>
+						<%= f.hidden_field :prefecture_code, :value => params[:order][:new_prefecture_code] %>
+						<%= f.hidden_field :city, :value => params[:order][:new_city] %>
+						<%= f.hidden_field :street , :value => params[:order][:new_street] %>
 					</div>
 					<div>
-						<%= f.hidden_field :name %> <!-- 宛名 -->
+						<%= f.hidden_field :name %>
 						<%= @new.name %>
 					</div>
 				<%= f.submit "購入を確定する" %>
@@ -55,7 +53,7 @@
 				</tr>
 				<tr>
 					<td>商品合計</td>
-					<td><%= current_member.cart_total_price %></td> <!-- 保留 -->
+					<td><%= current_member.cart_total_price %></td>
 				</tr>
 				<tr>
 					<td>請求金額</td>

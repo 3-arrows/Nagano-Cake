@@ -8,11 +8,6 @@ class Members::OrdersController < Members::BaseController
 	def create
 		@order = current_member.orders.new(order_params)
 		@member = current_member
-		if @order.save
-		   redirect_to order_complete_path
-		else
-		   render "new"
-		end
 		if params[:address] == 0
 		elsif params[]
 		end
@@ -25,9 +20,15 @@ class Members::OrdersController < Members::BaseController
 			@ordered_product.save
 			cart.destroy
 		end
-		@registered_address = Destination.new(destination_params)
-		@registered_address.member_id = current_member.id
-		@registered_address.save
+		if @registered_address = Destination.new(destination_params)
+		   @registered_address.member_id = current_member.id
+		   @registered_address.save
+		end
+		if @order.save
+		   redirect_to order_complete_path
+		else
+		   render "new"
+		end
 	end
 
 	def index
@@ -73,5 +74,9 @@ class Members::OrdersController < Members::BaseController
 
 	def order_params
 		params.require(:order).permit(:member_id, :pay, :postage, :total_price, :postal_code, :prefecture_code, :city, :street, :name, :status)
+	end
+
+	def destination_params
+		params.permit(:member_id, :postal_code, :prefecture_code, :city, :street, :name)
 	end
 end
