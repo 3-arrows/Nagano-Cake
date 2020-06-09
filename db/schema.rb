@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_074138) do
     t.integer "pay"
     t.integer "postage"
     t.integer "total_price"
-    t.integer "postal_code"
+    t.string "postal_code"
     t.string "prefecture_code"
     t.string "city"
     t.string "street"
