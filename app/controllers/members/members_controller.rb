@@ -21,7 +21,7 @@ class Members::MembersController < Members::BaseController
 		@member = current_member
 	end
 
-	def hoge
+	def destroy
 		@member = current_member
 		@member.update(member_status: 1)
 		reset_session

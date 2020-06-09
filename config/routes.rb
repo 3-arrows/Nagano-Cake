@@ -21,7 +21,7 @@ Rails.application.routes.draw do
             get :exit
         end
         end
-        patch 'member/hoge', to: 'members#hoge'
+        patch 'member/destroy', to: 'members#destroy'
         get 'member/edit', to: 'members#edit'
         patch 'member', to: 'members#update'
 
