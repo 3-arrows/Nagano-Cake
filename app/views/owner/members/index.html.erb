@@ -11,18 +11,18 @@
 						<th>ステータス</th>
 					</tr>
 				</thead>
-				
-	
-		<tbody>
-			<% @members.each do |member| %>
-				<tr class="table_data">
-					<td><%= member.id %></td>
-					<% name = "#{member.last_name}#{member.first_name}" %>
-					<td><%= link_to name, owner_member_path(member.id) %></td>
-					<td><%= member.email %></td>
-					<td><%= member.member_status %></td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
+				<tbody>
+					<% @members.each do |member| %>
+						<tr class="table_data">
+							<td><%= member.id %></td>
+								<% name = "#{member.last_name}#{member.first_name}" %>
+							<td><%= link_to name, owner_member_path(member.id) %></td>
+							<td><%= member.email %></td>
+							<td><%= member.member_status %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>

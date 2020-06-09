@@ -27,7 +27,7 @@ main{margin-top: 80px;}
 // 管理側 共通
 
 .flash_message {
-	color: #21FF06;
+	color: #108080;
 }
 
 .page_header {
@@ -88,7 +88,7 @@ main{margin-top: 80px;}
 
 // 管理側 product_edit画面
 
-.owner_product_edit_th {
+.owner_product_edit_th, .owner_product_new_th {
 	padding-bottom: 15px;
 }
 
@@ -116,6 +116,7 @@ main{margin-top: 80px;}
 .btn-sm {
 	background-color: #0000FF;
 	border-radius: 5px;
+	margin-right: 10px;
 }
 
 // 管理側 genre_edit画面
@@ -135,7 +136,7 @@ main{margin-top: 80px;}
 	margin-left: 15px;
 	padding: 10px 15px;
 	border-radius: 10px;
-	color: #fff;
+	color: #FFF;
 	background-color: #6CF;
 }
 

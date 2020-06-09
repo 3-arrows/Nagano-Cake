@@ -15,7 +15,7 @@ class Member < ApplicationRecord
 
 	enum member_status: {有効: 0, 退会済: 1}
 
-	def cart_total_price(carts)
+	def cart_total_price
         total = 0
         carts.each do |cart|
             total += cart.product.price * cart.count

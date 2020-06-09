@@ -1,12 +1,17 @@
 <div class="container">
 	<p class="flash_message"><%= flash[:notice] %></p>
-	<span class="page_header"><%= @member.first_name %>さんの会員詳細</span>
+	<span class="page_header"><%= @member.last_name %><%= @member.first_name %>さんの会員詳細</span>
 
 	<table width="500">
 		<tr>
 			<td class="owner_member_td">顧客ID</td>
 			<td class="owner_member_td">
-				<%= @member.member_status %>
+				<%= @member.id %>
+				<% if @member.member_status == "有効" %>
+					<span class="member_status_0">有効会員</span>
+				<% else %>
+					<span class="member_status_1">退会済み</span>
+				<% end %>
 			</td>
 		</tr>
 		<tr>
@@ -23,7 +28,11 @@
 		</tr>
 		<tr>
 			<td class="owner_member_td">住所</td>
-			<td class="owner_member_td"><%= @member.address %></td>
+			<td class="owner_member_td">
+				<%= @member.prefecture_code %>
+				<%= @member.city %>
+				<%= @member.street %>
+			</td>
 		</tr>
 		<tr>
 			<td class="owner_member_td">電話番号</td>
