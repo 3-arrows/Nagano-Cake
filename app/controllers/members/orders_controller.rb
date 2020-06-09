@@ -43,27 +43,26 @@ class Members::OrdersController < Members::BaseController
 		@order = current_member.orders.new(order_params)
 		@new = Order.new(order_params)
 		@order.postage = POSTAGE_PRICE
-
 		@products = current_member.carts
 		if params[:order][:address] == "0"
-		@new.postal_code = current_member.postal_code
-		@new.prefecture_code = current_member.prefecture_code
-		@new.city = current_member.city
-		@new.street = current_member.street
-		@new.name = current_member.name
+		   @new.postal_code = current_member.postal_code
+		   @new.prefecture_code = current_member.prefecture_code
+		   @new.city = current_member.city
+		   @new.street = current_member.street
+		   @new.name = current_member.last_name + current_member.first_name
 		elsif params[:order][:address] == "1"
-		@registered_address = Destination.find(params[:order][:destination])
-		@new.postal_code = @registered_address.postal_code
-		@new.prefecture_code = @registered_address.prefecture_code
-		@new.city = @registered_address.city
-		@new.street = @registered_address.street
-		@new.name = @registered_address.name
+		   @registered_address = Destination.find(params[:order][:destination])
+		   @new.postal_code = @registered_address.postal_code
+		   @new.prefecture_code = @registered_address.prefecture_code
+		   @new.city = @registered_address.city
+		   @new.street = @registered_address.street
+		   @new.name = @registered_address.name
 		elsif params[:order][:address] == "2"
-		@new.postal_code = params[:order][:new_postal_code]
-		@new.prefecture_code = params[:order][:new_prefecture_code]
-		@new.city = params[:order][:new_city]
-		@new.street = params[:order][:new_street]
-		@new.name = params[:order][:new_name]
+		   @new.postal_code = params[:order][:new_postal_code]
+		   @new.prefecture_code = params[:order][:new_prefecture_code]
+		   @new.city = params[:order][:new_city]
+		   @new.street = params[:order][:new_street]
+		   @new.name = params[:order][:new_name]
 		end
 	end
 

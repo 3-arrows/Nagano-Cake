@@ -13,16 +13,16 @@
 	<h3>お届け先</h3>
 	<!-- ご自身の住所 -->
 	<%= form.radio_button :address, 0 %>
-	<p><%= label_tag "ご自身の住所" %></p>
+		<p><%= label_tag "ご自身の住所" %></p>
 		<p><%= current_member.postal_code %></p>
-		<p><%= current_member.name %></p>
+		<p><%= current_member.last_name %><%= current_member.first_name %></p>
 	<!-- 登録済住所から選択 -->
 	<%= form.radio_button :address, 1 %>
-	<p><%= label_tag "登録済住所から選択" %></p>
-	<%= form.select :destination, create_selection_method(current_member.destinations) %>
+		<p><%= label_tag "登録済住所から選択" %></p>
+		<%= form.select :destination, create_selection_method(current_member.destinations) %>
 	<!-- 新しいお届け先 -->
 	<%= form.radio_button :address, 2 %>
-	<p><%= label_tag "新しいお届け先" %></p>
+		<p><%= label_tag "新しいお届け先" %></p>
 		<p>郵便番号(ハイフンなし)
 			<%= form.text_field :new_postal_code %></p>
 		<p>住所</p>

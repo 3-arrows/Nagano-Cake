@@ -1,5 +1,5 @@
 <div class="container">
-	<h3 class="owner_product_show_header">商品編集</h3>
+	<span class="page_header owner_product_index_header">商品編集</span>
 
 	<%= form_with(model: @product, local: true, url: owner_product_path(@product), method: :patch) do |form| %>
 		<div class="row">
@@ -23,7 +23,7 @@
 							<%= form_for @product do |f| %>
 				          		<%= form.collection_select :genre_id, Genre.all, :id, :name %>
 					    <% end %>
-					  </th> <!-- 要確認 -->
+					  </th>
 					</tr>
 					<tr>
 						<th class="owner_product_edit_th">税抜価格</th>
