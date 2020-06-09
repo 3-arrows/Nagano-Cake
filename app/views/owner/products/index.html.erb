@@ -1,11 +1,11 @@
 <div class="container">
 
-    <h1><strong>商品一覧画面</strong></h1>
-    <%= link_to "商品新規登録", new_owner_product_path %>
+    <h1 class="owner_product_index_header">商品一覧</h1>
+    <%= link_to "＋", new_owner_product_path, class: "btn btn-default" %>
 
-    <table class="table">
+    <table class="owner_table" width="1000">
         <thead>
-            <tr>
+            <tr class="table_header">
                 <th>商品ID</th>
                 <th>商品名</th>
                 <th>税抜価格</th>
@@ -15,7 +15,7 @@
         </thead>
         <tbody>
             <% @products.each do |product| %>
-                <tr>
+                <tr class="table_data">
                     <td><%= product.id %></td>
                     <td><%= link_to product.name, owner_product_path(product) %></td>
                     <td><%= product.price %></td>
@@ -25,3 +25,4 @@
             <% end %>
         </tbody>
     </table>
+</div>

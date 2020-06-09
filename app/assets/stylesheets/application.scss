@@ -18,3 +18,72 @@
 
 main{margin-top: 80px;}
 
+.clearfix ::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+// 管理側 table共通
+
+.owner_table {
+	margin: 0 auto;
+}
+
+.table_header {
+	background-color: #eee;
+	line-height: 35px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+.table_data {
+	line-height: 40px;
+	border-bottom: 1px solid #ccc;
+}
+
+// 管理側 product_index画面
+
+.owner_product_index_header {
+	position: relative;
+}
+
+.btn-default {
+	border-radius: 50px;
+	position: absolute;
+	top: 110px;
+	right: 250px;
+}
+
+// 管理側 product_show画面
+
+.owner_product_show {
+	line-height: 35px;
+}
+
+// 管理側 genre_edit画面
+
+.genre_new_area {
+	display: flex;
+	margin-bottom: 50px;
+}
+
+.genre_new_list {
+	float: left;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.genre_new_submit {
+	margin-left: 15px;
+	padding: 10px 15px;
+	border-radius: 10px;
+	color: #fff;
+	background-color: #66CCFF;
+}
+
+// 顧客側 top画面
+
+.recommended_products {
+	display: flex;
+}

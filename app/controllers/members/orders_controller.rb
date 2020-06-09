@@ -36,7 +36,29 @@ class Members::OrdersController < Members::BaseController
 
 	def confirm
 		@order = current_member.orders.new(order_params)
-		@ordered_products = current_member.ordered_product.all
+		@new = Order.new(order_params)
+
+		@products = current_member.carts
+		#@new.postal_code = current_member.postal_code
+		if params[:order][:address] == "0"
+		@new.postal_code = current_member.postal_code
+		@new.prefecture_code = current_member.prefecture_code
+		@new.city = current_member.city
+		@new.street = current_member.street
+		@new.name = current_member.name
+		elsif params[:order][:address] == "1"
+		@new.postal_code = current_member.postal_code
+		@new.prefecture_code = current_member.prefecture_code
+		@new.city = current_member.city
+		@new.street = current_member.street
+		@new.name = current_member.name
+		elsif params[:order][:address] == "2"
+		@new.postal_code = params[:order][:new_postal_code]
+		@new.prefecture_code = params[:order][:new_prefecture_code]
+		@new.city = params[:order][:new_city]
+		@new.street = params[:order][:new_street]
+		@new.name = params[:order][:new_name]
+		end
 	end
 
 	def complete

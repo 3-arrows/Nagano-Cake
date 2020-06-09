@@ -3,7 +3,7 @@
 	<h1>注文情報入力</h1>
 
 	<h3>お支払い方法</h3>
-	<%= form_with(model: @order, local: true, url: order_confirm_path, method: :get) do |form| %>
+	<%= form_with(model: @order, url: order_confirm_path, method: :post,local: true) do |form| %>
 		<%= form.radio_button :pay, 0 %>
 		<%= form.label :pay, :クレジットカード %>
 		<br>
@@ -14,7 +14,7 @@
 	<!-- ご自身の住所 -->
 	<%= form.radio_button :address, 0 %>
 	<p><%= label_tag "ご自身の住所" %></p>
-		<p><%= current_member.address %></p>
+		<p><%= current_member.postal_code %></p>
 		<p><%= current_member.name %></p>
 	<!-- 登録済住所から選択 -->
 	<%= form.radio_button :address, 1 %>
@@ -24,11 +24,13 @@
 	<%= form.radio_button :address, 2 %>
 	<p><%= label_tag "新しいお届け先" %></p>
 		<p>郵便番号(ハイフンなし)
-			<%= text_field_tag :postal_code %></p>
-		<p>住所
-			<%= text_field_tag :address %></p>
+			<%= form.text_field :new_postal_code %></p>
+		<p>住所</p>
+		    <%= form.text_field :new_prefecture_code %>
+		    <%= form.text_field :new_city %>
+		    <%= form.text_field :new_street %>
 		<p>宛名
-			<%= text_field_tag :name %></p>
+			<%= form.text_field :new_name %></p>
 	<%= form.submit "確認画面へ進む" %>
 	<% end %>
 </div>
