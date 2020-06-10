@@ -24,6 +24,12 @@ main{margin-top: 80px;}
 	clear: both;
 }
 
+// 共通
+
+.flash_message {
+	color: #108080;
+}
+
 // ヘッダー
 
 .header_logo {
@@ -43,10 +49,6 @@ main{margin-top: 80px;}
 }
 
 // 管理側 共通
-
-.flash_message {
-	color: #108080;
-}
 
 .page_header {
 	display: inline-block;
@@ -175,4 +177,59 @@ main{margin-top: 80px;}
 	width: 25%;
 	background-color: #eee;
 	line-height: 35px;
+}
+
+// 顧客側 member_edit画面
+
+.sub_td {
+	text-align: center;
+	line-height: 10px;
+}
+
+.btn_exit {
+	margin-left: 15px;
+	padding: 10px 15px;
+	border-radius: 10px;
+	color: #000;
+	background-color: #FC0107;
+}
+
+// 顧客側 パスワード変更画面
+
+.field {
+	margin-bottom: 10px;
+}
+
+.back_btn {
+	display: inline-block;
+	margin-top: 10px;
+}
+
+// 顧客側 product_show画面
+
+.product_name {
+	font-size: 30px;
+	padding: 8px;
+	border-radius: 50%;
+	background-color: #E3E265;
+}
+
+.product_information {
+	margin-top: 15px;
+}
+
+.product_price {
+	margin-top: 60px;
+}
+
+.product_tax {
+	font-size: 20px;
+	font-weight: normal;
+}
+
+.cart_product {
+	margin-left: 50px;
+	border-radius: 5px;
+	padding: 8px;
+	background-color: #66CCFF;
 }
