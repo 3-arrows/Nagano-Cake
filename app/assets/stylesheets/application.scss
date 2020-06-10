@@ -231,7 +231,76 @@ main{margin-top: 80px;}
 	margin-left: 50px;
 	border-radius: 5px;
 	padding: 8px;
-	background-color: #66CCFF;
+	background-color: #6CF;
+}
+
+// 顧客側 cart_index画面
+
+.cart_destroy_all {
+	color: #fff;
+	background-color: #FC0107;
+	padding: 5px;
+	border-radius: 5px;
+	float: right;
+}
+
+.cart_destroy {
+	color: #fff;
+	background-color: #FC0107;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.count_up_down {
+	margin-left: 15px;
+	background-color: #6CF;
+}
+
+.cart_tr {
+	background-color: #eee;
+}
+
+.cart_td {
+	width: 15%;
+}
+
+.cart_td_count {
+	text-align: center;
+	width: 15%;
+}
+
+.cart_td_destroy {
+	text-align: center;
+	width: 12%;
+}
+
+.cart_btn {
+	padding: 10px;
+}
+
+.cart_total_price_table {
+	float: right;
+}
+
+.total_price {
+	padding-left: 5px;
+	width: 50%;
+	line-height: 60px;
+	background-color: #eee;
+}
+
+.cart_total_price {
+	padding-left: 5px;
+}
+
+.cart_next_btn {
+	font-size: 18px;
+	display: block;
+	width: 20%;
+	margin: 80px auto;
+	padding: 10px;
+	text-align: center;
+	background-color: #5cb85c;
 }
 
 // 顧客側 destination_index画面
@@ -263,4 +332,19 @@ main{margin-top: 80px;}
 
 .member_destination_update {
 	width: 60%;
+}
+
+// 顧客側 order_index画面
+
+.member_order_th {
+	font-size: 15px;
+	width: 12%;
+}
+
+.member_order_th_wide {
+	font-size: 15px;
+}
+
+.member_order_td_link {
+	text-align: center;
 }
