@@ -11,6 +11,7 @@ class Members::ProductsController < Members::BaseController
 	def show
 	    @product = Product.find(params[:id])
 	    @cart = Cart.new
+	    @genres = Genre.where(effective_status: true)
 	end
 
 end

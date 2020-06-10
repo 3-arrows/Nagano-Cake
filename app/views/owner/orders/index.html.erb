@@ -1,15 +1,15 @@
 <div class="container">
 
-    <h3><strong>注文一覧画面</strong></h3>
+    <span class="page_header owner_product_index_header">注文履歴一覧</span>
     <table class="table table-default">
-        <tr>
+        <tr class="table_header">
             <td>購入日時</td>
             <td>購入者</td>
             <td>注文個数</td>
             <td>注文ステータス</td>
         </tr>
-        <% @orders, @ordered_products.each do |order, ordered_product| %>
-            <tr>
+        <% @orders.each do |order| %>
+            <tr class="table_data">
                 <td>
                     <%= link_to owner_order_path(order) do %>
                         <%= order.created_at. strftime('%Y/%m/%d/%R') %>
