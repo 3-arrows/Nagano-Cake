@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Members::SessionsController < Devise::SessionsController
+    layout 'member'
     before_action :reject_member, only: [:create]
     # before_action :configure_sign_in_params, only: [:create]
 
