@@ -1,6 +1,7 @@
  #frozen_string_literal: true
 
 class Owner::Devise::SessionsController < Devise::SessionsController
+   layout 'owner'
    before_action :configure_sign_in_params, only: [:create]
 
    #GET /resource/sign_in

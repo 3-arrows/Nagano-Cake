@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Members::SessionsController < Devise::SessionsController
+    layout 'member'
     before_action :reject_member, only: [:create]
     # before_action :configure_sign_in_params, only: [:create]
 
@@ -26,7 +27,7 @@ class Members::SessionsController < Devise::SessionsController
     #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
     # end
 
-    def reject_member
+    def reject_member #ログインする時に退会済みのユーザーを弾くため
         @member = Member.find_by(email: params[:member][:email].downcase)
         if @member
             if (@member.valid_password?(params[:member][:password]) && (@member.active_for_authentication? == false))
