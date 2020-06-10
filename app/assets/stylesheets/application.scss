@@ -24,6 +24,14 @@ main{margin-top: 80px;}
 	clear: both;
 }
 
+// ヘッダー
+
+.header_logo {
+	font-family:  'Caveat', cursive;
+	color: #20FFFF;
+	font-size: 30px;
+}
+
 // 管理側 共通
 
 .flash_message {
@@ -136,7 +144,7 @@ main{margin-top: 80px;}
 	margin-left: 15px;
 	padding: 10px 15px;
 	border-radius: 10px;
-	color: #FFF;
+	color: #fff;
 	background-color: #6CF;
 }
 
