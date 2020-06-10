@@ -13,20 +13,18 @@
         <header class="navbar navbar-fixed-top navbar-inverse">
             <div class="container">
                 <nav class='nav navbar-nav navbar-left' >
-                    <span>Nagano-Cake</span>
+                    <span class="header_logo"><%= link_to "Nagano-Cake", owner_home_top_path %></span>
                 </nav>
                 <nav>
                     <ul class="nav navbar-nav navbar-right">
                         <% if owner_signed_in? %>
-                            <li><%= link_to ' 商品一覧', owner_products_path %></li>
-                            <li><%= link_to ' 会員一覧', owner_members_path %></li>
-                            <li><%= link_to ' 注文履歴一覧', owner_orders_path %></li>
-                            <li><%= link_to ' ジャンル一覧', owner_genres_path %></li>
-                            <li><%= link_to ' ログアウト', destroy_owner_session_path, method: :delete %></li>
+                            <li><%= link_to '商品一覧', owner_products_path %></li>
+                            <li><%= link_to '会員一覧', owner_members_path %></li>
+                            <li><%= link_to '注文履歴一覧', owner_orders_path %></li>
+                            <li><%= link_to 'ジャンル一覧', owner_genres_path %></li>
+                            <li><%= link_to 'ログアウト', destroy_owner_session_path, method: :delete %></li>
                         <% else %>
-                            <li><%= link_to ' 商品一覧', owner_products_path %></li>
-                            <li><%= link_to ' 新規登録', new_owner_product_path %></li>
-                            <li><%= link_to ' ログイン', new_owner_session_path %></li>
+                            <li><%= link_to 'ログイン', new_owner_session_path %></li>
                         <% end %>
                     </ul>
                 </nav>
