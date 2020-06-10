@@ -14,7 +14,7 @@
     		<% @genres.each do |genre| %>
     			<ul>
     				<li class="genre_list">
-    					<%= link_to genre.name, products_path(genre: genre.id) %> <!-- そのジャンルの商品へ飛ぶ。path確認。 -->
+    					<%= link_to genre.name, products_path(genre: genre.id) %> <!-- そのジャンルの商品へ飛ぶ。 -->
     				</li>
     			</ul>
     		<% end %>
