@@ -7,9 +7,15 @@ class Members::OrdersController < Members::BaseController
 
 	def create
 		@order = current_member.orders.new(order_params)
-		@member = current_member
-		if params[:address] == 0
-		elsif params[]
+		if @order.save
+		if params[:order][:address] == "2"
+			@destination = Destination.create!(
+				member_id: current_member.id,
+				postal_code: @order.postal_code,
+				prefecture_code: @order.prefecture_code,
+				city: @order.city,
+                street: @order.street
+			)
 		end
 		current_member.carts.each do |cart|
 			@ordered_product = @order.ordered_products.build
@@ -20,11 +26,6 @@ class Members::OrdersController < Members::BaseController
 			@ordered_product.save
 			cart.destroy
 		end
-		if @registered_address = Destination.new(destination_params)
-		   @registered_address.member_id = current_member.id
-		   @registered_address.save
-		end
-		if @order.save
 		   redirect_to order_complete_path
 		else
 		   render "new"

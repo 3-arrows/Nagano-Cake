@@ -2,10 +2,12 @@ class Owner::OrdersController < Owner::BaseController
 	before_action :authenticate_owner!
 	def index
 		@orders = Order.all
+		@ordered_products = @orders.ordered_products.all
 	end
 
 	def show
 		@order = Order.find(params[:id])
+		@ordered_product = @order.ordered_product
 	end
 
 	def update

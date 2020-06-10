@@ -8,14 +8,14 @@
             <td>注文個数</td>
             <td>注文ステータス</td>
         </tr>
-        <% @orders.each do |order| %>
+        <% @orders, @ordered_products.each do |order, ordered_product| %>
             <tr>
                 <td>
                     <%= link_to owner_order_path(order) do %>
                         <%= order.created_at. strftime('%Y/%m/%d/%R') %>
                     <% end %>
                 </td>
-                <td><%= orders.member.first_name << order.member.last_name %></td>
+                <td><%= orders.member.first_name %><%= order.member.last_name %></td>
                 <td><%= ordered_products.count %></td>
                 <td><%= orders.status %></td>
             </tr>
