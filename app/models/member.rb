@@ -15,7 +15,7 @@ class Member < ApplicationRecord
 
 	enum member_status: {有効: 0, 退会済: 1}
 
-	def cart_total_price
+	def cart_total_price #カート内商品の合計金額を計算する
         total = 0
         carts.each do |cart|
             total += cart.product.price * cart.count
@@ -23,7 +23,7 @@ class Member < ApplicationRecord
         (total * 1.1 ).floor
     end
 
-    def active_for_authentication?
+    def active_for_authentication? #ログインする時に退会済みのユーザーを弾くためのメソッド
     	super && (self.member_status == '有効')
     end
 end
