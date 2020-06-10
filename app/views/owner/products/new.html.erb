@@ -18,11 +18,7 @@
                     </tr>
                     <tr>
                         <th class="owner_product_new_th">ジャンル</th>
-                        <th class="owner_product_new_th">
-                            <%= form_for @product do |f| %>
-                                <%= f.collection_select :genre_id, Genre.all, :id, :name %>
-                        <% end %>
-                      </th>
+                        <th class="owner_product_new_th"><%= f.collection_select :genre_id, Genre.all, :id, :name %></th>
                     </tr>
                     <tr>
                         <th class="owner_product_new_th">税抜価格</th>
@@ -30,11 +26,7 @@
                     </tr>
                     <tr>
                         <th class="owner_product_new_th">販売ステータス</th>
-                        <th class="owner_product_new_th">
-                            <%= form_for @product do |f| %>
-                                <%= f.select :sale_status, Product.sale_statuses.keys, {include_blank: '選択してください'} %>
-                            <% end %>
-                        </th>
+                        <th class="owner_product_new_th"><%= f.select :sale_status, Product.sale_statuses.keys, {include_blank: '選択してください'} %></th>
                     </tr>
                     <tr>
                         <th></th>
