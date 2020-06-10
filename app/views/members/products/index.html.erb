@@ -21,9 +21,9 @@
 		</div>
 		<div class="col-xs-9">
 			<% if params[:genre].nil? %>
-			    <h4>商品一覧</h4>
+			    <span class="page_header">商品一覧</span>
 			<% else %>
-			    <h4><%= Genre.find(params[:genre]).name %>一覧</h4>
+			    <span class="page_header"><%= Genre.find(params[:genre]).name %>一覧</span>
 			<% end %>
 			<table class="table table-striped">
 				<thead>
