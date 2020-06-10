@@ -32,6 +32,16 @@ main{margin-top: 80px;}
 	font-size: 30px;
 }
 
+.youkoso {
+	line-height: 50px;
+	color: #ccc;
+	margin-right: 20px;
+}
+
+.member_name {
+	color: #108080;
+}
+
 // 管理側 共通
 
 .flash_message {
@@ -152,4 +162,17 @@ main{margin-top: 80px;}
 
 .recommended_products {
 	display: flex;
+}
+
+// 顧客側 マイページ画面
+
+.my_page_h3 {
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+.my_page_td {
+	width: 25%;
+	background-color: #eee;
+	line-height: 35px;
 }
