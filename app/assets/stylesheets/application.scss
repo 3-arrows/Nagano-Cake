@@ -233,3 +233,34 @@ main{margin-top: 80px;}
 	padding: 8px;
 	background-color: #66CCFF;
 }
+
+// 顧客側 destination_index画面
+
+.member_distination_table {
+	margin-top: 50px;
+}
+
+.member_distination_th {
+	font-size: 15px;
+	background-color: #eee;
+	width: 10%;
+	line-height: 40px;
+}
+
+.destination_edit_delete_btn {
+	line-height: 40px;
+	text-align: center;
+}
+
+.destination_delete {
+	padding: 5px;
+	border-radius: 5px;
+	color: #000;
+	background-color: #FC0107;
+}
+
+// 顧客側 destination_edit画面
+
+.member_destination_update {
+	width: 60%;
+}

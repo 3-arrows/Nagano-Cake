@@ -1,30 +1,33 @@
 <div class="container">
-    <div class="row">
-		<div class="col-xs-4 col-xs-offset-4">
 
-			<h1>配送先編集</h1>
+	<span class="page_header">配送先編集</span>
 
-			<%= form_for(@destination, url: destination_path(@destination.id)) do |f| %> 
-				<%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
-				<%= f.text_field :postal_code %>
-
-				<%= f.label :prefecture_code, "都道府県" %>
-				<%= f.text_area :prefecture_code %>
-
-				<%= f.label :city, "市区町村" %>
-				<%= f.text_area :city %>
-
-				<%= f.label :streert, "番号・番地・建物名" %>
-				<%= f.text_area :street %>
-
-				<%= f.label :name, "宛名" %>
-				<%= f.text_field :name %>
-	            <div class="row">
-	            	<div class="col-xs-4 col-xs-offset-4">
-						<%= f.submit "更新", class: "btn destination_update" %>
-					</div>
-	            </div>
-			<% end %>
-	    </div>
-    </div>
+	<%= form_for(@destination, url: destination_path(@destination.id)) do |f| %>
+		<table width="500">
+			<tr>
+				<td class="owner_member_td"><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></td>
+				<td class="owner_member_td"><%= f.text_field :postal_code %></td>
+			</tr>
+			<tr>
+				<td class="owner_member_td"><%= f.label :prefecture_code, "都道府県" %></td>
+				<td class="owner_member_td"><%= f.text_field :prefecture_code %></td>
+			</tr>
+			<tr>
+				<td class="owner_member_td"><%= f.label :city, "市区町村" %></td>
+				<td class="owner_member_td"><%= f.text_field :city %></td>
+			</tr>
+			<tr>
+				<td class="owner_member_td"><%= f.label :streert, "番号・番地・建物名" %></td>
+				<td class="owner_member_td"><%= f.text_area :street %></td>
+			</tr>
+			<tr>
+				<td class="owner_member_td"><%= f.label :name, "宛名" %></td>
+				<td class="owner_member_td"><%= f.text_field :name %></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><%= f.submit "更新する", class: "member_destination_update btn-sm btn-success" %></td>
+			</tr>
+		</table>
+	<% end %>
 </div>
