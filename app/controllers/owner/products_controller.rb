@@ -1,4 +1,5 @@
 class Owner::ProductsController < Owner::BaseController
+	before_action :authenticate_owner!
 	def index
 		@products = Product.all
 	end
@@ -8,14 +9,14 @@ class Owner::ProductsController < Owner::BaseController
 	end
 
 	def create
-		  @product = Product.new(product_params)
-		  if @product.sale_status.nil?
-		     @product = Product.new
-			 render :new
-		  else
-			   @product.save
-		       redirect_to owner_product_path(@product)
-		  end
+		@product = Product.new(product_params)
+		if @product.sale_status.nil?
+		   @product = Product.new
+		   render :new
+		else
+		   @product.save
+		   redirect_to owner_product_path(@product)
+		end
 	end
 
 	def show
@@ -29,7 +30,7 @@ class Owner::ProductsController < Owner::BaseController
 	def update
 		@product = Product.find(params[:id])
 		@product.update(product_params)
-		redirect_to owner_product_path
+		redirect_to owner_product_path(@product)
 	end
 
 	private

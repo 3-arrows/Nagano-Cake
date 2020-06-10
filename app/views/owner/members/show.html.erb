@@ -1,40 +1,49 @@
-<p><%= flash[:notice] %></p>
-<h1><%= @member.last_name %><%= @member.first_name %>さんの会員詳細</h1>
+<div class="container">
+	<p class="flash_message"><%= flash[:notice] %></p>
+	<span class="page_header"><%= @member.last_name %><%= @member.first_name %>さんの会員詳細</span>
 
-<table width="500">
-	<tr>
-		<td>顧客ID</td>
-		<td>
-			<%= @member.id %>
-			<%= @member.member_status %>
-		</td>
-	</tr>
-	<tr>
-		<td>氏名</td>
-		<td><%= @member.last_name %>　<%= @member.first_name %></td>
-	</tr>
-	<tr>
-		<td>フリガナ</td>
-		<td><%= @member.last_name_kana %>　<%= @member.first_name_kana %></td>
-	</tr>
-	<tr>
-		<td>郵便番号</td>
-		<td><%= @member.postal_code %></td>
-	</tr>
-	<tr>
-		<td>住所</td>
-		<% full_address = "#{@member.prefecture_code}#{@member.city}#{@member.street}" %>
-		<td><%= full_address %></td>
-	</tr>
-	<tr>
-		<td>電話番号</td>
-		<td><%= @member.phone_number %></td>
-	</tr>
-	<tr>
-		<td>メールアドレス</td>
-		<td><%= @member.email %></td>
-	</tr>
-</table>
+	<table width="500">
+		<tr>
+			<td class="owner_member_td">顧客ID</td>
+			<td class="owner_member_td">
+				<%= @member.id %>
+				<% if @member.member_status == "有効" %>
+					<span class="member_status_0">有効会員</span>
+				<% else %>
+					<span class="member_status_1">退会済み</span>
+				<% end %>
+			</td>
+		</tr>
+		<tr>
+			<td class="owner_member_td">氏名</td>
+			<td class="owner_member_td"><%= @member.last_name %>　<%= @member.first_name %></td>
+		</tr>
+		<tr>
+			<td class="owner_member_td">フリガナ</td>
+			<td class="owner_member_td"><%= @member.last_name_kana %>　<%= @member.first_name_kana %></td>
+		</tr>
+		<tr>
+			<td class="owner_member_td">郵便番号</td>
+			<td class="owner_member_td"><%= @member.postal_code %></td>
+		</tr>
+		<tr>
+			<td class="owner_member_td">住所</td>
+			<td class="owner_member_td">
+				<%= @member.prefecture_code %>
+				<%= @member.city %>
+				<%= @member.street %>
+			</td>
+		</tr>
+		<tr>
+			<td class="owner_member_td">電話番号</td>
+			<td class="owner_member_td"><%= @member.phone_number %></td>
+		</tr>
+		<tr>
+			<td class="owner_member_td">メールアドレス</td>
+			<td class="owner_member_td"><%= @member.email %></td>
+		</tr>
+	</table>
 
-<%= link_to "編集する", edit_owner_member_path(@member), class: "btn owner_members_edit" %>
-<%= link_to "注文履歴一覧を見る", owner_orders_path, class: "btn owner_orders_index" %>
+	<%= link_to "編集する", edit_owner_member_path(@member), class: "btn owner_members_edit btn-sm btn-success" %>
+	<%= link_to "注文履歴一覧を見る", owner_orders_path, class: "btn owner_orders_index btn-sm btn-success" %>
+</div>

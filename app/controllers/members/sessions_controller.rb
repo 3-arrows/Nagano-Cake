@@ -37,5 +37,4 @@ class Members::SessionsController < Devise::SessionsController
             flash[:notice] = "必須項目を入力してください。"
         end
     end
-
 end

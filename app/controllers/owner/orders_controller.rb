@@ -1,4 +1,5 @@
 class Owner::OrdersController < Owner::BaseController
+	before_action :authenticate_owner!
 	def index
 		@products = Product.all
 	end

@@ -1,20 +1,17 @@
-<div class="cantainer">
+<div class="container">
 
-    <h1>ジャンル編集</h1>　<%= flash[:notice] %>
+    <span class="page_header">ジャンル編集</span>
+    <p class="flash_message"><%= flash[:notice] %></p>
 
     <%= form_with(model: @genre, local: true, url: owner_genre_path(@genre), method: :patch) do |form| %>
-        <%= form.label :ジャンル %>
-        <%= form.text_field :name %>
-        <div class="effective_status">
-            <div>
-      	        <%= form.radio_button :effective_status, true %>
-      	        <%= form.label :effective_status, '有効', value: true %>
-            </div>
-            <div>
-          	    <%= form.radio_button :effective_status, false %>
-          	    <%= form.label :effective_status, '無効', value: false %>
-            </div>
+        <div class="genre_new_area">
+            <div class="genre_new_list"><%= form.label :ジャンル %></div>
+            <div class="genre_new_list"><%= form.text_field :name %></div>
+            <div class="genre_new_list"><%= form.radio_button :effective_status, true %></div>
+            <div class="genre_new_list"><%= form.label :effective_status, :有効 %></div>
+            <div class="genre_new_list"><%= form.radio_button :effective_status, false %></div>
+            <div class="genre_new_list"><%= form.label :effective_status, :無効 %></div>
+            <%= form.submit '変更を保存する', class: 'btn genre_update' %>
         </div>
-        <%= form.submit '変更を保存する', class: 'btn genre_update' %>
     <% end %>
 </div>

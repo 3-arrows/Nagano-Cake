@@ -1,38 +1,49 @@
-<h1>商品編集</h1>
+<div class="container">
+	<span class="page_header owner_product_index_header">商品編集</span>
 
-<%= form_with(model: @product, local: true, url: owner_product_path(@product), method: :patch) do |form| %>
-	<%= form.attachment_field :image %>
-	<table>
-		<tr>
-			<th>商品名</th>
-			<th><%= form.text_field :name %></th>
-		</tr>
-		<tr>
-			<th>商品説明</th>
-			<th><%= form.text_area :information %></th>
-		</tr>
-		<tr>
-			<th>ジャンル</th>
-			<th>
-				<%= form_for @product do |f| %>
-	          		<%= form.collection_select :genre_id, Genre.all, :id, :name %>
-		    <% end %>
-		  </th> <!-- 要確認 -->
-		</tr>
-		<tr>
-			<th>税抜価格</th>
-			<th><%= form.text_field :price %></th>
-		</tr>
-		<tr>
-			<th>販売ステータス</th>
-			<th>
-				<%= form_for @product do |f| %>
-        			<%= form.select :sale_status, Product.sale_statuses.keys, {include_blank: '選択してください'} %>
-			  <% end %>
-			</th> <!-- 要確認 -->
-		</tr>
-	</table>
+	<%= form_with(model: @product, local: true, url: owner_product_path(@product), method: :patch) do |form| %>
+		<div class="row">
+			<div class="col-xs-5">
+				<%= attachment_image_tag @product, :image, size: "250x200", fallback: "no_image.jpg" %>
+				<%= form.attachment_field :image %>
+			</div>
+			<div class="col-xs-7">
+				<table>
+					<tr>
+						<th class="owner_product_edit_th">商品名</th>
+						<th class="owner_product_edit_th"><%= form.text_field :name %></th>
+					</tr>
+					<tr>
+						<th class="owner_product_edit_th">商品説明</th>
+						<th class="owner_product_edit_th"><%= form.text_area :information %></th>
+					</tr>
+					<tr>
+						<th class="owner_product_edit_th">ジャンル</th>
+						<th class="owner_product_edit_th">
+							<%= form_for @product do |f| %>
+				          		<%= form.collection_select :genre_id, Genre.all, :id, :name %>
+					    <% end %>
+					  </th>
+					</tr>
+					<tr>
+						<th class="owner_product_edit_th">税抜価格</th>
+						<th class="owner_product_edit_th"><%= form.text_field :price %></th>
+					</tr>
+					<tr>
+						<th class="owner_product_edit_th">販売ステータス</th>
+						<th class="owner_product_edit_th">
+							<%= form_for @product do |f| %>
+			        			<%= form.select :sale_status, Product.sale_statuses.keys, {include_blank: '選択してください'} %>
+							<% end %>
+						</th>
+					</tr>
+					<tr>
+						<th></th>
+						<th class="owner_product_edit_th"><%= form.submit '変更を保存', class: "btn-sm btn-success" %></th>
+					</tr>
 
-	<%= form.submit '変更を保存' %>
-
-<% end %>
+				</table>
+			</div>
+		</div>
+	<% end %>
+</div>
