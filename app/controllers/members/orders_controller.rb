@@ -8,9 +8,6 @@ class Members::OrdersController < Members::BaseController
 	def create
 		@order = current_member.orders.new(order_params)
 		@member = current_member
-		if params[:address] == 0
-		elsif params[]
-		end
 		current_member.carts.each do |cart|
 			@ordered_product = @order.ordered_products.build
 			@ordered_product.product_id = cart.product_id
@@ -20,9 +17,10 @@ class Members::OrdersController < Members::BaseController
 			@ordered_product.save
 			cart.destroy
 		end
-		if @registered_address = Destination.new(destination_params)
-		   @registered_address.member_id = current_member.id
-		   @registered_address.save
+		if params[:address] == "2"
+		@registered_address = Destination.new(destination_params)
+		@registered_address.member_id = current_member.id
+		@registered_address.save
 		end
 		if @order.save
 		   redirect_to order_complete_path

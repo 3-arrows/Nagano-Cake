@@ -28,7 +28,7 @@
                             <p><%= product.product.name %></p>
                         <% end %>
                     </td>
-                    <td><%= order.total_price + order.postage %>円</td>
+                    <td><%= order.total_price %>円</td>
                     <td><%= t("enums.order.status.#{order.status}") %></td>
                     <td><%= link_to "表示する",order_path(order) %></td>
                 </tr>
