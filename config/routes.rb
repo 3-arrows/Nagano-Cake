@@ -11,16 +11,17 @@ Rails.application.routes.draw do
 
     #顧客
     scope module: :members do
-    #homeコントローラ
+        #homeコントローラ
         root 'home#top'
         get 'home/about'
 
         #membersコントローラ
         resource :members,only: [:show,] do
             member do
-            get :exit
+                get :exit
+            end
         end
-        end
+
         patch 'member/destroy', to: 'members#destroy'
         get 'member/edit', to: 'members#edit'
         patch 'member', to: 'members#update'

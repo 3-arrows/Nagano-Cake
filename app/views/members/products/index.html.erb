@@ -3,8 +3,28 @@
 
 		<!-- 部分テンプレートを入れる -->
 
+		<div class="col-xs-3">
+
+			<p><%= flash[:notice] %></p>
+			<!-- ジャンル検索 -->
+
+    		<div class="genre_search">
+    			ジャンル検索
+    		</div>
+    		<% @genres.each do |genre| %>
+    			<ul>
+    				<li class="genre_list">
+    					<%= link_to genre.name, products_path(genre: genre.id) %> <!-- そのジャンルの商品へ飛ぶ。path確認。 -->
+    				</li>
+    			</ul>
+    		<% end %>
+		</div>
 		<div class="col-xs-9">
-			<h4>商品一覧</h4>
+			<% if params[:genre].nil? %>
+			    <h4>商品一覧</h4>
+			<% else %>
+			    <h4><%= Genre.find(params[:genre]).name %>一覧</h4>
+			<% end %>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -15,7 +35,7 @@
 				</thead>
 				<tbody>
 					<% @products.each do |product| %>
-						<% if product.genre.effective_status == true %>
+						<% if product.genre.effective_status ==  true %>
 							<tr>
 								<td>
 									<%= link_to product_path(product) do %>
