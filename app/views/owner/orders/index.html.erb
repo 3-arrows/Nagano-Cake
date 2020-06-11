@@ -17,7 +17,7 @@
                 </td>
                 <td><%= orders.member.first_name %><%= order.member.last_name %></td>
                 <td><%= ordered_products.count %></td>
-                <td><%= orders.status %></td>
+                <td><%= @order.status %></td>
             </tr>
         <% end %>
     </table>

@@ -38,6 +38,7 @@ class Members::OrdersController < Members::BaseController
 
 	def show
 		@order = Order.find(params[:id])
+		@order.postage = POSTAGE_PRICE
 	end
 
 	def confirm
