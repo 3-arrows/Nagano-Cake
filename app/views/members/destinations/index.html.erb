@@ -2,57 +2,46 @@
 
 <div class="container">
 	<%= form_for (@destination) do |f| %>
-	<h1>配送先登録 / 一覧</h1>
-    <div class="field">
-        <%= f.label :postal_code %><br />
-        <%= f.text_field :postal_code %>
-    </div>
 
-    <div class="field">
-        <%= f.label :prefecture_code %><br />
-        <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
-    </div>
-
-    <div class="field">
-        <%= f.label :city %><br />
-        <%= f.text_field :city %>
-    </div>
-
-    <div class="field">
-        <%= f.label :street %><br />
-        <%= f.text_field :street %>
-    </div>
-
-    <table width="500">
+	<span class="page_header">配送先登録 / 一覧</span>
+	<table width="800">
 		<tr>
+			<td class="owner_member_td">郵便番号(ハイフンなし)</td>
+			<td class="owner_member_td"><%= f.text_field :postal_code, :placeholder => "(例)1234567" %></td>
+		</tr>
 		<tr>
-			<td>宛名</td>
-			<td><%= f.text_field :name,:placeholder => "(例)山田太郎" %></td>
+			<td class="owner_member_td">住所</td>
+			<td class="owner_member_td"><%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
+			<td class="owner_member_td"><%= f.text_field :city, :placeholder => "(例)◯◯市" %></td>
+			<td class="owner_member_td"><%= f.text_field :street, :placeholder => "(例)◯◯番地" %></td>
+		</tr>
+		<tr>
+			<td class="owner_member_td">宛名</td>
+			<td class="owner_member_td"><%= f.text_field :name, :placeholder => "(例)山田太郎" %></td>
+			<td></td>
+			<td><%= f.submit "登録する", class: "btn-sm btn-success" %></td>
 		</tr>
 	</table>
-	<%= f.submit "登録する" %>
 	<% end %>
 
-	<table>
+	<table class="member_distination_table" width="800" border=1>
 		<thead>
 			<tr>
-				<th>郵便番号</th>
-				<th>住所</th>
-				<th>宛名</th>
-				<th></th>
+				<th class="member_distination_th">郵便番号</th>
+				<th class="member_distination_th">住所</th>
+				<th class="member_distination_th">宛名</th>
+				<th class="member_distination_th"></th>
 			</tr>
 		</thead>
 		<tbody>
 			<% @destinations.each do |destination| %>
 				<tr>
 					<td><%= destination.postal_code %></td>
-					<td><%= destination.prefecture_code %></td>
-					<td><%= destination.city %></td>
-					<td><%= destination.street %></td>
+					<td><%= destination.prefecture_code %><%= destination.city %><%= destination.street %></td>
 					<td><%= destination.name %></td>
-					<td>
-						<%= link_to "編集する", edit_destination_path(destination), class: "btn destination_edit" %>
-						<%= link_to "削除する", destination_path(destination), method: :delete, class: "btn destination_delete", "data-confirm" => "本当に削除しますか？" %>
+					<td class="destination_edit_delete_btn">
+						<%= link_to "編集する", edit_destination_path(destination), class: "btn-sm btn-success" %>
+						<%= link_to "削除する", destination_path(destination), method: :delete, class: "btn-sm destination_delete", "data-confirm" => "本当に削除しますか？" %>
 					</td>
 				</tr>
 			<% end %>
