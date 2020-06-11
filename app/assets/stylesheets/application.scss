@@ -15,6 +15,8 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'font-awesome-sprockets';
+@import "font-awesome";
 
 main{margin-top: 80px;}
 
@@ -22,6 +24,10 @@ main{margin-top: 80px;}
 	content: "";
 	display: block;
 	clear: both;
+}
+
+li {
+	list-style: none;
 }
 
 // 共通
@@ -32,9 +38,12 @@ main{margin-top: 80px;}
 
 // ヘッダー
 
+.navbar {
+	margin: 0;
+}
+
 .header_logo {
 	font-family:  'Caveat', cursive;
-	color: #20FFFF;
 	font-size: 30px;
 }
 
@@ -46,6 +55,12 @@ main{margin-top: 80px;}
 
 .member_name {
 	color: #108080;
+}
+
+footer {
+	margin-top: 30px;
+	height: 100px;
+	background-color: #F6F6E1;
 }
 
 // 管理側 共通
@@ -160,7 +175,74 @@ main{margin-top: 80px;}
 	background-color: #6CF;
 }
 
+// 顧客側 sign_up画面
+
+.sign_up_th {
+	padding-bottom: 20px;
+}
+
+.sign_up_td {
+}
+
 // 顧客側 top画面
+
+.genre_search {
+	margin-top: 50px;
+}
+
+.genre_seach_head {
+	font-size: 25px;
+	padding-bottom: 10px;
+	border-bottom: 3px solid #eee;
+}
+
+.genre_list {
+	font-size: 15px;
+	margin-top: 25px;
+}
+
+.main_visual {
+	height: 400px;
+	background-image: url(top.jpg);
+	background-size: cover;
+	position: relative;
+}
+
+.main_visual_topic {
+	width: 35%;
+	height: 400px;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.main_visual_text {
+	color: #4E5743;
+	position: absolute;
+	top: 40px;
+	left: 40px;
+	letter-spacing: 3px;
+	line-height: 30px;
+}
+
+.main_n {
+	color: #781C79;
+	font-family:  'Caveat', cursive;
+}
+
+.fab {
+	color: #4E5743;
+	padding-top: 100px;
+	font-size: 30px;
+	opacity: 0.5;
+	transition: all 1.2s;
+}
+
+.fab:hover {
+	opacity: 1.0;
+}
+
+.fa-instagram, .fa-twitter, .fa-facebook-f {
+	margin-right: 15px;
+}
 
 .recommended_products {
 	display: flex;
@@ -173,10 +255,15 @@ main{margin-top: 80px;}
 	margin-bottom: 20px;
 }
 
-.my_page_td {
+.my_page_th {
 	width: 25%;
+	padding-left: 5px;
 	background-color: #eee;
 	line-height: 35px;
+}
+
+.my_page_td {
+	padding-left: 5px;
 }
 
 // 顧客側 member_edit画面
