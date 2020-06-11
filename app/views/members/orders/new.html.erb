@@ -36,14 +36,17 @@
 				<table class="choices_address" width="900">
 					<tr>
 						<td class="choices_address_td">郵便番号(ハイフンなし)</td>
-						<td class="choices_address_td"><%= form.text_field :new_postal_code, :placeholder => "(例)1234567" %></td>
+						<td class="choices_address_td"><%= form.text_field :postal_code, :placeholder => "(例)1234567" %></td>
 					</tr>
 					<tr>
 						<td class="choices_address_td">住所</td>
 						<td class="choices_address_td">
-							<%= form.text_field :new_prefecture_code, :placeholder => "(例)◯◯県" %>
-							<%= form.text_field :new_city, :placeholder => "(例)◯◯市" %>
-							<%= form.text_field :new_street, :placeholder => "(例)◯◯番地" %>
+							<%= form.label :都道府県 %>
+                            <%= form.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
+                            <%= form.label :市区町村 %>
+							<%= form.text_field :city, :placeholder => "(例)〇〇市〇〇町" %>
+							<%= form.label :番号・番地・建物名 %>
+							<%= form.text_field :street, :placeholder => "(例)◯◯番地" %>
 						</td>
 					</tr>
 					<tr>
