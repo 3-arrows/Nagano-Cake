@@ -18,6 +18,7 @@
 //= require jquery.jpostal
 //= require_tree .
 
+// 郵便番号で住所検索機能
 $(function() {
   $(document).on('turbolinks:load', () => {
     $('#member_postal_code').jpostal({

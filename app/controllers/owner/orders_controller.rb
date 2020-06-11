@@ -2,7 +2,6 @@ class Owner::OrdersController < Owner::BaseController
 	before_action :authenticate_owner!
 	def index
 		@orders = Order.all
-		@ordered_products = @orders.ordered_products.all
 	end
 
 	def show
