@@ -334,6 +334,37 @@ main{margin-top: 80px;}
 	width: 60%;
 }
 
+// 顧客側 order_new画面
+
+.choice {
+	width: 10%;
+	margin-top: 20px;
+	padding-bottom: 3px;
+	border-bottom: 2px solid #6CF;
+}
+
+.choice_btn {
+	margin-left: 55px;
+}
+
+.choices_address {
+	margin-left: 80px;
+}
+
+.choices_address_td {
+	padding-bottom: 15px;
+}
+
+.order_next_btn {
+	font-size: 15px;
+	display: block;
+	width: 20%;
+	margin: 10px auto;
+	padding: 10px;
+	text-align: center;
+	background-color: #5cb85c;
+}
+
 // 顧客側 order_index画面
 
 .member_order_th {
