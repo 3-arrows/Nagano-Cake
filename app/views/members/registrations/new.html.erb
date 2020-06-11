@@ -46,22 +46,18 @@
 
     <%# 郵便番号の入力フォーム %>
     <div class="form-group">
-
-        <%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
-
+        <%= f.label :postal_code %><br />
         <%= f.text_field :postal_code, placeholder: "(例)1234567" %>
-
     </div>
 
-    <%# 住所の入力フォーム %>
     <div class="form-group">
-        <%= f.label :address, "住所" %>
-
-        <%= f.text_field :prefecture_code, placeholder: "(例)長野県", style: "width: 50%;" %>
-        <%= f.text_field :city, placeholder: "(例)〇〇市", style: "width: 50%;" %>
-        <%= f.text_field :street, placeholder: "(例)〇〇町〇-〇-〇", style: "width: 50%;" %>
+        <%= f.label :都道府県 %>
+        <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
+        <%= f.label :市区町村 %>
+        <%= f.text_field :city, placeholder: "(例)〇〇市〇〇町" %>
+        <%= f.label :番号・番地・建物名 %>
+        <%= f.text_field :street, placeholder: "(例)〇-〇-〇" %>
     </div>
-
 
     <%# 電話番号の入力フォーム %>
     <div class="form-group">

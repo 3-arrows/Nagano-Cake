@@ -23,13 +23,27 @@
 	<!-- 新しいお届け先 -->
 	<%= form.radio_button :address, 2 %>
 		<p><%= label_tag "新しいお届け先" %></p>
-		<p>郵便番号(ハイフンなし)
-			<%= form.text_field :new_postal_code %></p>
-		<p>住所</p>
-		    <%= form.text_field :new_prefecture_code %>
-		    <%= form.text_field :new_city %>
-		    <%= form.text_field :new_street %>
-		<p>宛名
+			<div class="field">
+                <%= form.label :郵便番号 %><br />
+                <%= form.text_field :postal_code, placeholder: "(例)1234567" %>
+            </div>
+
+		    <div class="field">
+                <%= form.label :都道府県 %><br />
+                <%= form.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
+            </div>
+
+            <div class="field">
+                <%= form.label :市区町村 %><br />
+                <%= form.text_field :city, placeholder: "(例)〇〇市〇〇町" %>
+            </div>
+
+            <div class="field">
+                <%= form.label :番号・番地・建物名 %><br />
+                <%= form.text_field :street, placeholder: "(例)〇-〇-〇" %>
+            </div>
+
+		　　<p>宛名</p>
 			<%= form.text_field :new_name %></p>
 	<%= form.submit "確認画面へ進む" %>
 	<% end %>
