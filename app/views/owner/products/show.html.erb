@@ -31,7 +31,7 @@
 					<th><%= @product.sale_status %></th>
 				</tr>
 				<tr>
-					<th><%= link_to "編集する", edit_owner_product_path(@product), class: "btn-sm btn-success" %></th>
+					<th><%= link_to "編集する", edit_owner_product_path(@product), data: {"turbolinks" => false}, class: "btn-sm btn-success" %></th>
 				</tr>
 			</table>
 		</div>

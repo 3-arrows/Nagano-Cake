@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_06_074138) do
+ActiveRecord::Schema.define(version: 2020_06_11_021656) do
 
   create_table "carts", force: :cascade do |t|
     t.integer "product_id"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_074138) do
 
   create_table "destinations", force: :cascade do |t|
     t.integer "member_id"
-    t.string "postal_code"
+    t.integer "postal_code"
     t.string "prefecture_code"
     t.string "city"
     t.string "street"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_074138) do
     t.string "first_name"
     t.string "last_name_kana"
     t.string "first_name_kana"
-    t.string "postal_code"
+    t.integer "postal_code"
     t.string "prefecture_code"
     t.string "city"
     t.string "street"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_074138) do
     t.integer "pay"
     t.integer "postage"
     t.integer "total_price"
-    t.string "postal_code"
+    t.integer "postal_code"
     t.string "prefecture_code"
     t.string "city"
     t.string "street"

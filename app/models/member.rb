@@ -26,4 +26,5 @@ class Member < ApplicationRecord
     def active_for_authentication? #ログインする時に退会済みのユーザーを弾くためのメソッド
     	super && (self.member_status == '有効')
     end
+
 end
