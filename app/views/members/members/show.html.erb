@@ -9,32 +9,32 @@
 		</tr>
 	</table>
 
-	<table width="600" border=1 >
+	<table width="600" border=1>
 		<tbody>
 			<tr>
-				<td class="my_page_td">氏名</td>
-				<td><%= @member.last_name %>　<%= @member.first_name %></td>
+				<th class="my_page_th">氏名</th>
+				<td class="my_page_td"><%= @member.last_name %>　<%= @member.first_name %></td>
 			</tr>
 			<tr>
-				<td class="my_page_td">カナ</td>
-				<td><%= @member.last_name_kana %>　<%= @member.first_name_kana %></td>
+				<th class="my_page_th">カナ</th>
+				<td class="my_page_td"><%= @member.last_name_kana %>　<%= @member.first_name_kana %></td>
 			</tr>
 			<tr>
-				<td class="my_page_td">郵便番号</td>
-				<td><%= @member.postal_code %></td>
+				<th class="my_page_th">郵便番号</th>
+				<td class="my_page_td"><%= @member.postal_code %></td>
 			</tr>
 			<tr>
-				<td class="my_page_td">住所</td>
+				<th class="my_page_th">住所</th>
 				<% full_address = "#{@member.prefecture_code}#{@member.city}#{@member.street}" %>
-				<td><%= full_address %></td>
+				<td class="my_page_td"><%= full_address %></td>
 			</tr>
 			<tr>
-				<td class="my_page_td">電話番号</td>
-				<td><%= @member.phone_number %></td>
+				<th class="my_page_th">電話番号</th>
+				<td class="my_page_td"><%= @member.phone_number %></td>
 			</tr>
 			<tr>
-				<td class="my_page_td">メールアドレス</td>
-				<td><%= @member.email %></td>
+				<th class="my_page_th">メールアドレス</th>
+				<td class="my_page_td"><%= @member.email %></td>
 			</tr>
 		</tbody>
 	</table>
