@@ -398,6 +398,48 @@ main{margin-top: 80px;}
 	padding-left: 5px;
 }
 
+// 顧客側 order_complete画面
+
+.complete {
+	height: 600px;
+	background-image: url(背景画像候補.jpg);
+	background-size: cover;
+	position: relative;
+}
+
+.thanks_message {
+	opacity: 0.6;
+	letter-spacing: 3px;
+	position: absolute;
+	font-size: 20px;
+	line-height: 30px;
+	top: 20px;
+	left: 50px;
+	color: #fff;
+	transition: all 1.5s;
+}
+
+.thanks_message:hover {
+	opacity: 1.0;
+	color: #FFB0ED;
+}
+
+.sub_thanks_message {
+	font-family:  'Caveat', cursive;
+	opacity: 0.5;
+	position: absolute;
+	font-size: 18px;
+	top: 150px;
+	left: 150px;
+	color: #fff;
+	transition: all 1.5s;
+}
+
+.sub_thanks_message:hover {
+	opacity: 1.0;
+	color: #FFB0ED;
+}
+
 // 顧客側 order_index画面
 
 .member_order_th {
