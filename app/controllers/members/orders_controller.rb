@@ -14,7 +14,8 @@ class Members::OrdersController < Members::BaseController
 				postal_code: @order.postal_code,
 				prefecture_code: @order.prefecture_code,
 				city: @order.city,
-                street: @order.street
+                street: @order.street,
+                name: @order.name
 			)
 		end
 		current_member.carts.each do |cart|
@@ -60,10 +61,10 @@ class Members::OrdersController < Members::BaseController
 		   @new.street = @registered_address.street
 		   @new.name = @registered_address.name
 		elsif params[:order][:address] == "2"
-		   @new.postal_code = params[:order][:new_postal_code]
-		   @new.prefecture_code = params[:order][:new_prefecture_code]
-		   @new.city = params[:order][:new_city]
-		   @new.street = params[:order][:new_street]
+		   @new.postal_code = params[:order][:postal_code]
+		   @new.prefecture_code = params[:order][:prefecture_code]
+		   @new.city = params[:order][:city]
+		   @new.street = params[:order][:street]
 		   @new.name = params[:order][:new_name]
 		end
 	end

@@ -45,6 +45,11 @@
 					</td>
 				</tr>
 			<% end %>
+			<tr>
+				<td><%= current_member.postal_code %></td>
+				<td><%= current_member.prefecture_code %><%= current_member.city %><%= current_member.street %></td>
+				<td><%= current_member.last_name + current_member.first_name %></td>
+			</tr>
 		</tbody>
 	</table>
 </div>
