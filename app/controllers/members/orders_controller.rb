@@ -1,5 +1,5 @@
 class Members::OrdersController < Members::BaseController
-	before_action :authenticate_member!
+	before_action :authenticate_member! #未ログイン時、閲覧不可
 	def new
 		@order = Order.new
 		@destination = Destination.new
@@ -44,32 +44,39 @@ class Members::OrdersController < Members::BaseController
 
 	def confirm
 		@order = current_member.orders.new(order_params)
-		@new = Order.new(order_params)
 		@order.postage = POSTAGE_PRICE
 		@products = current_member.carts
 		if params[:order][:address] == "0"
-		   @new.postal_code = current_member.postal_code
-		   @new.prefecture_code = current_member.prefecture_code
-		   @new.city = current_member.city
-		   @new.street = current_member.street
-		   @new.name = current_member.last_name + current_member.first_name
+		   @order.postal_code = current_member.postal_code
+		   @order.prefecture_code = current_member.prefecture_code
+		   @order.city = current_member.city
+		   @order.street = current_member.street
+		   @order.name = current_member.last_name + current_member.first_name
 		elsif params[:order][:address] == "1"
 		   @registered_address = Destination.find(params[:order][:destination])
-		   @new.postal_code = @registered_address.postal_code
-		   @new.prefecture_code = @registered_address.prefecture_code
-		   @new.city = @registered_address.city
-		   @new.street = @registered_address.street
-		   @new.name = @registered_address.name
+		   @order.postal_code = @registered_address.postal_code
+		   @order.prefecture_code = @registered_address.prefecture_code
+		   @order.city = @registered_address.city
+		   @order.street = @registered_address.street
+		   @order.name = @registered_address.name
 		elsif params[:order][:address] == "2"
+<<<<<<< HEAD
 		   @new.postal_code = params[:order][:postal_code]
 		   @new.prefecture_code = params[:order][:prefecture_code]
 		   @new.city = params[:order][:city]
 		   @new.street = params[:order][:street]
 		   @new.name = params[:order][:new_name]
+=======
+		   @order.postal_code = params[:order][:new_postal_code]
+		   @order.prefecture_code = params[:order][:new_prefecture_code]
+		   @order.city = params[:order][:new_city]
+		   @order.street = params[:order][:new_street]
+		   @order.name = params[:order][:new_name]
+>>>>>>> fd4adbacf4e321bd61d7c66ed9bacbd40045bc76
 		end
 	end
 
-	def complete
+	def complete #購入完了画面
 	end
 
 	private

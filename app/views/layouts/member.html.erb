@@ -13,14 +13,14 @@
         <header class="navbar navbar-fixed-top navbar-inverse">
             <div class="container">
                 <nav class='nav navbar-nav navbar-left' >
-                    <span class="header_logo"><%= link_to "Nagano-Cake", root_path(current_member) %></span>
+                    <span class="header_logo"><%= link_to "Nagano-Cake", root_path(current_member), :style=>"color: #fff;" %></span>
                 </nav>
                 <nav>
                     <ul class="nav navbar-nav navbar-right">
                         <% if member_signed_in? %>
                             <% name = "#{current_member.last_name}#{current_member.first_name}" %>
                             <li class="youkoso">ようこそ、<span class="member_name"><%= name %></span>さん！</li>
-                            <li><%= link_to 'マイページ', members_path(current_member.id) %></li>
+                            <li><%= link_to 'マイページ', members_path %></li>
                             <li><%= link_to '商品一覧', products_path %></li>
                             <li><%= link_to 'カート', carts_path %></li>
                             <li><%= link_to 'ログアウト', destroy_member_session_path, method: :delete %></li>
@@ -37,6 +37,10 @@
         <main>
             <%= yield %>
         </main>
+
+        <footer>
+            
+        </footer>
 
     </body>
 </html>

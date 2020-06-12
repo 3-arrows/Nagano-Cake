@@ -9,15 +9,17 @@
 			<!-- ジャンル検索 -->
 
     		<div class="genre_search">
-    			ジャンル検索
-    		</div>
-    		<% @genres.each do |genre| %>
-    			<ul>
-    				<li class="genre_list">
-    					<%= link_to genre.name, products_path(genre: genre.id) %> <!-- そのジャンルの商品へ飛ぶ。 -->
-    				</li>
-    			</ul>
-    		<% end %>
+    			<span class="genre_seach_head">ジャンル検索</span>
+    			<div>
+		    		<% @genres.each do |genre| %>
+		    			<ul>
+		    				<li class="genre_list">
+		    					<%= link_to genre.name, products_path(genre: genre.id), :style => "color: #728EE3;" %>
+		    				</li>
+		    			</ul>
+		    		<% end %>
+		    	</div>
+		    </div>
 		</div>
 		<div class="col-xs-9">
 			<% if params[:genre].nil? %>

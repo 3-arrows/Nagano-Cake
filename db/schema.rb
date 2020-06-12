@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_06_11_021656) do
 
   create_table "destinations", force: :cascade do |t|
     t.integer "member_id"
-    t.integer "postal_code"
+    t.string "postal_code"
     t.string "prefecture_code"
     t.string "city"
     t.string "street"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2020_06_11_021656) do
     t.integer "pay"
     t.integer "postage"
     t.integer "total_price"
-    t.integer "postal_code"
+    t.string "postal_code"
     t.string "prefecture_code"
     t.string "city"
     t.string "street"
