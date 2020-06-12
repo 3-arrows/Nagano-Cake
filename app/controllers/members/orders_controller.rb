@@ -60,10 +60,10 @@ class Members::OrdersController < Members::BaseController
 		   @order.street = @registered_address.street
 		   @order.name = @registered_address.name
 		elsif params[:order][:address] == "2"
-		   @order.postal_code = params[:order][:new_postal_code]
-		   @order.prefecture_code = params[:order][:new_prefecture_code]
-		   @order.city = params[:order][:new_city]
-		   @order.street = params[:order][:new_street]
+		   @order.postal_code = params[:order][:postal_code]
+		   @order.prefecture_code = params[:order][:prefecture_code]
+		   @order.city = params[:order][:city]
+		   @order.street = params[:order][:street]
 		   @order.name = params[:order][:new_name]
 		end
 	end
