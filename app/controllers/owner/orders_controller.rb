@@ -1,7 +1,7 @@
 class Owner::OrdersController < Owner::BaseController
 	before_action :authenticate_owner! #未ログイン時、閲覧不可
 	def index
-		@orders = Order.all
+		@orders = Order.all.order(created_at: "DESC") #降順
 	end
 
 	def show
