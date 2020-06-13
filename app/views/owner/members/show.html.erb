@@ -45,5 +45,5 @@
 	</table>
 
 	<%= link_to "編集する", edit_owner_member_path(@member), class: "btn owner_members_edit btn-sm btn-success" %>
-	<%= link_to "注文履歴一覧を見る", owner_orders_path, class: "btn owner_orders_index btn-sm btn-success" %>
+	<%= link_to "注文履歴一覧を見る", owner_orders_path(member: @member), class: "btn owner_orders_index btn-sm btn-success" %>
 </div>

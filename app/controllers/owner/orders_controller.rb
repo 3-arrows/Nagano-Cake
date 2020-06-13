@@ -1,7 +1,15 @@
 class Owner::OrdersController < Owner::BaseController
 	before_action :authenticate_owner! #未ログイン時、閲覧不可
 	def index
-		@orders = Order.all.order(created_at: "DESC") #降順
+        if params[:today] == "1"
+		    today = Time.current.at_beginning_of_day
+		    to    = today.at_end_of_day
+		    @orders = Order.where(created_at: today...to)
+		elsif params[:member] != nil
+			@orders = Order.where(member_id: params[:member])
+        else
+		    @orders = Order.all.order(created_at: "DESC") #降順
+		end
 	end
 
 	def show

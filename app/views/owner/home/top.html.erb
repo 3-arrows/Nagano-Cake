@@ -4,7 +4,7 @@
 		<tr>
 		  	<td>本日の注文件数</td>
 		  	<td>
-		  		<%= link_to "", owner_orders_path, class: "today_orders_count" %> 件
+		  		<%= link_to "#{@orders.count} 件", owner_orders_path(today: 1) %>
 		  	</td>
   		</tr>
 	</table>
