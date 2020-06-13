@@ -71,12 +71,12 @@ li {
 
 .youkoso {
 	line-height: 50px;
-	color: #ccc;
+	color: #aaa;
 	margin-right: 20px;
 }
 
 .member_name {
-	color: #108080;
+	color: #2D5B11;
 }
 
 // 管理側 共通
@@ -108,6 +108,12 @@ li {
 	border-bottom: 1px solid #ccc;
 }
 
+// 管理側 top画面
+
+.today_orders_count {
+	font-size: 30px;
+}
+
 // 管理側 product_index画面
 
 .owner_product_index_header {
@@ -119,6 +125,10 @@ li {
 	position: absolute;
 	top: 110px;
 	right: 250px;
+}
+
+.paginate {
+	float: right;
 }
 
 // 管理側 product_show画面
@@ -208,10 +218,7 @@ li {
 // 顧客側 sign_up画面
 
 .sign_up_th {
-	padding-bottom: 20px;
-}
-
-.sign_up_td {
+	line-height: 40px;
 }
 
 // 顧客側 top画面
