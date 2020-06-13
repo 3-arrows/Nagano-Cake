@@ -11,7 +11,7 @@
         <% @orders.each do |order| %>
             <tbody>
                 <tr>
-                    <td><%= link_to order.created_at.strftime("%Y/%m/%d"), owner_order_path(order) %></td>
+                    <td><%= link_to order.created_at.strftime("%Y/%m/%d %H:%M:%S"), owner_order_path(order) %></td>
                     <td><%= order.member.last_name + order.member.first_name %></td>
                     <td><%= order.ordered_products.count %></td>
                     <td><%= order.status %></td>
