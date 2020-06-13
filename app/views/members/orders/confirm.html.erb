@@ -17,9 +17,9 @@
 						<tr>
 							<td class="order_confirm_td"><%= attachment_image_tag ordered_product.product, :image, size: "70x50", fallback: "no_image.jpg" %><%= ordered_product.product.name %>
 							</td>
-							<td class="order_confirm_td"><%= ((ordered_product.product.price * 1.1).floor) %></td>
+							<td class="order_confirm_td"><%= ((ordered_product.product.price * 1.1).floor).to_s(:delimited) %></td>
 							<td class="order_confirm_td"><%= ordered_product.count %></td>
-							<td class="order_confirm_td"><%= ((ordered_product.product.price * 1.1).floor) * (ordered_product.count) %></td>
+							<td class="order_confirm_td"><%= (((ordered_product.product.price * 1.1).floor) * (ordered_product.count)).to_s(:delimited) %></td>
 						</tr>
 					<% end %>
 				</tbody>
@@ -61,11 +61,11 @@
 				</tr>
 				<tr>
 					<th class="total_proce_th">商品合計</th>
-					<td class="total_proce_td"><%= current_member.cart_total_price %></td>
+					<td class="total_proce_td"><%= current_member.cart_total_price.to_s(:delimited) %></td>
 				</tr>
 				<tr>
 					<th class="total_proce_th">請求金額</th>
-					<td class="total_proce_td"><%= @order.postage + current_member.cart_total_price %></td>
+					<td class="total_proce_td"><%= (@order.postage + current_member.cart_total_price).to_s(:delimited) %></td>
 				</tr>
 			</table>
 		</div>
