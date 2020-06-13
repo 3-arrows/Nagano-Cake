@@ -16,14 +16,14 @@
             <% @carts.each do |cart| %>
                 <tr>
                     <td class="cart_td_product"><%= attachment_image_tag cart.product, :image, size: "50x50", fallback: "no_image.jpg" %><%= cart.product.name%></td>
-                    <td class="cart_td"><%= (cart.product.price * 1.1).floor %></td>
+                    <td class="cart_td"><%= (cart.product.price * 1.1).floor.to_s(:delimited) %></td>
                     <td class="cart_td_count">
                         <%= form_for cart do |c|%>
                             <%= c.number_field :count, min:1, max:10000, step:1 %>
                             <%= c.submit "変更", class: "count_up_down" %>
                         <% end%>
                     </td>
-                    <td class="cart_td"><%= (cart.product.price * 1.1).floor * cart.count %></td>
+                    <td class="cart_td"><%= ((cart.product.price * 1.1).floor * cart.count).to_s(:delimited) %></td>
                     <td class="cart_td_destroy"><%= link_to "削除する",cart_path(cart.id), class: "cart_destroy", method: :delete, "data-confirm" => "削除してよろしいですか？" %></td>
                 </tr>
             <% end %>
@@ -39,7 +39,7 @@
     <table border=1 width="200" class="cart_total_price_table">
         <tr>
             <th class="total_price">合計金額</th>
-            <td class="cart_total_price"><%= current_member.cart_total_price %></td>
+            <td class="cart_total_price"><%= current_member.cart_total_price.to_s(:delimited) %></td>
         </tr>
     </table>
 

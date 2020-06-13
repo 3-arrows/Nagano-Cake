@@ -75,7 +75,7 @@
                 </tr>
                 <tr>
                     <th class="owner_order_show_th">請求金額合計</th>
-                    <th class="owner_order_show_td"><%= @order.total_price %>円</th>
+                    <th class="owner_order_show_td"><%= @order.total_price.to_s(:delimited) %>円</th>
                 </tr>
             </table>
         </div>

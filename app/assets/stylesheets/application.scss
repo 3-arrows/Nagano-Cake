@@ -60,19 +60,21 @@ li {
 
 // ヘッダー
 
-.navbar {
-	margin: 0;
+header {
+	height: 70px;
 }
 
 .header_logo {
 	font-family:  'Caveat', cursive;
+	line-height: 70px;
 	font-size: 30px;
 }
 
 .youkoso {
-	line-height: 50px;
+	font-size: 15px;
+	line-height: 70px;
 	color: #aaa;
-	margin-right: 20px;
+	margin-right: 30px;
 }
 
 .member_name {
@@ -80,12 +82,21 @@ li {
 }
 
 .navbar_right_icon {
+	margin-top: 10px;
 	opacity: 0.5;
 	transition: all 1.2s;
 }
 
 .navbar_right_icon:hover {
 	opacity: 1.0;
+}
+
+.seach {
+	margin-top: 75px;
+}
+
+.owner_header {
+	margin-top: 10px;
 }
 
 // 管理側 共通
@@ -119,8 +130,8 @@ li {
 
 // 管理側 top画面
 
-.today_orders_count {
-	font-size: 30px;
+.oreder_count {
+	font-size: 20px;
 }
 
 // 管理側 product_index画面
