@@ -37,7 +37,7 @@ class Members::CartsController < Members::BaseController
 	def destroy_all
 		@cart = current_member.carts
         @cart.destroy_all
-        redirect_to root_path, notice: "カートが空になりました。"
+        redirect_to root_path, notice: "カートを空にしました。"
 	end
 
 	private

@@ -170,6 +170,20 @@ li {
 	margin-right: 10px;
 }
 
+// 管理側 order_show画面
+
+.owner_order_show_th {
+	font-size: 18px;
+	line-height: 50px;
+	padding-left: 30px;
+}
+
+.owner_order_show_td {
+	font-size: 20px;
+	padding-left: 20px;
+	text-align: right;
+}
+
 // 管理側 genre_edit画面
 
 .genre_new_area {
@@ -460,6 +474,16 @@ li {
 	font-size: 15px;
 	background-color: #eee;
 	width: 10%;
+	line-height: 40px;
+	padding-left: 5px;
+}
+
+.member_distination_td {
+	padding-left: 5px;
+}
+
+.my_destination {
+	padding-left: 5px;
 	line-height: 40px;
 }
 

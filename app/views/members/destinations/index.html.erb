@@ -36,9 +36,9 @@
 		<tbody>
 			<% @destinations.each do |destination| %>
 				<tr>
-					<td><%= destination.postal_code %></td>
-					<td><%= destination.prefecture_code %><%= destination.city %><%= destination.street %></td>
-					<td><%= destination.name %></td>
+					<td class="member_distination_td"><%= destination.postal_code %></td>
+					<td class="member_distination_td"><%= destination.prefecture_code %><%= destination.city %><%= destination.street %></td>
+					<td class="member_distination_td"><%= destination.name %></td>
 					<td class="destination_edit_delete_btn">
 						<%= link_to "編集する", edit_destination_path(destination), class: "btn-sm btn-success" %>
 						<%= link_to "削除する", destination_path(destination), method: :delete, class: "btn-sm destination_delete", "data-confirm" => "本当に削除しますか？" %>
@@ -46,9 +46,10 @@
 				</tr>
 			<% end %>
 			<tr>
-				<td><%= current_member.postal_code %></td>
-				<td><%= current_member.prefecture_code %><%= current_member.city %><%= current_member.street %></td>
-				<td><%= current_member.last_name + current_member.first_name %></td>
+				<td class="my_destination"><%= current_member.postal_code %></td>
+				<td class="my_destination"><%= current_member.prefecture_code %><%= current_member.city %><%= current_member.street %></td>
+				<td class="my_destination"><%= current_member.last_name + current_member.first_name %></td>
+				<td></td>
 			</tr>
 		</tbody>
 	</table>
