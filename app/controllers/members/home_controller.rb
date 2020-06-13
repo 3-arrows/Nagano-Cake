@@ -6,10 +6,5 @@ class Members::HomeController < Members::BaseController
 
 	def about
 	end
-    def search
-    #Viewのformで取得したパラメータをモデルに渡す
-        @genres = Genre.search(params[:search])
-        @products = @genres.product.all
-    end
 
 end
