@@ -18,8 +18,10 @@
 @import 'font-awesome-sprockets';
 @import "font-awesome";
 
-main{margin-top: 80px;}
-
+main {
+	padding-top: 80px;
+	height: 670px;
+}
 .clearfix ::after {
 	content: "";
 	display: block;
@@ -43,6 +45,19 @@ li {
 	background-size: cover;
 }
 
+.about_header {
+	margin-bottom: 30px;
+}
+
+.gaiyou, .shiten {
+	margin-bottom: 25px;
+}
+
+.about_p {
+	margin-left: 20px;
+	color: #1A8985;
+}
+
 // ヘッダー
 
 .navbar {
@@ -62,12 +77,6 @@ li {
 
 .member_name {
 	color: #108080;
-}
-
-footer {
-	margin-top: 30px;
-	height: 100px;
-	background-color: #F6F6E1;
 }
 
 // 管理側 共通
@@ -251,8 +260,30 @@ footer {
 	margin-right: 15px;
 }
 
+.recommendation {
+	width: 17%;
+	font-size: 25px;
+	padding-bottom: 10px;
+	border-bottom: 3px solid #eee;
+}
+
 .recommended_products {
 	display: flex;
+}
+
+.product_box {
+	width: 180px;
+	margin-top: 10px;
+	margin-right: 74px;
+}
+
+.product_box_name_price {
+	padding-top: 5px;
+	border-bottom: 1px solid #E690CC;
+}
+
+.top_more {
+	float: right;
 }
 
 // 顧客側 マイページ画面
@@ -299,7 +330,29 @@ footer {
 	margin-top: 10px;
 }
 
+// 顧客側 product_index画面
+
+.products {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+._index_product_box {
+	width: 25%;
+	margin-top: 20px;
+}
+
+.index_product_box_name_price {
+	width: 80%;
+	padding-top: 5px;
+	border-bottom: 1px solid #E690CC;
+}
+
 // 顧客側 product_show画面
+
+.product_show {
+	margin-top: 60px;
+}
 
 .product_name {
 	font-size: 30px;

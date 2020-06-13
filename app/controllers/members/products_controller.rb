@@ -2,9 +2,9 @@ class Members::ProductsController < Members::BaseController
 	def index
 		@genres = Genre.where(effective_status: true)
 		if params[:genre].nil?
-			@products = Product.all
+			@products = Product.page(params[:page]).per(8)
         else
-        	@products = Product.where(genre_id: params[:genre])
+        	@products = Product.where(genre_id: params[:genre]).page(params[:page]).per(8)
         end
 	end
 

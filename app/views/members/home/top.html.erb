@@ -38,9 +38,6 @@
 		    			<i class="fab fa-facebook-f"></i>
 		    			<i class="fab fa-youtube"></i>
 		    		</div>
-		    		<div class="main_visual_icon">
-
-		    		</div>
 	    		</div>
     		</div>
 
@@ -49,14 +46,16 @@
     		<h3 class="recommendation">オススメ商品</h3>
     		<div class="recommended_products">
 	    		<% @products.each do |product| %>
-	    			<%= link_to product_path(product.id) do %> <!-- 画面クリックで商品詳細へ -->
-	    				<%= attachment_image_tag product, :image, size: "150x120", fallback: "no_image.jpeg" %>
-	    			<% end %>
-	    			<%= product.name %>
-	    			¥<%= (product.price * 1.1).floor %>
+	    			<div class="product_box">
+		    			<%= link_to product_path(product.id) do %> <!-- 画面クリックで商品詳細へ -->
+		    				<%= attachment_image_tag product, :image, size: "180x130", fallback: "no_image.jpeg" %>
+		    			<% end %>
+		    			<p class="product_box_name_price"><%= product.name %><br>
+		    			¥ <%= (product.price * 1.1).floor %></p>
+		    		</div>
 	    		<% end %>
 	    	</div>
-    		<%= link_to "もっと見る>", products_path %>
+    		<%= link_to "もっと見る>", products_path, class: "top_more" %>
     	</div>
     </div>
 </div>
