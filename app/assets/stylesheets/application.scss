@@ -79,6 +79,15 @@ li {
 	color: #2D5B11;
 }
 
+.navbar_right_icon {
+	opacity: 0.5;
+	transition: all 1.2s;
+}
+
+.navbar_right_icon:hover {
+	opacity: 1.0;
+}
+
 // 管理側 共通
 
 .page_header {
@@ -305,6 +314,7 @@ li {
 
 .top_more {
 	float: right;
+	margin-bottom: 50px;
 }
 
 // 顧客側 マイページ画面
