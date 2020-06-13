@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
+    before_action :search
     def after_sign_in_path_for(resource)
         case resource
         when Owner
@@ -25,6 +26,11 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    def search
+        @q = Member.ransack(params[:q])
+        @members = @q.result(distinct: true)
+    end
+
     private
 
     def configure_permitted_parameters
@@ -33,6 +39,5 @@ class ApplicationController < ActionController::Base
     end
 
     POSTAGE_PRICE = 800
-
 end
 
