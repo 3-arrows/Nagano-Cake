@@ -20,9 +20,7 @@
 					<tr>
 						<th class="owner_product_edit_th">ジャンル</th>
 						<th class="owner_product_edit_th">
-							<%= form_for @product do |f| %>
-				          		<%= form.collection_select :genre_id, Genre.all, :id, :name %>
-					    <% end %>
+				          	<%= form.collection_select :genre_id, Genre.all, :id, :name %>
 					  </th>
 					</tr>
 					<tr>
@@ -32,9 +30,7 @@
 					<tr>
 						<th class="owner_product_edit_th">販売ステータス</th>
 						<th class="owner_product_edit_th">
-							<%= form_for @product do |f| %>
-			        			<%= form.select :sale_status, Product.sale_statuses.keys, {include_blank: '選択してください'} %>
-							<% end %>
+			        		<%= form.select :sale_status, Product.sale_statuses.keys, {include_blank: '選択してください'} %>
 						</th>
 					</tr>
 					<tr>
