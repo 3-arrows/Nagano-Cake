@@ -58,7 +58,7 @@
 		    				    <%= attachment_image_tag product, :image, size: "180x130", fallback: "no_image.jpeg" %>
 		    			    <% end %>
 		    			    <p class="product_box_name_price"><%= product.name %><br>
-		    			    ¥ <%= (product.price * 1.1).floor %></p>
+		    			    ¥ <%= (product.price * 1.1).floor.to_s(:delimited) %></p>
 		    		    </div>
 		    		<% end %>
 	    		<% end %>
