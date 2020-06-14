@@ -1,7 +1,6 @@
 class Owner::HomeController < Owner::BaseController
 	def top
-		today = Time.current.at_beginning_of_day
-		to    = today.at_end_of_day
-		@orders = Order.where(created_at: today...to)
+		today = Date.today.beginning_of_day..Date.today.end_of_day #本日分のデータ
+		@orders = Order.where(created_at: today)
 	end
 end

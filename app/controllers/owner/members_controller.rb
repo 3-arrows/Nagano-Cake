@@ -1,7 +1,7 @@
 class Owner::MembersController < Owner::BaseController
 	before_action :authenticate_owner!
 	def index
-		#@members = Member.all.page(params[:page]).per(10)
+		#@members = Member.all.page(params[:page]).per(10) これを記述すると検索ができない。両立方法は？
 	end
 
 	def show
