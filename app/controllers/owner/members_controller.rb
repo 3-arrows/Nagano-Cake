@@ -1,7 +1,7 @@
 class Owner::MembersController < Owner::BaseController
 	before_action :authenticate_owner!
 	def index
-		#@members = Member.all
+		#@members = Member.all.page(params[:page]).per(10)
 	end
 
 	def show

@@ -20,14 +20,14 @@
                         <% if member_signed_in? %>
                             <% name = "#{current_member.last_name}#{current_member.first_name}" %>
                             <li class="youkoso">ようこそ、<span class="member_name"><%= name %></span>さん！</li>
-                            <li><%= link_to 'マイページ', members_path, :style=>"color: #E041E1;", class: "navbar_right_icon" %></li>
-                            <li><%= link_to '商品一覧', products_path, :style=>"color: #E041E1;", class: "navbar_right_icon" %></li>
-                            <li><%= link_to 'カート', carts_path, :style=>"color: #E041E1;", class: "navbar_right_icon" %></li>
-                            <li><%= link_to 'ログアウト', destroy_member_session_path, :style=>"color: #E041E1;", class: "navbar_right_icon", method: :delete %></li>
+                            <li><%= link_to 'マイページ', members_path, :style=>"color: #2D5B11;", class: "navbar_right_icon" %></li>
+                            <li><%= link_to '商品一覧', products_path, :style=>"color: #2D5B11;", class: "navbar_right_icon" %></li>
+                            <li><%= link_to 'カート', carts_path, :style=>"color: #2D5B11;", class: "navbar_right_icon" %></li>
+                            <li><%= link_to 'ログアウト', destroy_member_session_path, :style=>"color: #2D5B11;", class: "navbar_right_icon", method: :delete %></li>
                         <% else %>
-                            <li><%= link_to '商品一覧', products_path, :style=>"color: #E041E1;", class: "navbar_right_icon" %></li>
-                            <li><%= link_to '新規登録', new_member_registration_path, :style=>"color: #E041E1;", class: "navbar_right_icon" %></li>
-                            <li><%= link_to 'ログイン', new_member_session_path, :style=>"color: #E041E1;", class: "navbar_right_icon" %></li>
+                            <li><%= link_to '商品一覧', products_path, :style=>"color: #2D5B11;", class: "navbar_right_icon" %></li>
+                            <li><%= link_to '新規登録', new_member_registration_path, :style=>"color: #2D5B11;", class: "navbar_right_icon" %></li>
+                            <li><%= link_to 'ログイン', new_member_session_path, :style=>"color: #2D5B11;", class: "navbar_right_icon" %></li>
                         <% end %>
                     </ul>
                 </nav>

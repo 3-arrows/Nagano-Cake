@@ -21,6 +21,7 @@
 main {
 	padding-top: 80px;
 	height: 670px;
+	color: #2D5B11;
 }
 .clearfix ::after {
 	content: "";
@@ -67,7 +68,7 @@ header {
 .header_logo {
 	font-family:  'Caveat', cursive;
 	line-height: 70px;
-	font-size: 30px;
+	font-size: 35px;
 }
 
 .youkoso {
@@ -83,7 +84,7 @@ header {
 
 .navbar_right_icon {
 	margin-top: 10px;
-	opacity: 0.5;
+	opacity: 0.7;
 	transition: all 1.2s;
 }
 
@@ -106,7 +107,7 @@ header {
 	padding: 7px 18px;
 	text-align: center;
 	font-size: 20px;
-	background-color: #eee;
+	background-color: #F5F6E2;
 	margin-bottom: 25px;
 }
 
@@ -145,10 +146,6 @@ header {
 	position: absolute;
 	top: 110px;
 	right: 250px;
-}
-
-.paginate {
-	float: right;
 }
 
 // 管理側 product_show画面
@@ -195,7 +192,8 @@ header {
 }
 
 .btn-sm {
-	background-color: #0000FF;
+	background-color: #F5F6E2;
+	color: #2D5B11;
 	border-radius: 5px;
 	margin-right: 10px;
 }
@@ -244,11 +242,12 @@ header {
 // 顧客側 top画面
 
 .genre_search {
-	margin-top: 50px;
+	margin-top: 60px;
 }
 
 .genre_seach_head {
-	font-size: 25px;
+	margin-left: 10px;
+	font-size: 20px;
 	padding-bottom: 10px;
 	border-bottom: 3px solid #eee;
 }
@@ -256,6 +255,15 @@ header {
 .genre_list {
 	font-size: 15px;
 	margin-top: 25px;
+	opacity: 0.7;
+}
+
+.top_side_bar {
+	padding: 10px;
+	margin-top: 80px;
+	line-height: 30px;
+	background-color: #F5F6E2;
+	border-radius: 25px;
 }
 
 .main_visual {
@@ -302,8 +310,8 @@ header {
 }
 
 .recommendation {
-	width: 17%;
-	font-size: 25px;
+	width: 14%;
+	font-size: 20px;
 	padding-bottom: 10px;
 	border-bottom: 3px solid #eee;
 }
@@ -357,8 +365,8 @@ header {
 	margin-left: 15px;
 	padding: 10px 15px;
 	border-radius: 10px;
-	color: #000;
-	background-color: #FC0107;
+	color: #2D5B11;
+	background-color: #EBBEEE;
 }
 
 // 顧客側 パスワード変更画面
@@ -373,6 +381,16 @@ header {
 }
 
 // 顧客側 product_index画面
+
+.side_bar {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	margin-top: 80px;
+	line-height: 30px;
+	background-color: #F5F6E2;
+	border-radius: 25px;
+}
 
 .products {
 	display: flex;
@@ -400,7 +418,7 @@ header {
 	font-size: 30px;
 	padding: 8px;
 	border-radius: 50%;
-	background-color: #E3E265;
+	background-color: #EFEEBB;
 }
 
 .product_information {
@@ -420,29 +438,29 @@ header {
 	margin-left: 50px;
 	border-radius: 5px;
 	padding: 8px;
-	background-color: #6CF;
+	background-color: #F5F6E2;
 }
 
 // 顧客側 cart_index画面
 
 .cart_destroy_all {
-	color: #fff;
-	background-color: #FC0107;
+	color: #2D5B11;
+	background-color: #EBBEEE;
 	padding: 5px;
 	border-radius: 5px;
 	float: right;
 }
 
 .cart_destroy {
-	color: #fff;
-	background-color: #FC0107;
+	color: #2D5B11;
+	background-color: #EBBEEE;
 	padding: 5px;
 	border-radius: 5px;
 }
 
 .count_up_down {
 	margin-left: 15px;
-	background-color: #6CF;
+	background-color: #F5F6E2;
 }
 
 .cart_tr {
@@ -489,7 +507,7 @@ header {
 	margin: 80px auto;
 	padding: 10px;
 	text-align: center;
-	background-color: #5cb85c;
+	background-color: #F5F6E2;
 }
 
 // 顧客側 destination_index画面
@@ -561,7 +579,7 @@ header {
 	margin: 10px auto;
 	padding: 10px;
 	text-align: center;
-	background-color: #5cb85c;
+	background-color: #F5F6E2;
 }
 
 // 顧客側 order_confirm画面
