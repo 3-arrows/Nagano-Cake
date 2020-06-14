@@ -10,15 +10,22 @@
 
     		<div class="genre_search">
     			<span class="genre_seach_head">ジャンル検索</span>
-    			<div>
-		    		<% @genres.each do |genre| %>
-		    			<ul>
-		    				<li class="genre_list">
-		    					<%= link_to genre.name, products_path(genre: genre.id), :style => "color: #728EE3;" %>
-		    				</li>
-		    			</ul>
-		    		<% end %>
-		    	</div>
+	    		<% @genres.each do |genre| %>
+	    			<ul>
+	    				<li class="genre_list">
+	    					<%= link_to genre.name, products_path(genre: genre.id), :style => "color: #E041E1;" %>
+	    				</li>
+	    			</ul>
+	    		<% end %>
+		    </div>
+		    <div class="side_bar">
+		    	<p>・送料は一律800円です<br>
+		    	   ・お支払い方法は<br>
+		    	   　クレジットカード or 銀行振り込み<br>
+		    	   　からお選び頂けます<br>
+		    	   ・贈り物の際に住所を指定した<br>
+		    	   　配送も可能です
+		    	</p>
 		    </div>
 		</div>
 

@@ -1,7 +1,7 @@
 class Owner::ProductsController < Owner::BaseController
 	before_action :authenticate_owner!
 	def index
-		@products = Product.all
+		@products = Product.page(params[:page]).per(10)
 	end
 
 	def new

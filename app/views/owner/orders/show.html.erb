@@ -50,9 +50,9 @@
                 <% @order.ordered_products.each do |ordered_product| %>
                     <tr>
                         <td><%= ordered_product.product.name %></td>
-                        <td><%= (ordered_product.price * 1.1).floor %></td>
+                        <td><%= (ordered_product.price * 1.1).floor.to_s(:delimited) %></td>
                         <td><%= ordered_product.count %></td>
-                        <td><%= (ordered_product.count * ordered_product.price * 1.1).floor %></td>
+                        <td><%= (ordered_product.count * ordered_product.price * 1.1).floor.to_s(:delimited) %></td>
                         <td>
                             <%= form_with(model: ordered_product, local: true, url: owner_ordered_product_path(ordered_product), method: :patch) do |f| %>
                                 <%= f.select :production_status, OrderedProduct.production_statuses.keys, {include_blank: true} %>
@@ -67,7 +67,7 @@
             <table>
                 <tr>
                     <td class="owner_order_show_th">商品合計</td>
-                    <td class="owner_order_show_td"><%= (@order.total_price) - (@order.postage) %>円</td>
+                    <td class="owner_order_show_td"><%= (@order.total_price - @order.postage).to_s(:delimited) %>円</td>
                 </tr>
                 <tr>
                     <td class="owner_order_show_th">送料</td>
