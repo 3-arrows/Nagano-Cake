@@ -30,7 +30,7 @@
 			<tr>
 				<td class="owner_member_td">都道府県</td>
 				<td class="sub_td"></td>
-				<td class="owner_member_td"><%= f.text_field :prefecture_code %></td>
+				<td class="owner_member_td"><%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %></td>
 			</tr>
 			<tr>
 				<td class="owner_member_td">市区町村</td>

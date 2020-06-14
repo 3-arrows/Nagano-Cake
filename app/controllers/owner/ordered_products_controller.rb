@@ -6,17 +6,17 @@ class Owner::OrderedProductsController < Owner::BaseController
 		@ordered_product.update(ordered_products_params)
 		@orderedproducts = @order.ordered_products
 		redirect_to owner_order_path(@order)
-		judge = '0'
-		if @ordered_product.production_status == '製作中'
+		judge = '0' #後で使うために定義
+		if @ordered_product.production_status == '製作中' #注文商品のステータスが製作中になったら
 				    @order.status = '製作中'
 				    @order.save
-		elsif @ordered_product.production_status == '製作完了'
-			@order.ordered_products.each do |ordered_product|
-				if ordered_product.production_status != '製作完了'
-					judge = '1'
+		elsif @ordered_product.production_status == '製作完了' #注文商品のステータスが製作完了になったら
+			@order.ordered_products.each do |ordered_product| #すべての注文商品のステータスが製作完了になっているか確認するためにeachを使う
+				if ordered_product.production_status != '製作完了' #ひとつでも注文商品のステータスが製作完了になっていなかったら
+					judge = '1' #1を入れる
 				end
 			end
-			if judge == '0'
+			if judge == '0' #0 = 注文商品のステータスが製作完了になっていないものが一つもなければ
 				@order.status = '発送準備中'
 				@order.save
 			end

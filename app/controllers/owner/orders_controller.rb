@@ -20,9 +20,9 @@ class Owner::OrdersController < Owner::BaseController
 	def update
 		@order = Order.find(params[:id])
 		@order.update(orders_params)
-		if @order.status == '入金確認'
-			@order.ordered_products.each do |ordered_product|
-				ordered_product.production_status = '製作待ち'
+		if @order.status == '入金確認' #注文ステータスが入金確認に変わったら
+			@order.ordered_products.each do |ordered_product| #商品が複数あることもあるのでeachを使う
+				ordered_product.production_status = '製作待ち' #注文ステータスを製作待ちにする
 				ordered_product.save
 			end
 		end
