@@ -1,17 +1,49 @@
 class Members::DestinationsController < Members::BaseController
-def index
-end
+	def index
+		@member = current_member
+		@destination = current_member.destinations.new
+		@destinations = current_member.destinations.all.order(created_at: "DESC") #降順
+	end
 
-def edit
-end
+	def create
+		@destination = Destination.new(address_params)
+		@destination.member_id = current_member.id
+		if @destination.save
+		   redirect_to destinations_path(current_member), notice: "配送先を登録しました"
+		else
+		   render "index"
+		end
+	end
 
-def create
-end
+	def edit
+		@destination = Destination.find(params[:id])
+	end
 
-def update
-end
+	def update
+		@destination = Destination.find(params[:id])
+		if @destination.update(address_params)
+		   redirect_to destinations_path(current_member), notice: "配送先を編集しました"
+		else
+		   render "edit"
+		end
+	end
 
-def destroy
-end
+	def destroy
+		@destination = Destination.find(params[:id])
+		if @destination.destroy
+		   redirect_to destinations_path(current_member), notice: "配送先を削除しました"
+		else
+		   render "index"
+		end
+	end
 
+	private
+
+	def destination_params
+		params.permit(:member_id, :postal_code, :prefecture_code, :city, :street, :name)
+	end
+
+	def address_params
+		params.require(:destination).permit(:member_id, :postal_code, :prefecture_code, :city, :street, :name)
+	end
 end

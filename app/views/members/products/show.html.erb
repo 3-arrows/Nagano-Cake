@@ -1,0 +1,51 @@
+<div class="container">
+	<div class="row">
+
+		<!-- 部分テンプレートを入れる -->
+
+		<div class="col-xs-3">
+
+			<p><%= flash[:notice] %></p>
+			<!-- ジャンル検索 -->
+
+    		<div class="genre_search">
+    			<span class="genre_seach_head">ジャンル検索</span>
+	    		<% @genres.each do |genre| %>
+	    			<ul>
+	    				<li class="genre_list">
+	    					<%= link_to genre.name, products_path(genre: genre.id), :style => "color: #E041E1;" %>
+	    				</li>
+	    			</ul>
+	    		<% end %>
+		    </div>
+		    <div class="side_bar">
+		    	<p>・送料は一律800円です<br>
+		    	   ・お支払い方法は<br>
+		    	   　クレジットカード or 銀行振り込み<br>
+		    	   　からお選び頂けます<br>
+		    	   ・贈り物の際に住所を指定した<br>
+		    	   　配送も可能です
+		    	</p>
+		    </div>
+		</div>
+
+		<div class="col-xs-4 product_show">
+			<%= attachment_image_tag @product, :image, size: "300x200", fallback: "no_image.jpeg",size: "300x200" %>
+		</div>
+
+		<div class="col-xs-5 product_show">
+			<span class="product_name"><%= @product.name %></span>
+
+			<p class="product_information"><%= @product.information %></p>
+
+			<h2 class="product_price">¥ <%= (@product.price * 1.1).floor %> <span class="product_tax">(税込)</span></h2>
+		</div>
+		<% if member_signed_in? %>
+			<%= form_for @cart do |f| %>
+				<%= f.select :count, Array.new(10){|index| ["#{index+ 1}個",index+1] } %>
+				<%= f.hidden_field :product_id, :value => @product.id %>
+				<%= f.submit 'カートにいれる', class: "cart_product" %>
+			<% end %>
+		<% end %>
+	</div>
+</div>

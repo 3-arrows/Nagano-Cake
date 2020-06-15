@@ -1,0 +1,60 @@
+<div class="container">
+
+	<% name = "#{@member.last_name}#{@member.first_name}" %>
+	<span class="page_header"><%= name %>さんの会員情報編集</span>
+
+	<%= form_for(@member, url: owner_member_path, method: :patch) do |f| %> <!-- 各tbタグの1行目は普通にpタグでいいかも -->
+		<table width="550">
+
+			<tr>
+				<td class="owner_member_td"><%= f.label :id, "会員ID" %></td>
+				<td class="owner_member_td"><%= @member.id %></td>
+			</tr>
+			<tr>
+				<td class="owner_member_td">氏名</td> <!-- 要確認 -->
+				<td class="owner_member_td"><%= f.text_field :last_name %>　<%= f.text_field :first_name %></td>
+			</tr>
+			<tr>
+				<td class="owner_member_td">フリガナ</td> <!-- 要確認 -->
+				<td class="owner_member_td"><%= f.text_field :last_name_kana %>　<%= f.text_field :first_name_kana %></td>
+			</tr>
+			<tr>
+				<td class="owner_member_td"><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></td>
+				<td class="owner_member_td"><%= f.text_field :postal_code %></td>
+			</tr>
+			<tr>
+				<td class="owner_member_td"><%= f.label :prefecture_code, "都道府県" %></td>
+				<td class="owner_member_td"><%= f.text_field :prefecture_code %></td>
+			</tr>
+			<tr>
+				<td class="owner_member_td"><%= f.label :city, "市区町村" %></td>
+				<td class="owner_member_td"><%= f.text_field :city %></td>
+			</tr>
+			<tr>
+				<td class="owner_member_td"><%= f.label :street, "番号・番地・建物名" %></td>
+				<td class="owner_member_td"><%= f.text_field :street %></td>
+
+			</tr>
+			<tr>
+				<td class="owner_member_td"><%= f.label :phone_number, "電話番号(ハイフンなし)" %></td>
+				<td class="owner_member_td"><%= f.text_field :phone_number %></td>
+			</tr>
+			<tr>
+				<td class="owner_member_td"><%= f.label :email, "メールアドレス" %></td>
+				<td class="owner_member_td"><%= f.email_field :email %></td>
+			</tr>
+			<tr>
+
+				<td class="owner_member_td"><%= f.label :member_status, "会員ステータス" %></td>
+				<td class="owner_member_td">
+					<%= f.radio_button :member_status, :有効 %><%= f.label :member_status, :有効 %>
+					<%= f.radio_button :member_status, :退会済 %><%= f.label :member_status, :退会済 %>
+				</td>
+			</tr>
+			<tr>
+				<td class="owner_member_td"><%= f.submit "変更を保存する", class: "owner_members_update btn-sm btn-success" %></td>
+				<td></td>
+			</tr>
+		</table>
+	<% end %>
+</div>

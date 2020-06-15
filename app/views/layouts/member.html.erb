@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
+    <head>
     <title>NaganoCake</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-  <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <nav class='nav navbar-nav navbar-left' >
-      <span>Nagano-Cake</span>
-    </nav>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <% if member_signed_in? %>
-        <li><%= link_to ' マイページ', root_path %></li>
-          <li><%= link_to ' 商品一覧', root_path %></li>
-          <li><%= link_to ' カート', root_path %></li>
-          <li><%= link_to ' ログアウト', root_path %></li>
-        <% else %>
-          <li><%= link_to ' 商品一覧', root_path %></li>
-          <li><%= link_to ' 新規登録', root_path %></li>
-          <li><%= link_to ' ログイン', root_path %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
-</header>
-    <%= yield %>
-  </body>
+    <body>
+        <header class="navbar-fixed-top navbar-inverse" style="background-color: #F5F6E2;">
+            <div class="container">
+                <nav class='nav navbar-nav navbar-left' >
+                    <span class="header_logo"><%= link_to "NaganoCake", root_path(current_member), :style=>"color: #2D5B11;" %></span>
+                </nav>
+                <nav>
+                    <ul class="nav navbar-nav navbar-right">
+                        <% if member_signed_in? %>
+                            <% name = "#{current_member.last_name}#{current_member.first_name}" %>
+                            <li class="youkoso">ようこそ、<span class="member_name"><%= name %></span>さん！</li>
+                            <li><%= link_to 'マイページ', members_path, :style=>"color: #2D5B11;", class: "navbar_right_icon" %></li>
+                            <li><%= link_to '商品一覧', products_path, :style=>"color: #2D5B11;", class: "navbar_right_icon" %></li>
+                            <li><%= link_to 'カート', carts_path, :style=>"color: #2D5B11;", class: "navbar_right_icon" %></li>
+                            <li><%= link_to 'ログアウト', destroy_member_session_path, :style=>"color: #2D5B11;", class: "navbar_right_icon", method: :delete %></li>
+                        <% else %>
+                            <li><%= link_to '商品一覧', products_path, :style=>"color: #2D5B11;", class: "navbar_right_icon" %></li>
+                            <li><%= link_to '新規登録', new_member_registration_path, :style=>"color: #2D5B11;", class: "navbar_right_icon" %></li>
+                            <li><%= link_to 'ログイン', new_member_session_path, :style=>"color: #2D5B11;", class: "navbar_right_icon" %></li>
+                        <% end %>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <%= yield %>
+        </main>
+
+    </body>
 </html>

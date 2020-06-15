@@ -1,38 +1,40 @@
-<%= flash[:notice] %>
-<%= form_with(model: @genre, local: true, url: owner_genres_path, method: :post) do |form| %>
-    <%= form.label :ジャンル %>
-　  <%= form.text_field :name %>
-    <div class="effective_status">
-        <div>
-  	        <%= form.radio_button :effective_status, true %>
-  	        <%= form.label :effective_status, '有効', value: true %>
-        </div>
-        <div>
-	  	    <%= form.radio_button :effective_status, false %>
-	  	    <%= form.label :effective_status, '無効', value: false %>
-        </div>
-    </div>
-    <%= form.submit '追加' %>
-<% end %>
+<div class="container">
+	<span class="page_header">ジャンル一覧・追加</span>
+	<p class="flash_message"><%= flash[:notice] %></p>
 
-<table class="table table-hover table-inverse">
-	<thead>
-		<tr>
-			<th>ジャンル</th>
-			<th>状態</th>
-			<th colspan="1"></th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @genres.each do |genre| %>
-		<% if genre.effective_status == true %>
-		    <tr>
-		    	<td><%= genre.name %></td>
-		    	<td><h4>有効</h4></td>
-		    	<td><%= link_to "編集する",edit_owner_genre_path(genre),class: "btn-sm btn-success edit_owner_genre_#{genre.id}" %></td>
-		    </tr>
-		<% end %>
-		<% end %>
-	</tbody>
-</table>
+	<%= form_with(model: @genre, local: true, url: owner_genres_path, method: :post) do |form| %>
+	    <div class="genre_new_area">
+	    	<div class="genre_new_list"><%= form.label :ジャンル %></div>
+		    <div class="genre_new_list"><%= form.text_field :name %></div>
+		  	<div class="genre_new_list"><%= form.radio_button :effective_status, true %></div>
+		  	<div class="genre_new_list"><%= form.label :effective_status, :有効 %></div>
+			<div class="genre_new_list"><%= form.radio_button :effective_status, false %></div>
+			<div class="genre_new_list"><%= form.label :effective_status, :無効 %></div>
+	    	<%= form.submit '追加', class: "genre_new_submit" %>
+	    </div>
+	<% end %>
 
+	<table width="500">
+		<thead>
+			<tr class="table_header">
+				<th>ジャンル</th>
+				<th>状態</th>
+				<th colspan="1"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @genres.each do |genre| %>
+				<tr class="table_data">
+				    <td><%= genre.name %></td>
+						<% if genre.effective_status == true %>
+				    		<td><h4>有効</h4></td>
+						<% else %>
+							<td><h4>無効</h4></td>
+						<% end %>
+				    <td><%= link_to "編集する",edit_owner_genre_path(genre), class: "btn-sm btn-success edit_owner_genre" %>
+				    </td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

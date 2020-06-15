@@ -1,65 +1,71 @@
 Rails.application.routes.draw do
 
-  devise_for :owners, :controllers => {
-    :sessions => 'owner/devise/sessions'
-  }
+    devise_for :owners, :controllers => {
+        :sessions => 'owner/devise/sessions'
+    }
 
-  devise_for :members, :controllers => {
-    :sessions => 'members/sessions',
-    :registrations => 'members/registrations'
-  }
-  #顧客
-  scope module: :members do
-  #homeコントローラ
-  root 'home#top'
-  get 'home/about'
+    devise_for :members, :controllers => {
+        :sessions => 'members/sessions',
+        :registrations => 'members/registrations'
+    }
 
-  #membersコントローラ
-  resources :members,only: [:show,:edit,:update,:destroy] do
-     member do
-       get :exit
-     end
-   end
-  #productsコントローラ
+    #顧客
+    scope module: :members do
+        #homeコントローラ
+        root 'home#top'
+        get 'home/about'
 
-   resources :products,only: [:show,:index]
+        #membersコントローラ
+        resource :members,only: [:show,] do
+            member do
+                get :exit
+            end
+        end
 
-  #cartsコントローラ
-   resources :carts,only: [:index,:create,:update,:destroy] do
-     collection do
-    delete '/', to: 'carts#destroy_all'
-   end
-   end
+        patch 'member/destroy', to: 'members#destroy'
+        get 'member/edit', to: 'members#edit'
+        patch 'member', to: 'members#update'
 
-    #ordersコントローラ
-    resources :orders,only: [:index,:show,:new,:create]
-    get 'orders/confirm', to: 'orders#confirm'
-    get 'orders/complete', to: 'orders#complete'
+        #productsコントローラ
+        resources :products,only: [:show,:index]
 
-    #ordered_productsコントローラ
-    resources :ordered_products,only: [:create]
+        #cartsコントローラ
+        resources :carts,only: [:index,:create,:update,:destroy] do
+            collection do
+                delete '/', to: 'carts#destroy_all'
+            end
+        end
 
-    #destinationsコントーラ
-    resources :destinations,only: [:index,:edit,:create,:update,:destroy]
-  end
-  #管理者
-  namespace :owner do
-    #topコントローラ
-    get 'home/top'
-    #productsコントローラ
+        #ordersコントローラ
+        resources :orders,only: [:index,:show,:new,:create]
+        post 'order/confirm', to: 'orders#confirm', as: 'order_confirm'
+        get 'order/complete', to: 'orders#complete'
 
-    resources :products,only: [:index,:new,:show,:edit,:create,:update]
+        #ordered_productsコントローラ
+        resources :ordered_products,only: [:create]
 
-    #genresコントローラ
-    resources :genres,only: [:index,:show,:edit,:create,:update]
+        #destinationsコントーラ
+        resources :destinations,only: [:index,:edit,:create,:update,:destroy]
+    end
 
-    #ordersコントローラ
-    resources :orders,only: [:index,:show,:update]
+    #管理者
+    namespace :owner do
+        #topコントローラ
+        get 'home/top'
 
-    #ordered_productsコントローラ
-    resources :ordered_products,only: [:update]
+        #productsコントローラ
+        resources :products,only: [:index,:new,:show,:edit,:create,:update]
 
-    #membersコントローラ
-    resources :members,only: [:index,:show,:edit,:update]
-  end
+        #genresコントローラ
+        resources :genres,only: [:index,:show,:edit,:create,:update]
+
+        #ordersコントローラ
+        resources :orders,only: [:index,:show,:update]
+
+        #ordered_productsコントローラ
+        resources :ordered_products,only: [:update]
+
+        #membersコントローラ
+        resources :members,only: [:index,:show,:edit,:update]
+    end
 end

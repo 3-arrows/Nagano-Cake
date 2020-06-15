@@ -1,60 +1,47 @@
-<h3>ショッピングカート</h3>
-<%= link_to "カートを空にする",carts_path, method: :delete %>
+<div class="container">
+    <span class="page_header">ショッピングカート</span>
+    <%= link_to "カートを空にする", carts_path, class: "cart_destroy_all", method: :delete, "data-confirm" => "本当に空にしますか？" %>
 
-</br>
+    <table class="table table-bordered">
+        <thead>
+            <tr class="cart_tr">
+                <th>商品名</th>
+                <th>単価（税込）</th>
+                <th>数量</th>
+                <th>小計</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @carts.each do |cart| %>
+                <tr>
+                    <td class="cart_td_product"><%= attachment_image_tag cart.product, :image, size: "50x50", fallback: "no_image.jpg" %><%= cart.product.name%></td>
+                    <td class="cart_td"><%= (cart.product.price * 1.1).floor.to_s(:delimited) %></td>
+                    <td class="cart_td_count">
+                        <%= form_for cart do |c|%>
+                            <%= c.number_field :count, min:1, max:10000, step:1 %>
+                            <%= c.submit "変更", class: "count_up_down" %>
+                        <% end%>
+                    </td>
+                    <td class="cart_td"><%= ((cart.product.price * 1.1).floor * cart.count).to_s(:delimited) %></td>
+                    <td class="cart_td_destroy"><%= link_to "削除する",cart_path(cart.id), class: "cart_destroy", method: :delete, "data-confirm" => "削除してよろしいですか？" %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
 
-<table class = "table table-bordered">
-    <thead>
+
+
+    <span><%= link_to "買い物を続ける", root_path, class: "cart_btn btn-sm btn-success" %></span>
+
+
+
+    <table border=1 width="200" class="cart_total_price_table">
         <tr>
-            <th>商品名</th>
-            <th>単価（税込）</th>
-            <th>数量</th>
-            <th>小計</th>
-            <th></th>
+            <th class="total_price">合計金額</th>
+            <td class="cart_total_price"><%= current_member.cart_total_price.to_s(:delimited) %></td>
         </tr>
-    </thead>
-    <tbody>
-    <% @carts.each do |cart| %>
-        <tr>
-            <td><%= cart.product.name%></td>
-            <td><%= cart.product.unit_price%></td>
-            <td>
-                <%= form_for cart do |c|%>
-                <%= c.number_field :count,min:1,max:10000,step:1 %>
-                <%= c.submit "変更" %>
-                <% end%>
-            </td>
-            <td>
-                <%= tax_price(cart.product.count_price) * cart.count %>
-            </td>
-            <td>
-                <%= link_to "削除する",cart_path(cart.id), method: :delete %>
-            </td>
-        </tr>
-    <% end %>
-    </tbody>
-</table>
-</br>
+    </table>
 
-
-
-<span>
-<%= link_to "買い物を続ける",root_path %>
-</span>
-
-
-
-<table class = "table table-bordered">
-    <tr>
-        <td class>合計金額</td>
-        <td><%= current_member.orders.total_price %></td>
-    </tr>
-</table>
-
-
-
-<span>
-    <%= link_to "情報入力に進む", new_order_path %>
-</span>
-
-
+    <span><%= link_to "情報入力に進む", new_order_path, class: "cart_next_btn btn-sm btn-success" %></span>
+</div>

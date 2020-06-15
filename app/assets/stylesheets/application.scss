@@ -15,3 +15,659 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'font-awesome-sprockets';
+@import "font-awesome";
+
+main {
+	padding-top: 80px;
+	height: 670px;
+	color: #2D5B11;
+}
+.clearfix ::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+li {
+	list-style: none;
+}
+
+// 共通
+
+.flash_message {
+	color: #108080;
+}
+
+// about画面
+
+.about {
+	background-image: url(about2.jpg);
+	background-size: cover;
+}
+
+.about_header {
+	margin-bottom: 30px;
+}
+
+.gaiyou, .shiten {
+	margin-bottom: 25px;
+}
+
+.about_p {
+	margin-left: 20px;
+	color: #1A8985;
+}
+
+// ヘッダー
+
+header {
+	height: 70px;
+}
+
+.header_logo {
+	font-family:  'Caveat', cursive;
+	line-height: 70px;
+	font-size: 35px;
+}
+
+.youkoso {
+	font-size: 15px;
+	line-height: 70px;
+	color: #aaa;
+	margin-right: 30px;
+}
+
+.member_name {
+	color: #2D5B11;
+}
+
+.navbar_right_icon {
+	margin-top: 10px;
+	opacity: 0.7;
+	transition: all 1.2s;
+}
+
+.navbar_right_icon:hover {
+	opacity: 1.0;
+}
+
+.seach {
+	margin-top: 75px;
+}
+
+.owner_header {
+	margin-top: 10px;
+}
+
+// 管理側 共通
+
+.page_header {
+	display: inline-block;
+	padding: 7px 18px;
+	text-align: center;
+	font-size: 20px;
+	background-color: #F5F6E2;
+	margin-bottom: 25px;
+}
+
+// 管理側 table共通
+
+.owner_table {
+	margin: 0 auto;
+}
+
+.table_header {
+	background-color: #eee;
+	line-height: 35px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+.table_data {
+	line-height: 40px;
+	border-bottom: 1px solid #ccc;
+}
+
+// 管理側 top画面
+
+.oreder_count {
+	font-size: 20px;
+}
+
+// 管理側 product_index画面
+
+.owner_product_index_header {
+	position: relative;
+}
+
+.btn-default {
+	border-radius: 50px;
+	position: absolute;
+	top: 110px;
+	right: 250px;
+}
+
+// 管理側 product_show画面
+
+.owner_product_show_header {
+	font-size: 20px;
+	margin-left: 15px;
+	margin-bottom: 35px;
+	background-color: #eee;
+	width: 10%;
+	line-height: 40px;
+	text-align: center;
+}
+
+.owner_product_show {
+	line-height: 35px;
+}
+
+// 管理側 product_edit画面
+
+.owner_product_edit_th, .owner_product_new_th {
+	padding-bottom: 15px;
+}
+
+// 管理側 member_show画面
+
+.owner_member_td {
+	padding-bottom: 25px;
+}
+
+.member_status_0 {
+	margin-left: 5px;
+	padding: 5px 5px;
+	border-radius: 5px;
+	background-color: #6CF;
+}
+
+.member_status_1 {
+	margin-left: 5px;
+	padding: 5px 5px;
+	border-radius: 5px;
+	color: #fff;
+	background-color: #FC0280;
+}
+
+.btn-sm {
+	background-color: #F5F6E2;
+	color: #2D5B11;
+	border-radius: 5px;
+	margin-right: 10px;
+}
+
+// 管理側 order_show画面
+
+.owner_order_show_th {
+	font-size: 18px;
+	line-height: 50px;
+	padding-left: 30px;
+}
+
+.owner_order_show_td {
+	font-size: 20px;
+	padding-left: 20px;
+	text-align: right;
+}
+
+// 管理側 genre_edit画面
+
+.genre_new_area {
+	display: flex;
+	margin-bottom: 50px;
+}
+
+.genre_new_list {
+	float: left;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.genre_new_submit, .genre_update {
+	margin-left: 15px;
+	padding: 10px 15px;
+	border-radius: 10px;
+	color: #fff;
+	background-color: #6CF;
+}
+
+// 顧客側 sign_up画面
+
+.sign_up_th {
+	line-height: 40px;
+}
+
+// 顧客側 top画面
+
+.genre_search {
+	margin-top: 60px;
+}
+
+.genre_seach_head {
+	margin-left: 10px;
+	font-size: 20px;
+	padding-bottom: 10px;
+	border-bottom: 3px solid #eee;
+}
+
+.genre_list {
+	font-size: 15px;
+	margin-top: 25px;
+	opacity: 0.7;
+}
+
+.top_side_bar {
+	padding: 10px;
+	margin-top: 80px;
+	line-height: 30px;
+	background-color: #F5F6E2;
+	border-radius: 25px;
+}
+
+.main_visual {
+	height: 400px;
+	background-image: url(top.jpg);
+	background-size: cover;
+	position: relative;
+}
+
+.main_visual_topic {
+	width: 35%;
+	height: 400px;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.main_visual_text {
+	color: #4E5743;
+	position: absolute;
+	top: 40px;
+	left: 40px;
+	letter-spacing: 3px;
+	line-height: 30px;
+}
+
+.main_n {
+	color: #781C79;
+	font-family:  'Caveat', cursive;
+}
+
+.fab {
+	color: #4E5743;
+	padding-top: 100px;
+	font-size: 30px;
+	opacity: 0.5;
+	transition: all 1.2s;
+}
+
+.fab:hover {
+	opacity: 1.0;
+}
+
+.fa-instagram, .fa-twitter, .fa-facebook-f {
+	margin-right: 15px;
+}
+
+.recommendation {
+	width: 14%;
+	font-size: 20px;
+	padding-bottom: 10px;
+	border-bottom: 3px solid #eee;
+}
+
+.recommended_products {
+	display: flex;
+}
+
+.product_box {
+	width: 180px;
+	margin-top: 10px;
+	margin-right: 74px;
+}
+
+.product_box_name_price {
+	padding-top: 5px;
+	border-bottom: 1px solid #E690CC;
+}
+
+.top_more {
+	float: right;
+	margin-bottom: 50px;
+}
+
+// 顧客側 マイページ画面
+
+.my_page_h3 {
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+.my_page_th {
+	width: 25%;
+	padding-left: 5px;
+	background-color: #eee;
+	line-height: 35px;
+}
+
+.my_page_td {
+	padding-left: 5px;
+}
+
+// 顧客側 member_edit画面
+
+.sub_td {
+	text-align: center;
+	line-height: 10px;
+}
+
+.btn_exit {
+	margin-left: 15px;
+	padding: 10px 15px;
+	border-radius: 10px;
+	color: #2D5B11;
+	background-color: #EBBEEE;
+}
+
+// 顧客側 パスワード変更画面
+
+.field {
+	margin-bottom: 10px;
+}
+
+.back_btn {
+	display: inline-block;
+	margin-top: 10px;
+}
+
+// 顧客側 product_index画面
+
+.side_bar {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	margin-top: 80px;
+	line-height: 30px;
+	background-color: #F5F6E2;
+	border-radius: 25px;
+}
+
+.products {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+._index_product_box {
+	width: 25%;
+	margin-top: 20px;
+}
+
+.index_product_box_name_price {
+	width: 80%;
+	padding-top: 5px;
+	border-bottom: 1px solid #E690CC;
+}
+
+// 顧客側 product_show画面
+
+.product_show {
+	margin-top: 60px;
+}
+
+.product_name {
+	font-size: 30px;
+	padding: 8px;
+	border-radius: 50%;
+	background-color: #EFEEBB;
+}
+
+.product_information {
+	margin-top: 15px;
+}
+
+.product_price {
+	margin-top: 60px;
+}
+
+.product_tax {
+	font-size: 20px;
+	font-weight: normal;
+}
+
+.cart_product {
+	margin-left: 50px;
+	border-radius: 5px;
+	padding: 8px;
+	background-color: #F5F6E2;
+}
+
+// 顧客側 cart_index画面
+
+.cart_destroy_all {
+	color: #2D5B11;
+	background-color: #EBBEEE;
+	padding: 5px;
+	border-radius: 5px;
+	float: right;
+}
+
+.cart_destroy {
+	color: #2D5B11;
+	background-color: #EBBEEE;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.count_up_down {
+	margin-left: 15px;
+	background-color: #F5F6E2;
+}
+
+.cart_tr {
+	background-color: #eee;
+}
+
+.cart_td {
+	width: 15%;
+}
+
+.cart_td_count {
+	text-align: center;
+	width: 15%;
+}
+
+.cart_td_destroy {
+	text-align: center;
+	width: 12%;
+}
+
+.cart_btn {
+	padding: 10px;
+}
+
+.cart_total_price_table {
+	float: right;
+}
+
+.total_price {
+	padding-left: 5px;
+	width: 50%;
+	line-height: 60px;
+	background-color: #eee;
+}
+
+.cart_total_price {
+	padding-left: 5px;
+}
+
+.cart_next_btn {
+	font-size: 18px;
+	display: block;
+	width: 20%;
+	margin: 80px auto;
+	padding: 10px;
+	text-align: center;
+	background-color: #F5F6E2;
+}
+
+// 顧客側 destination_index画面
+
+.member_distination_table {
+	margin-top: 50px;
+}
+
+.member_distination_th {
+	font-size: 15px;
+	background-color: #eee;
+	width: 10%;
+	line-height: 40px;
+	padding-left: 5px;
+}
+
+.member_distination_td {
+	padding-left: 5px;
+}
+
+.my_destination {
+	padding-left: 5px;
+	line-height: 40px;
+}
+
+.destination_edit_delete_btn {
+	line-height: 40px;
+	text-align: center;
+}
+
+.destination_delete {
+	padding: 5px;
+	border-radius: 5px;
+	color: #000;
+	background-color: #FC0107;
+}
+
+// 顧客側 destination_edit画面
+
+.member_destination_update {
+	width: 60%;
+}
+
+// 顧客側 order_new画面
+
+.choice {
+	width: 10%;
+	margin-top: 20px;
+	padding-bottom: 3px;
+	border-bottom: 2px solid #6CF;
+}
+
+.choice_btn {
+	margin-left: 55px;
+}
+
+.choices_address {
+	margin-left: 80px;
+}
+
+.choices_address_td {
+	padding-bottom: 15px;
+}
+
+.order_next_btn {
+	font-size: 15px;
+	display: block;
+	width: 20%;
+	margin: 10px auto;
+	padding: 10px;
+	text-align: center;
+	background-color: #F5F6E2;
+}
+
+// 顧客側 order_confirm画面
+
+.order_confirm_table {
+	margin-bottom: 30px;
+}
+
+.order_confirm_th {
+	background-color: #eee;
+	line-height: 50px;
+	padding-left: 5px;
+}
+
+.order_confirm_td {
+	font-size: 18px;
+	line-height: 70px;
+	padding-left: 5px;
+}
+
+.order_total_price_table {
+	margin-top: 70px;
+}
+
+.total_proce_th {
+	width: 50%;
+	background-color: #eee;
+	padding-left: 5px;
+}
+
+.total_proce_td {
+	line-height: 50px;
+	padding-left: 5px;
+}
+
+// 顧客側 order_complete画面
+
+.complete {
+	height: 600px;
+	background-image: url(背景画像候補.jpg);
+	background-size: cover;
+	position: relative;
+}
+
+.thanks_message {
+	opacity: 0.6;
+	letter-spacing: 3px;
+	position: absolute;
+	font-size: 20px;
+	line-height: 30px;
+	top: 20px;
+	left: 50px;
+	color: #fff;
+	transition: all 1.5s;
+}
+
+.thanks_message:hover {
+	opacity: 1.0;
+	color: #FFB0ED;
+}
+
+.sub_thanks_message {
+	font-family:  'Caveat', cursive;
+	opacity: 0.5;
+	position: absolute;
+	font-size: 18px;
+	top: 150px;
+	left: 150px;
+	color: #fff;
+	transition: all 1.5s;
+}
+
+.sub_thanks_message:hover {
+	opacity: 1.0;
+	color: #FFB0ED;
+}
+
+// 顧客側 order_index画面
+
+.member_order_th {
+	font-size: 15px;
+	width: 12%;
+}
+
+.member_order_th_wide {
+	font-size: 15px;
+}
+
+.member_order_td_link {
+	text-align: center;
+}

@@ -1,12 +1,13 @@
-<h4>管理者画面</h4>
-<table class='table'>
-  <tr>
-  	<td>本日の注文件数</td>
-  	<td>
-  		<%= link_to '仮', owner_home_top_path %>
-  	</td>
-  </tr>
-</table>
+<div class="container">
 
-
-
+	<p class=“flash_message”><%= flash[:notice] %></p>
+	<span class="page_header">管理者画面</span>
+	<table class='table'>
+		<tr>
+		  	<th>本日の注文件数</th>
+		  	<td>
+		  		<%= link_to "#{@orders.count} 件", owner_orders_path(today: 1), class: "oreder_count" %>
+		  	</td>
+  		</tr>
+	</table>
+</div>

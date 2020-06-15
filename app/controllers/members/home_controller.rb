@@ -1,9 +1,10 @@
 class Members::HomeController < Members::BaseController
-def top
+	def top
+		@genres = Genre.where(effective_status: true)
+		@products = Product.page(params[:page]).per(4)
+	end
 
-end
-
-def about
-end
+	def about
+	end
 
 end

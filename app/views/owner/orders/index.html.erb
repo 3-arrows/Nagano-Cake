@@ -1,0 +1,22 @@
+<div class="container">
+
+    <span class="page_header owner_product_index_header">注文履歴一覧</span>
+    <table class="table table-default">
+        <tr class="table_header">
+            <td>購入日時</td>
+            <td>購入者</td>
+            <td>注文個数</td>
+            <td>注文ステータス</td>
+        </tr>
+        <% @orders.each do |order| %>
+            <tbody>
+                <tr>
+                    <td><%= link_to order.created_at.strftime("%Y/%m/%d %H:%M:%S"), owner_order_path(order) %></td>
+                    <td><%= order.member.last_name + order.member.first_name %></td>
+                    <td><%= order.ordered_products.count %></td>
+                    <td><%= order.status %></td>
+                </tr>
+            </tbody>
+        <% end %>
+    </table>
+</div>

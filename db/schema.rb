@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_30_093153) do
+ActiveRecord::Schema.define(version: 2020_06_11_021656) do
 
   create_table "carts", force: :cascade do |t|
     t.integer "product_id"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_05_30_093153) do
 
   create_table "destinations", force: :cascade do |t|
     t.integer "member_id"
-    t.integer "postal_code"
+    t.string "postal_code"
     t.string "prefecture_code"
     t.string "city"
     t.string "street"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_05_30_093153) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
-    t.boolean "effective_status", default: false, null: false
+    t.boolean "effective_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2020_05_30_093153) do
     t.string "city"
     t.string "street"
     t.string "phone_number"
-    t.integer "member_status"
+    t.integer "member_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_members_on_email", unique: true
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2020_05_30_093153) do
     t.integer "product_id"
     t.integer "count"
     t.integer "price"
-    t.integer "production_status"
+    t.integer "production_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -75,12 +75,12 @@ ActiveRecord::Schema.define(version: 2020_05_30_093153) do
     t.integer "pay"
     t.integer "postage"
     t.integer "total_price"
-    t.integer "postal_code"
+    t.string "postal_code"
     t.string "prefecture_code"
     t.string "city"
     t.string "street"
     t.string "name"
-    t.integer "status"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 2020_05_30_093153) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.integer "genres_id"
+    t.integer "genre_id"
     t.string "name"
     t.text "information"
     t.integer "price"

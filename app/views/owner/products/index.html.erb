@@ -1,23 +1,29 @@
-<h1><strong>商品一覧画面</strong></h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th>商品ID</th>
-      <th>商品名</th>
-      <th>税抜価格</th>
-      <th>ジャンル</th>
-      <th>ステータス</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.id %></td>
-        <td><%= product.name %></td>
-        <td><%= converting_to_jpy(product.price) %></td>
-        <td><%= product.genre.name%></td>
-        <td><%= sale_status ?  '販売中' : '売り切れ' %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+
+    <span class="page_header owner_product_index_header">商品一覧</span>
+    <%= link_to "＋", new_owner_product_path, class: "btn btn-default" %>
+
+    <table class="owner_table" width="1000">
+        <thead>
+            <tr class="table_header">
+                <th>商品ID</th>
+                <th>商品名</th>
+                <th>税抜価格</th>
+                <th>ジャンル</th>
+                <th>ステータス</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @products.each do |product| %>
+                <tr class="table_data">
+                    <td><%= product.id %></td>
+                    <td><%= link_to product.name, owner_product_path(product) %></td>
+                    <td><%= product.price.to_s(:delimited) %></td>
+                    <td><%= product.genre.name%></td>
+                    <td><%= product.sale_status %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <%= paginate @products %>
+</div>

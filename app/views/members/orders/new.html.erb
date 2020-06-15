@@ -1,26 +1,60 @@
-<h1>注文情報入力</h1>
+<div class="container">
 
-<h2>お支払い方法</h2>
-<%= form_with(model: @order) do |form| %>
-	<%= form.radio_button :pay, 0 %>
-	<%= form.label :pay, :クレジットカード %>
-	<br>
-	<%= form.radio_button :pay, 1 %>
-	<%= form.label :pay, :銀行振込 %>
-<% end %>
+	<span class="page_header">注文情報入力</span>
 
-<h2>お届け先</h2>
-<!-- ご自身の住所 -->
-<%= label_tag "ご自身の住所" %>
+	<%= form_with(model: @order, url: order_confirm_path, method: :post,local: true) do |form| %>
+		<h4 class="choice"><strong>お支払い方法</strong></h4>
+			<p class="choice_btn"><%= form.radio_button :pay, 0 %>
+				<%= form.label :pay, :クレジットカード %></p>
+			<p class="choice_btn"><%= form.radio_button :pay, 1 %>
+				<%= form.label :pay, :銀行振込 %></p>
 
-<!-- 登録済住所から選択 -->
-<%= label_tag "登録済住所から選択" %>
-
-<!-- 新しいお届け先 -->
-<%= label_tag "新しいお届け先" %>
-	<h3>郵便番号(ハイフンなし)</h3>
-	<%= text_field_tag :postal_code %>
-	<h3>住所</h3>
-	<%= text_field_tag :prefecture_code %> <!-- 3つのカラムを入れられない -->
-	<h3>宛名</h3>
-	<%= text_field_tag :name %>
+		<h4 class="choice"><strong>お届け先</strong></h4>
+		<!-- ご自身の住所 -->
+			<p class="choice_btn"><%= form.radio_button :address, 0 %>
+				<%= label_tag "ご自身の住所" %>
+			</p>
+			<p class="choices_address">
+				<%= current_member.postal_code %>
+				<%= current_member.prefecture_code %>
+				<%= current_member.city %>
+				<%= current_member.street %><br>
+				<%= current_member.last_name %><%= current_member.first_name %>
+			</p>
+		<!-- 登録済住所から選択 -->
+			<p class="choice_btn"><%= form.radio_button :address, 1 %>
+				<%= label_tag "登録済住所から選択" %>
+			</p>
+			<p class="choices_address">
+				<%= form.select :destination, create_selection_method(current_member.destinations) %>
+			</p>
+		<!-- 新しいお届け先 -->
+			<p class="choice_btn"><%= form.radio_button :address, 2 %>
+				<%= label_tag "新しいお届け先" %>
+			</p>
+			<p class="choices_address">
+				<table class="choices_address" width="900">
+					<tr>
+						<td class="choices_address_td">郵便番号(ハイフンなし)</td>
+						<td class="choices_address_td"><%= form.text_field :postal_code, :placeholder => "(例)1234567" %></td>
+					</tr>
+					<tr>
+						<td class="choices_address_td">住所</td>
+						<td class="choices_address_td">
+							<%= form.label :都道府県 %>
+                            <%= form.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
+                            <%= form.label :市区町村 %>
+							<%= form.text_field :city, :placeholder => "(例)〇〇市〇〇町" %>
+							<%= form.label :番号・番地・建物名 %>
+							<%= form.text_field :street, :placeholder => "(例)◯◯番地" %>
+						</td>
+					</tr>
+					<tr>
+						<td class="choices_address_td">宛名</td>
+						<td class="choices_address_td"><%= form.text_field :new_name, :placeholder => "(例)山田太郎" %></td>
+					</tr>
+				</table>
+			</p>
+		<%= form.submit "確認画面へ進む", class: "order_next_btn cart_btn btn-sm btn-success" %>
+	<% end %>
+</div>

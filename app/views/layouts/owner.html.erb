@@ -1,39 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
+    <head>
     <title>NaganoCake</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-  <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <nav class='nav navbar-nav navbar-left' >
-      <span>Nagano-Cake</span>
-    </nav>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <% if owner_signed_in? %>
-          <li><%= link_to ' 商品一覧', owner_home_top_path %></li>
-          <li><%= link_to ' 商品一覧', owner_home_top_path %></li>
-          <li><%= link_to ' 会員一覧', owner_home_top_path %></li>
-          <li><%= link_to ' 注文履歴一覧', owner_home_top_path %></li>
-          <li><%= link_to ' ジャンル一覧', owner_genres_path %></li>
-          <li><%= link_to ' ログアウト', destroy_owner_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to ' 商品一覧', owner_home_top_path %></li>
-          <li><%= link_to ' 新規登録', owner_home_top_path %></li>
-          <li><%= link_to ' ログイン', new_owner_session_path %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
-</header>
-    <%= yield %>
-  </body>
+    <body>
+        <header class="navbar navbar-fixed-top navbar-inverse">
+            <div class="container">
+                <nav class='nav navbar-nav navbar-left' >
+                    <span class="header_logo"><%= link_to "Nagano-Cake", owner_home_top_path, :style=>"color: #fff;" %></span>
+                </nav>
+                <nav>
+                    <ul class="nav navbar-nav navbar-right">
+                        <% if owner_signed_in? %>
+                            <li class="owner_header"><%= link_to '商品一覧', owner_products_path %></li>
+                            <li class="owner_header"><%= link_to '会員一覧', owner_members_path %></li>
+                            <li class="owner_header"><%= link_to '注文履歴一覧', owner_orders_path %></li>
+                            <li class="owner_header"><%= link_to 'ジャンル一覧', owner_genres_path %></li>
+                            <li class="owner_header"><%= link_to 'ログアウト', destroy_owner_session_path, method: :delete %></li>
+                            <%= search_form_for @q, url: owner_members_path, class: "seach" do |f| %>
+                                <%= f.search_field :last_name_or_first_name_or_last_name_kana_or_first_name_kana_or_prefecture_code_or_city_or_street_cont, placeholder: "Search" %>
+
+                                <%= button_tag type: "submit" do %>
+                                    <i class="fas fa-search"></i>
+                                <% end %>
+                            <% end %>
+                        <% else %>
+                            <li class="owner_header"><%= link_to 'ログイン', new_owner_session_path %></li>
+                        <% end %>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <%= yield %>
+        </main>
+
+    </body>
 </html>
 
