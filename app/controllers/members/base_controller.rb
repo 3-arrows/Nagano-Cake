@@ -1,4 +1,4 @@
 class Members::BaseController < ApplicationController
-  layout 'member'
-
+	# メンバー用のヘッダー(views/layouts/member.html.erb)を呼び込む
+	layout 'member'
 end
