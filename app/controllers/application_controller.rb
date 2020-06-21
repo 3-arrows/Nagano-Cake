@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
         end
     end
 
-    def after_sign_out_path_for(resource)
+    def after_sign_out_path_for(resource) # 書き方が違うのはなぜ？
         case resource
         when :owner
             new_owner_session_path
@@ -38,6 +38,6 @@ class ApplicationController < ActionController::Base
            :last_name_kana, :postal_code, :prefecture_code, :city, :street, :phone_number, :email])
     end
 
-    POSTAGE_PRICE = 800
+    POSTAGE_PRICE = 800 # 送料¥800を定義
 end
 

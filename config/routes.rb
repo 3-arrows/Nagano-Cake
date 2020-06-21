@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     }
 
     #顧客
-    scope module: :members do
+    scope module: :members do # namespaceがおすすめ
         #homeコントローラ
         root 'home#top'
         get 'home/about'
